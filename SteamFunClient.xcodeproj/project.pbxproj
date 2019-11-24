@@ -1,0 +1,562 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F7446239EE8F72D4184F87E3 /* Pods_SteamFunClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 134D99C8AADD702C65F91FC3 /* Pods_SteamFunClient.framework */; };
+		F8152A62238AC15C009F937F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8152A61238AC15C009F937F /* AppDelegate.swift */; };
+		F8152A6B238AC15D009F937F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8152A6A238AC15D009F937F /* Assets.xcassets */; };
+		F8152A6E238AC15D009F937F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8152A6C238AC15D009F937F /* LaunchScreen.storyboard */; };
+		F8152A77238AC197009F937F /* SteamAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8152A76238AC197009F937F /* SteamAuthViewController.swift */; };
+		F8152A79238AD459009F937F /* SteamAuthPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8152A78238AD459009F937F /* SteamAuthPresenter.swift */; };
+		F8152A97238AD790009F937F /* Monads.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8152A96238AD790009F937F /* Monads.swift */; };
+		F8152A99238AD8B1009F937F /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8152A98238AD8B1009F937F /* Array+Extensions.swift */; };
+		F8152A9B238ADA6C009F937F /* SteamAuthModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8152A9A238ADA6C009F937F /* SteamAuthModuleBuilder.swift */; };
+		F8152A9E238AE7EE009F937F /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8152A9D238AE7EE009F937F /* ProfileViewController.swift */; };
+		F8152AA0238AEC23009F937F /* Steam.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8152A9F238AEC23009F937F /* Steam.swift */; };
+		F8152AA3238AF1B2009F937F /* SteamUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8152AA2238AF1B2009F937F /* SteamUser.swift */; };
+		F8152AA5238AF505009F937F /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8152AA4238AF505009F937F /* ProfilePresenter.swift */; };
+		F8152AA7238AF518009F937F /* ProfileModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8152AA6238AF518009F937F /* ProfileModuleBuilder.swift */; };
+		F8152AA9238AF833009F937F /* Result+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8152AA8238AF833009F937F /* Result+Extensions.swift */; };
+		F8152AAB238B174B009F937F /* AppLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8152AAA238B174B009F937F /* AppLauncher.swift */; };
+		F854F4A3238B236E00E757C9 /* Steam.Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F854F4A2238B236E00E757C9 /* Steam.Endpoint.swift */; };
+		F854F4A5238B238F00E757C9 /* Steam+PublicMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = F854F4A4238B238F00E757C9 /* Steam+PublicMethods.swift */; };
+		F854F4A7238B23A400E757C9 /* Steam.SteamIDCaretaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F854F4A6238B23A400E757C9 /* Steam.SteamIDCaretaker.swift */; };
+		F854F4AC238B273E00E757C9 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = F854F4AB238B273E00E757C9 /* Button.swift */; };
+		F854F4AF238B2AC700E757C9 /* OwnedGamesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F854F4AE238B2AC700E757C9 /* OwnedGamesViewController.swift */; };
+		F854F4B1238B2F3600E757C9 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = F854F4B0238B2F3600E757C9 /* Game.swift */; };
+		F854F4B3238B308500E757C9 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F854F4B2238B308500E757C9 /* String+Extensions.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		134D99C8AADD702C65F91FC3 /* Pods_SteamFunClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SteamFunClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		71EBB1AEDFB1B6208A619811 /* Pods-SteamFunClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SteamFunClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SteamFunClient/Pods-SteamFunClient.debug.xcconfig"; sourceTree = "<group>"; };
+		E72D857A079DAE47304C28CE /* Pods-SteamFunClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SteamFunClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-SteamFunClient/Pods-SteamFunClient.release.xcconfig"; sourceTree = "<group>"; };
+		F8152A5E238AC15C009F937F /* SteamFunClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SteamFunClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8152A61238AC15C009F937F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F8152A6A238AC15D009F937F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F8152A6D238AC15D009F937F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F8152A6F238AC15D009F937F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F8152A76238AC197009F937F /* SteamAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SteamAuthViewController.swift; sourceTree = "<group>"; };
+		F8152A78238AD459009F937F /* SteamAuthPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SteamAuthPresenter.swift; sourceTree = "<group>"; };
+		F8152A96238AD790009F937F /* Monads.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Monads.swift; sourceTree = "<group>"; };
+		F8152A98238AD8B1009F937F /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
+		F8152A9A238ADA6C009F937F /* SteamAuthModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SteamAuthModuleBuilder.swift; sourceTree = "<group>"; };
+		F8152A9D238AE7EE009F937F /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		F8152A9F238AEC23009F937F /* Steam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Steam.swift; sourceTree = "<group>"; };
+		F8152AA2238AF1B2009F937F /* SteamUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SteamUser.swift; sourceTree = "<group>"; };
+		F8152AA4238AF505009F937F /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
+		F8152AA6238AF518009F937F /* ProfileModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModuleBuilder.swift; sourceTree = "<group>"; };
+		F8152AA8238AF833009F937F /* Result+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Result+Extensions.swift"; sourceTree = "<group>"; };
+		F8152AAA238B174B009F937F /* AppLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLauncher.swift; sourceTree = "<group>"; };
+		F854F4A2238B236E00E757C9 /* Steam.Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Steam.Endpoint.swift; sourceTree = "<group>"; };
+		F854F4A4238B238F00E757C9 /* Steam+PublicMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Steam+PublicMethods.swift"; sourceTree = "<group>"; };
+		F854F4A6238B23A400E757C9 /* Steam.SteamIDCaretaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Steam.SteamIDCaretaker.swift; sourceTree = "<group>"; };
+		F854F4AB238B273E00E757C9 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		F854F4AE238B2AC700E757C9 /* OwnedGamesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnedGamesViewController.swift; sourceTree = "<group>"; };
+		F854F4B0238B2F3600E757C9 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		F854F4B2238B308500E757C9 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F8152A5B238AC15C009F937F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F7446239EE8F72D4184F87E3 /* Pods_SteamFunClient.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2AA2B8A3F4A70F130AD0C24A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				134D99C8AADD702C65F91FC3 /* Pods_SteamFunClient.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BEBA561E3AB2ABDB3388B75A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				71EBB1AEDFB1B6208A619811 /* Pods-SteamFunClient.debug.xcconfig */,
+				E72D857A079DAE47304C28CE /* Pods-SteamFunClient.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F8152A55238AC15C009F937F = {
+			isa = PBXGroup;
+			children = (
+				F8152A60238AC15C009F937F /* SteamFunClient */,
+				F8152A5F238AC15C009F937F /* Products */,
+				BEBA561E3AB2ABDB3388B75A /* Pods */,
+				2AA2B8A3F4A70F130AD0C24A /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		F8152A5F238AC15C009F937F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F8152A5E238AC15C009F937F /* SteamFunClient.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F8152A60238AC15C009F937F /* SteamFunClient */ = {
+			isa = PBXGroup;
+			children = (
+				F854F4AA238B273600E757C9 /* Views */,
+				F8152AAD238B1B6C009F937F /* Core */,
+				F8152AA1238AF1AA009F937F /* Models */,
+				F8152A75238AC184009F937F /* SteamAuthFlow */,
+				F8152A9C238AE7DD009F937F /* ProfileFlow */,
+				F8152AAC238B1B5D009F937F /* Extensions */,
+				F8152AAE238B1B9C009F937F /* SupportingFiles */,
+				F8152A6A238AC15D009F937F /* Assets.xcassets */,
+				F8152A6F238AC15D009F937F /* Info.plist */,
+			);
+			path = SteamFunClient;
+			sourceTree = "<group>";
+		};
+		F8152A75238AC184009F937F /* SteamAuthFlow */ = {
+			isa = PBXGroup;
+			children = (
+				F8152A76238AC197009F937F /* SteamAuthViewController.swift */,
+				F8152A78238AD459009F937F /* SteamAuthPresenter.swift */,
+				F8152A9A238ADA6C009F937F /* SteamAuthModuleBuilder.swift */,
+			);
+			path = SteamAuthFlow;
+			sourceTree = "<group>";
+		};
+		F8152A9C238AE7DD009F937F /* ProfileFlow */ = {
+			isa = PBXGroup;
+			children = (
+				F854F4AD238B2AB700E757C9 /* OwnedGames */,
+				F8152A9D238AE7EE009F937F /* ProfileViewController.swift */,
+				F8152AA4238AF505009F937F /* ProfilePresenter.swift */,
+				F8152AA6238AF518009F937F /* ProfileModuleBuilder.swift */,
+			);
+			path = ProfileFlow;
+			sourceTree = "<group>";
+		};
+		F8152AA1238AF1AA009F937F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F8152AA2238AF1B2009F937F /* SteamUser.swift */,
+				F854F4B0238B2F3600E757C9 /* Game.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F8152AAC238B1B5D009F937F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F8152A98238AD8B1009F937F /* Array+Extensions.swift */,
+				F8152AA8238AF833009F937F /* Result+Extensions.swift */,
+				F854F4B2238B308500E757C9 /* String+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F8152AAD238B1B6C009F937F /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				F854F4A1238B235B00E757C9 /* Steam */,
+				F854F4A9238B271C00E757C9 /* ApplicationLaunch */,
+				F8152A96238AD790009F937F /* Monads.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		F8152AAE238B1B9C009F937F /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				F8152A6C238AC15D009F937F /* LaunchScreen.storyboard */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		F854F4A1238B235B00E757C9 /* Steam */ = {
+			isa = PBXGroup;
+			children = (
+				F8152A9F238AEC23009F937F /* Steam.swift */,
+				F854F4A4238B238F00E757C9 /* Steam+PublicMethods.swift */,
+				F854F4A2238B236E00E757C9 /* Steam.Endpoint.swift */,
+				F854F4A6238B23A400E757C9 /* Steam.SteamIDCaretaker.swift */,
+			);
+			path = Steam;
+			sourceTree = "<group>";
+		};
+		F854F4A9238B271C00E757C9 /* ApplicationLaunch */ = {
+			isa = PBXGroup;
+			children = (
+				F8152A61238AC15C009F937F /* AppDelegate.swift */,
+				F8152AAA238B174B009F937F /* AppLauncher.swift */,
+			);
+			path = ApplicationLaunch;
+			sourceTree = "<group>";
+		};
+		F854F4AA238B273600E757C9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F854F4AB238B273E00E757C9 /* Button.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F854F4AD238B2AB700E757C9 /* OwnedGames */ = {
+			isa = PBXGroup;
+			children = (
+				F854F4AE238B2AC700E757C9 /* OwnedGamesViewController.swift */,
+			);
+			path = OwnedGames;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F8152A5D238AC15C009F937F /* SteamFunClient */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F8152A72238AC15E009F937F /* Build configuration list for PBXNativeTarget "SteamFunClient" */;
+			buildPhases = (
+				2F18C405595191488F66FDFC /* [CP] Check Pods Manifest.lock */,
+				F8152A5A238AC15C009F937F /* Sources */,
+				F8152A5B238AC15C009F937F /* Frameworks */,
+				F8152A5C238AC15C009F937F /* Resources */,
+				AB91302611143638C05C2D74 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SteamFunClient;
+			productName = SteamFunClient;
+			productReference = F8152A5E238AC15C009F937F /* SteamFunClient.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F8152A56238AC15C009F937F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1120;
+				LastUpgradeCheck = 1120;
+				ORGANIZATIONNAME = plasmon;
+				TargetAttributes = {
+					F8152A5D238AC15C009F937F = {
+						CreatedOnToolsVersion = 11.2.1;
+					};
+				};
+			};
+			buildConfigurationList = F8152A59238AC15C009F937F /* Build configuration list for PBXProject "SteamFunClient" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F8152A55238AC15C009F937F;
+			productRefGroup = F8152A5F238AC15C009F937F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F8152A5D238AC15C009F937F /* SteamFunClient */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F8152A5C238AC15C009F937F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8152A6E238AC15D009F937F /* LaunchScreen.storyboard in Resources */,
+				F8152A6B238AC15D009F937F /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2F18C405595191488F66FDFC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SteamFunClient-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AB91302611143638C05C2D74 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SteamFunClient/Pods-SteamFunClient-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SteamFunClient/Pods-SteamFunClient-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F8152A5A238AC15C009F937F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8152AA9238AF833009F937F /* Result+Extensions.swift in Sources */,
+				F854F4A3238B236E00E757C9 /* Steam.Endpoint.swift in Sources */,
+				F854F4AF238B2AC700E757C9 /* OwnedGamesViewController.swift in Sources */,
+				F8152AA0238AEC23009F937F /* Steam.swift in Sources */,
+				F8152AA7238AF518009F937F /* ProfileModuleBuilder.swift in Sources */,
+				F8152A99238AD8B1009F937F /* Array+Extensions.swift in Sources */,
+				F8152A9B238ADA6C009F937F /* SteamAuthModuleBuilder.swift in Sources */,
+				F8152AA3238AF1B2009F937F /* SteamUser.swift in Sources */,
+				F854F4B3238B308500E757C9 /* String+Extensions.swift in Sources */,
+				F8152A62238AC15C009F937F /* AppDelegate.swift in Sources */,
+				F854F4A7238B23A400E757C9 /* Steam.SteamIDCaretaker.swift in Sources */,
+				F8152A77238AC197009F937F /* SteamAuthViewController.swift in Sources */,
+				F8152A9E238AE7EE009F937F /* ProfileViewController.swift in Sources */,
+				F8152A79238AD459009F937F /* SteamAuthPresenter.swift in Sources */,
+				F854F4A5238B238F00E757C9 /* Steam+PublicMethods.swift in Sources */,
+				F854F4B1238B2F3600E757C9 /* Game.swift in Sources */,
+				F8152AAB238B174B009F937F /* AppLauncher.swift in Sources */,
+				F8152AA5238AF505009F937F /* ProfilePresenter.swift in Sources */,
+				F8152A97238AD790009F937F /* Monads.swift in Sources */,
+				F854F4AC238B273E00E757C9 /* Button.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		F8152A6C238AC15D009F937F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F8152A6D238AC15D009F937F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F8152A70238AC15E009F937F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F8152A71238AC15E009F937F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F8152A73238AC15E009F937F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 71EBB1AEDFB1B6208A619811 /* Pods-SteamFunClient.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6G4AKDTMLW;
+				INFOPLIST_FILE = SteamFunClient/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = plasmon.SteamFunClient;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F8152A74238AC15E009F937F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E72D857A079DAE47304C28CE /* Pods-SteamFunClient.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6G4AKDTMLW;
+				INFOPLIST_FILE = SteamFunClient/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = plasmon.SteamFunClient;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F8152A59238AC15C009F937F /* Build configuration list for PBXProject "SteamFunClient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F8152A70238AC15E009F937F /* Debug */,
+				F8152A71238AC15E009F937F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F8152A72238AC15E009F937F /* Build configuration list for PBXNativeTarget "SteamFunClient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F8152A73238AC15E009F937F /* Debug */,
+				F8152A74238AC15E009F937F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F8152A56238AC15C009F937F /* Project object */;
+}
