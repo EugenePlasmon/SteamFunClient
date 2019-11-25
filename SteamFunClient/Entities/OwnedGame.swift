@@ -1,5 +1,5 @@
 //
-//  Game.swift
+//  OwnedGame.swift
 //  SteamFunClient
 //
 //  Created by Evgeny Kireev on 25.11.2019.
@@ -8,11 +8,11 @@
 
 import Foundation
 
-struct Game: Codable {
+struct OwnedGame: Codable {
     
     typealias Minutes = Int
     
-    let id: Int
+    let id: GameID
     let name: String
     let playtimeLastTwoWeeks: Minutes
     let playtimeTotal: Minutes
@@ -30,7 +30,7 @@ struct Game: Codable {
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        let id = try container.decode(Int.self, forKey: .id)
+        let id = try container.decode(GameID.self, forKey: .id)
         self.id = id
         self.name = try container.decode(String.self, forKey: .name)
         self.playtimeLastTwoWeeks = (try? container.decode(Minutes.self, forKey: .playtimeLastTwoWeeks)) ?? 0

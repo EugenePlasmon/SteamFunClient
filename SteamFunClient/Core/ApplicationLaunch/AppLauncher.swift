@@ -49,9 +49,9 @@ final class AppLauncher {
         let profileNavigationController = UINavigationController(rootViewController: profileViewController)
         
         // TODO:
-        profileNavigationController.tabBarItem = UITabBarItem(title: "Profile", image: nil, selectedImage: nil)
+        profileNavigationController.tabBarItem = UITabBarItem(title: "Профиль", image: UIImage(named: "tabbar_profile"), selectedImage: nil)
         
-        let tabBarController = UITabBarController()
+        let tabBarController = TabbarViewController()
         tabBarController.viewControllers = [profileNavigationController]
         
         self.window?.rootViewController = tabBarController

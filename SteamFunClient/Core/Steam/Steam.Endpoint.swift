@@ -15,21 +15,33 @@ extension Steam {
         
         case playerSummaries(id: SteamID)
         
+        case friendsList(id: SteamID)
+        
         case playerOwnedGames(id: SteamID)
         
-        private var baseUrl: URL { URL(string: "http://api.steampowered.com")! }
+        case playerGameAchievements(steamID: SteamID, gameID: GameID)
         
         var request: DataRequest {
             switch self {
             case .playerSummaries(let id):
-                let url = baseUrl.appendingPathComponent("ISteamUser/GetPlayerSummaries/v0002")
-                let parameters = ["steamids": "\(id)", "key": Steam.apiKey]
-                return AF.request(url, parameters: parameters)
+                return ("ISteamUser/GetPlayerSummaries/v0002", ["steamids": "\(id)"]) >>> constructRequest
+            case .friendsList(let id):
+                return ("ISteamUser/GetFriendList/v0001", ["steamid": "\(id)", "relationship": "friend"]) >>> constructRequest
             case .playerOwnedGames(let id):
-                let url = baseUrl.appendingPathComponent("IPlayerService/GetOwnedGames/v0001")
-                let parameters: [String: Any] = ["steamid": "\(id)", "include_appinfo": true, "key": Steam.apiKey]
-                return AF.request(url, parameters: parameters)
+                return ("IPlayerService/GetOwnedGames/v0001", ["steamid": "\(id)", "include_appinfo": true]) >>> constructRequest
+            case .playerGameAchievements(let steamID, let gameID):
+                return ("ISteamUserStats/GetPlayerAchievements/v0001", ["steamid": "\(steamID)", "appid": "\(gameID)"]) >>> constructRequest
             }
+        }
+        
+        // MARK: - Private
+        
+        private var baseUrl: URL { URL(string: "http://api.steampowered.com")! }
+        
+        private func constructRequest(method: String, parameters: [String: Any]) -> DataRequest {
+            let url = baseUrl.appendingPathComponent(method)
+            let parameters = ["key": Steam.apiKey].merging(parameters) { $1 }
+            return AF.request(url, parameters: parameters)
         }
     }
 }

@@ -22,7 +22,7 @@ struct SteamUser: Codable {
         }
     }
     
-    let id: String
+    let id: SteamID
     let personName: String
     let realName: String
     let countryCode: String
@@ -39,7 +39,12 @@ struct SteamUser: Codable {
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.id = try container.decode(String.self, forKey: .id)
+        let idString = try container.decode(String.self, forKey: .id)
+        if let id = SteamID(idString) {
+            self.id = id
+        } else {
+            throw SteamError.parsingError
+        }
         self.personName = try container.decode(String.self, forKey: .personName)
         self.realName = try container.decode(String.self, forKey: .realName)
         self.countryCode = try container.decode(String.self, forKey: .countryCode)

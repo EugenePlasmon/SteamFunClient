@@ -19,10 +19,26 @@ extension Steam {
         }
     }
     
-    static func getOwnedGames(for steamID: SteamID, then completion: @escaping (Result<[Game], AFError>) -> Void) {
+    static func getFriends(for steamID: SteamID, then completion: @escaping (Result<[Friend], AFError>) -> Void) {
+        Steam.Endpoint.friendsList(id: steamID).request.responseDecodable(of: FriendsList.self) { dataResponse in
+            dataResponse.result
+                .map { $0.friendsList.friends }
+                >>> completion
+        }
+    }
+    
+    static func getOwnedGames(for steamID: SteamID, then completion: @escaping (Result<[OwnedGame], AFError>) -> Void) {
         Steam.Endpoint.playerOwnedGames(id: steamID).request.responseDecodable(of: Response<PlayerOwnedGamesResponse>.self) { dataResponse in
             dataResponse.result
                 .map { $0.response.games }
+                >>> completion
+        }
+    }
+    
+    static func getPlayerGameAchievements(steamID: SteamID, gameID: GameID, then completion: @escaping (Result<PlayerGameAchievements, AFError>) -> Void) {
+        Steam.Endpoint.playerGameAchievements(steamID: steamID, gameID: gameID).request.responseDecodable(of: PlayerStats<PlayerGameAchievements>.self) { dataResponse in
+            dataResponse.result
+                .map { $0.playerStats }
                 >>> completion
         }
     }
@@ -37,5 +53,19 @@ private struct PlayerSummariesResponse: Codable {
 }
 
 private struct PlayerOwnedGamesResponse: Codable {
-    let games: [Game]
+    let games: [OwnedGame]
+}
+
+private struct FriendsList: Codable {
+    struct Friends: Codable {
+        let friends: [Friend]
+    }
+    let friendsList: Friends
+    enum CodingKeys: String, CodingKey {
+        case friendsList = "friendslist"
+    }
+}
+
+private struct PlayerStats<T: Codable>: Codable {
+    let playerStats: T
 }
