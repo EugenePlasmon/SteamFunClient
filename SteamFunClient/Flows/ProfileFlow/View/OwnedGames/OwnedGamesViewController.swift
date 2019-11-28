@@ -60,7 +60,6 @@ final class OwnedGamesViewController: UIViewController {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 100.0
         tableView.separatorStyle = .none
-        tableView.indicatorStyle = .white
         tableView.showsVerticalScrollIndicator = false
         
         view.addSubview(tableView)

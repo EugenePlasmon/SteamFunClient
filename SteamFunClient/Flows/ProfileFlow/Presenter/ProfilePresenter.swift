@@ -10,10 +10,13 @@ import UIKit
 
 final class ProfilePresenter {
     
-    weak var viewInput: ProfileViewInput?
+    weak var viewInput: (UIViewController & ProfileViewInput)?
     
     private let steamID: SteamID
     private lazy var dataLoader = ProfileDataLoader(steamID: steamID)
+    
+    private typealias LoadedData = (user: SteamUser, friends: [Friend], ownedGames: [OwnedGame])
+    private var loadedData: LoadedData?
     
     init(steamID: SteamID) {
         self.steamID = steamID
@@ -29,7 +32,9 @@ extension ProfilePresenter: ProfileViewOutput {
             
             self.dataLoader.load { [weak self] result in
                 guard let self = self else { return }
-                result.onSuccess { steamUser, friends, ownedGames in
+                result.onSuccess { loadedData in
+                    self.loadedData = loadedData
+                    let (steamUser, friends, ownedGames) = loadedData
                     let viewModel = ProfileViewModel(name: steamUser.personName, realName: steamUser.realName, avatarLink: steamUser.avatarLinks.full, friendsCount: friends.count, ownedGames: ownedGames)
                     self.viewInput?.showData(viewModel: viewModel)
                 }.onFailure {
@@ -38,6 +43,13 @@ extension ProfilePresenter: ProfileViewOutput {
                 }
             }
         }
+    }
+    
+    func viewDidTapFriends() {
+        // TODO: routing
+        guard let loadedData = self.loadedData else { return }
+        let friendsViewController = FriendsModuleBuilder.build(friends: loadedData.friends, ofUser: loadedData.user)
+        self.viewInput?.navigationController?.pushViewController(friendsViewController, animated: true)
     }
     
     func viewDidTapLogout() {

@@ -14,7 +14,9 @@ internal final class ExpandableNavbarHeaderView: UIView {
     // MARK: - Internal properties
     
     /// Кнопка назад.
-    internal let backButton = UIButton()
+    internal lazy var backButton = ArrowView(insets: .init(top: 8.0, left: 12.0, bottom: 8.0, right: 12.0)) { [weak self] in
+        self?.onBackButtonTap?()
+    }
     
     /// Цвет бекграунда с блюром.
     internal var backgroundBlurColor: UIColor = .clear {
@@ -124,27 +126,11 @@ internal final class ExpandableNavbarHeaderView: UIView {
     
     private func addBackButton() {
         self.addSubview(backButton)
-        // TODO: добавить картинку стрелки
-        let arrowImage = UIImage(named: "arrowLeft_20")
-        backButton.setImage(arrowImage, for: .normal)
-        backButton.addTarget(self, action: #selector(didTapBackButton), for: .touchUpInside)
-        backButton.contentMode = .center
-        
-        let iconLeftOffset: CGFloat = 16.0
-        let iconBottomOffset: CGFloat = 16.0
-        let iconSize = arrowImage?.size ?? CGSize(width: 20.0, height: 8.0)
-        let additionalActiveAreaX: CGFloat = 12.0
-        let additionalActiveAreaY: CGFloat = 8.0
-        let leftOffset = iconLeftOffset - additionalActiveAreaX
-        let bottomOffset = iconBottomOffset - additionalActiveAreaY
-        let activeAreaWidth = iconSize.width + 2 * additionalActiveAreaX
-        let activeAreaHeight = iconSize.height + 2 * additionalActiveAreaY
-        
         backButton.snp.makeConstraints {
-            $0.left.equalToSuperview().offset(leftOffset)
-            $0.bottom.equalToSuperview().offset(bottomOffset)
-            $0.width.equalTo(activeAreaWidth)
-            $0.height.equalTo(activeAreaHeight)
+            $0.left.equalToSuperview().offset(8.0)
+            $0.bottom.equalToSuperview().offset(-8.0)
+            $0.width.equalTo(32.0)
+            $0.height.equalTo(36.0)
         }
     }
     
@@ -152,6 +138,7 @@ internal final class ExpandableNavbarHeaderView: UIView {
         addSubview(contentContainerView)
         
         let containerCenterYConstraint = contentContainerView.centerYAnchor.constraint(equalTo: self.centerYAnchor)
+        containerCenterYConstraint.constant = UIApplication.shared.statusBarHeight / 2
         containerCenterYConstraint.isActive = true
         self.contentContainerCenterYConstraint = containerCenterYConstraint
         
@@ -169,12 +156,5 @@ internal final class ExpandableNavbarHeaderView: UIView {
             contentView.removeFromSuperview()
             self.contentView = nil
         }
-    }
-    
-    // MARK: - Actions
-    
-    @objc
-    private func didTapBackButton() {
-        self.onBackButtonTap?()
     }
 }

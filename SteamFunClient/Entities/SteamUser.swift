@@ -11,9 +11,9 @@ import Foundation
 struct SteamUser: Codable {
     
     struct AvatarLinks: Codable {
-        let small: String
-        let medium: String
-        let full: String
+        let small: String?
+        let medium: String?
+        let full: String?
         
         enum CodingKeys: String, CodingKey {
             case small = "avatar"
@@ -24,9 +24,9 @@ struct SteamUser: Codable {
     
     let id: SteamID
     let personName: String
-    let realName: String
-    let countryCode: String
-    let creationDate: Date
+    let realName: String?
+    let countryCode: String?
+    let creationDate: Date?
     let avatarLinks: AvatarLinks
     
     enum CodingKeys: String, CodingKey {
@@ -46,10 +46,10 @@ struct SteamUser: Codable {
             throw SteamError.parsingError
         }
         self.personName = try container.decode(String.self, forKey: .personName)
-        self.realName = try container.decode(String.self, forKey: .realName)
-        self.countryCode = try container.decode(String.self, forKey: .countryCode)
-        let creationDateTimestamp = try container.decode(Double.self, forKey: .creationDate)
-        self.creationDate = Date(timeIntervalSince1970: creationDateTimestamp)
+        self.realName = try? container.decode(String.self, forKey: .realName)
+        self.countryCode = try? container.decode(String.self, forKey: .countryCode)
+        let creationDateTimestamp = try? container.decode(Double.self, forKey: .creationDate)
+        self.creationDate = creationDateTimestamp >>- { Date(timeIntervalSince1970: $0) }
         self.avatarLinks = try AvatarLinks(from: decoder)
     }
 }

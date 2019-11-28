@@ -1,37 +1,31 @@
 //
-//  ProfileViewController.swift
+//  FriendsViewController.swift
 //  SteamFunClient
 //
-//  Created by Evgeny Kireev on 24.11.2019.
+//  Created by Evgeny Kireev on 28.11.2019.
 //  Copyright © 2019 plasmon. All rights reserved.
 //
 
 import UIKit
 
-final class ProfileViewController: UIViewController {
+final class FriendsViewController: UIViewController {
     
-    private let output: ProfileViewOutput
-    
-    // MARK: - Views
+    private let output: FriendsViewOutput
     
     private var throbberViewController: ThrobberViewController?
     
-    private var ownedGamesViewController: OwnedGamesViewController?
+    private var friendsListViewController: FriendsListViewController?
     
-    private lazy var navbarConfig =
+    private let navbarConfig =
         ExpandableNavbarViewController.Config(backgroundBlurColor: .zeratul,
-                                              showBackButton: showBackButton,
+                                              showBackButton: true,
+                                              scrollViewInsets: .init(top: 16.0, left: 0, bottom: 16.0, right: 0),
                                               hasBlur: true)
-    private var showBackButton: Bool {
-        return self.navigationController >>- { $0.viewControllers.count > 1 } ?? false
-    }
     private var navbar: ExpandableNavbarViewController?
-    private var navbarContentView: ProfileNavbarContentView?
-    private var navbarHeaderContentView: ProfileNavbarHeaderContentView?
     
     // MARK: - Init
     
-    init(output: ProfileViewOutput) {
+    init(output: FriendsViewOutput) {
         self.output = output
         super.init(nibName: nil, bundle: nil)
     }
@@ -52,16 +46,19 @@ final class ProfileViewController: UIViewController {
     
     private func configureUI() {
         self.automaticallyAdjustsScrollViewInsets = false
-        view.backgroundColor = FeatureColor.Profile.background
+        view.backgroundColor = FeatureColor.Friends.background
         navigationController?.isNavigationBarHidden = true
     }
     
-    private func addOwnedGamesViewController(viewModel: ProfileViewModel) {
-        let ownedGamesViewController = OwnedGamesViewController(games: viewModel.ownedGames)
-        self.ownedGamesViewController = ownedGamesViewController
-        addChild(ownedGamesViewController)
-        view.addSubview(ownedGamesViewController.view)
-        ownedGamesViewController.view.snp.makeConstraints {
+    private func addFriendsListViewController(viewModel: FriendsViewModel) {
+        let friendsListViewController = FriendsListViewController(friends: viewModel.cells)
+        friendsListViewController.onFriendSelect = { [weak self] friend in
+            self?.output.viewDidSelectFriend(with: friend.steamID)
+        }
+        self.friendsListViewController = friendsListViewController
+        addChild(friendsListViewController)
+        view.addSubview(friendsListViewController.view)
+        friendsListViewController.view.snp.makeConstraints {
             $0.top.left.right.equalToSuperview()
             if #available(iOS 11.0, *) {
                 $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
@@ -71,31 +68,21 @@ final class ProfileViewController: UIViewController {
         }
     }
     
-    private func addNavbar(viewModel: ProfileViewModel) {
-        let navbar = ExpandableNavbarViewController(scrollView: ownedGamesViewController?.tableView, config: navbarConfig)
+    private func addNavbar(viewModel: FriendsViewModel) {
+        let navbar = ExpandableNavbarViewController(scrollView: friendsListViewController?.tableView, config: navbarConfig)
         navbar.onBackButtonTap = { [weak self] in
             self?.navigationController?.popViewController(animated: true)
         }
-        let navbarContentView = ProfileNavbarContentView(viewModel: viewModel)
-        navbarContentView.onActionButtonTap = { [weak self] type in
-            if case .friends = type {
-                self?.output.viewDidTapFriends()
-            }
-        }
-        
         self.navbar = navbar
-        self.navbarContentView = navbarContentView
         
-        let navbarHeaderContentView = ProfileNavbarHeaderContentView()
-        navbarHeaderContentView.title = viewModel.name
+        let navbarHeaderContentView = ProfileNavbarHeaderContentView() // TODO: заменить
         navbarHeaderContentView.avatarUrl = viewModel.avatarLink
+        navbarHeaderContentView.title = viewModel.title
         
         addChild(navbar)
         view.addSubview(navbar.view)
         navbar.view.snp.makeConstraints { $0.top.left.right.equalToSuperview() }
-        navbar.addContentView(navbarContentView)
         navbar.addHeaderContentView(navbarHeaderContentView)
-        ownedGamesViewController?.navbar = navbar
     }
     
     private func removeThrobberViewController() {
@@ -105,7 +92,7 @@ final class ProfileViewController: UIViewController {
     }
 }
 
-extension ProfileViewController: ProfileViewInput {
+extension FriendsViewController: FriendsViewInput {
     
     func showLoader() {
         let throbberViewController = ThrobberViewController()
@@ -115,9 +102,9 @@ extension ProfileViewController: ProfileViewInput {
         throbberViewController.view.snp.pinToAllSuperviewEdges()
     }
     
-    func showData(viewModel: ProfileViewModel) {
+    func showData(viewModel: FriendsViewModel) {
         removeThrobberViewController()
-        addOwnedGamesViewController(viewModel: viewModel)
+        addFriendsListViewController(viewModel: viewModel)
         addNavbar(viewModel: viewModel)
     }
 }

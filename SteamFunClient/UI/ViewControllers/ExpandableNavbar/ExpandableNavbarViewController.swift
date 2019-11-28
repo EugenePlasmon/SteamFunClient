@@ -137,10 +137,14 @@ public final class ExpandableNavbarViewController: UIViewController, CustomNavba
         view.setNeedsLayout()
         view.layoutIfNeeded()
         self.needsScrollToBeginAfterContentHeightChange = false
+        scrollView >>- { scrollViewDidScroll($0) }
     }
     
     public func addHeaderContentView(_ headerContentView: UIView) {
         headerView.addContentView(headerContentView)
+        updateScrollViewInsets()
+        scrollView?.scrollToBegin()
+        scrollView >>- { scrollViewDidScroll($0) }
     }
     
     // MARK: - Lifecycle
@@ -240,15 +244,14 @@ public final class ExpandableNavbarViewController: UIViewController, CustomNavba
         if contentHeight != oldContentHeight {
             updateScrollViewInsets()
             
-            if self.needsScrollToBeginAfterContentHeightChange {
-                self.scrollView?.scrollToBegin()
+            if needsScrollToBeginAfterContentHeightChange {
+                scrollView?.scrollToBegin()
             }
         }
     }
     
     private func updateScrollViewAppearance() {
-        guard let scrollView = self.scrollView else { return }
-        scrollViewDidScroll(scrollView, updateScrollViewOffsetIfNeeded: true)
+        scrollView >>- { scrollViewDidScroll($0) }
     }
 }
 
@@ -256,10 +259,6 @@ public final class ExpandableNavbarViewController: UIViewController, CustomNavba
 extension ExpandableNavbarViewController: UIScrollViewDelegate {
     
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        self.scrollViewDidScroll(scrollView, updateScrollViewOffsetIfNeeded: false)
-    }
-    
-    public func scrollViewDidScroll(_ scrollView: UIScrollView, updateScrollViewOffsetIfNeeded: Bool) {
         // 0. Предварительные расчеты
         let diff = max(scrollView.contentOffset.y + scrollView.contentInset.top, 0)
         let maxHeight = self.maximumHeight
@@ -286,13 +285,6 @@ extension ExpandableNavbarViewController: UIScrollViewDelegate {
         
         // 3. Передаем расчеты в хэдер вью для изменений в нем.
         self.headerView.handleScrollViewDidScroll(diff: diff, maxDiff: maxDiff, transitionStartDiff: transitionStartDiff, transitionRatio: transitionRatio)
-        
-        // 4. Если количество строк в навбаре поменялось при изменении размера экрана,
-        // корректируем contentOffset у scrollView так, чтобы контент в scroll view
-        // оказался под навбаром (с учетом его нового размера), а не скрывался им
-        if updateScrollViewOffsetIfNeeded && diff != 0 && diff < maxHeight {
-            scrollView.contentOffset = CGPoint(x: scrollView.contentOffset.x, y: scrollView.contentOffset.y - diff)
-        }
     }
     
     public func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {

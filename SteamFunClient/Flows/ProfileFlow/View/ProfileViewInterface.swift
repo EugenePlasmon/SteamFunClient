@@ -11,8 +11,8 @@ import Foundation
 struct ProfileViewModel {
     
     let name: String
-    let realName: String
-    let avatarLink: String
+    let realName: String?
+    let avatarLink: String?
     let friendsCount: Int
     let ownedGames: [OwnedGame]
 }
@@ -27,6 +27,8 @@ protocol ProfileViewInput: class {
 protocol ProfileViewOutput: class {
     
     func viewDidLoad()
+    
+    func viewDidTapFriends()
     
     func viewDidTapLogout()
 }

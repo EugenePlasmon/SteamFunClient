@@ -16,6 +16,11 @@
 		F801AF14238FDFF800C391D8 /* ThemeDependent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F801AF13238FDFF800C391D8 /* ThemeDependent.swift */; };
 		F801AF16238FE1DD00C391D8 /* FeatureColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F801AF15238FE1DD00C391D8 /* FeatureColor.swift */; };
 		F801AF18238FEEDA00C391D8 /* Shadow+Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = F801AF17238FEEDA00C391D8 /* Shadow+Palette.swift */; };
+		F801AF6B238FF40A00C391D8 /* FriendsListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F801AF6A238FF40A00C391D8 /* FriendsListCell.swift */; };
+		F801AF6E238FFA5600C391D8 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F801AF6D238FFA5600C391D8 /* FriendsViewController.swift */; };
+		F801AF70238FFD2D00C391D8 /* FriendsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F801AF6F238FFD2D00C391D8 /* FriendsPresenter.swift */; };
+		F801AF72239001CD00C391D8 /* FriendsModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F801AF71239001CD00C391D8 /* FriendsModuleBuilder.swift */; };
+		F801AFAB23900BF700C391D8 /* FriendsViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = F801AFAA23900BF700C391D8 /* FriendsViewInterface.swift */; };
 		F8152A62238AC15C009F937F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8152A61238AC15C009F937F /* AppDelegate.swift */; };
 		F8152A6B238AC15D009F937F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8152A6A238AC15D009F937F /* Assets.xcassets */; };
 		F8152A6E238AC15D009F937F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8152A6C238AC15D009F937F /* LaunchScreen.storyboard */; };
@@ -57,6 +62,7 @@
 		F854F5B8238C281200E757C9 /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F854F5B7238C281200E757C9 /* UIApplication+Extensions.swift */; };
 		F854F5BA238C29CA00E757C9 /* SnapKit+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F854F5B9238C29CA00E757C9 /* SnapKit+Extensions.swift */; };
 		F854F5BE238C320900E757C9 /* ProfileNavbarContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F854F5BD238C320900E757C9 /* ProfileNavbarContentView.swift */; };
+		F860F1582390268A00E9430B /* ArrowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F860F1572390268A00E9430B /* ArrowView.swift */; };
 		F86FB9D3238C5CE700A62E86 /* OwnedGamesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86FB9D2238C5CE700A62E86 /* OwnedGamesCell.swift */; };
 		F86FB9D5238C6D2700A62E86 /* UIImageView+Initializers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86FB9D4238C6D2700A62E86 /* UIImageView+Initializers.swift */; };
 		F86FB9D7238C740200A62E86 /* OwnedGamesHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86FB9D6238C740200A62E86 /* OwnedGamesHeaderCell.swift */; };
@@ -80,6 +86,11 @@
 		F801AF13238FDFF800C391D8 /* ThemeDependent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeDependent.swift; sourceTree = "<group>"; };
 		F801AF15238FE1DD00C391D8 /* FeatureColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureColor.swift; sourceTree = "<group>"; };
 		F801AF17238FEEDA00C391D8 /* Shadow+Palette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shadow+Palette.swift"; sourceTree = "<group>"; };
+		F801AF6A238FF40A00C391D8 /* FriendsListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListCell.swift; sourceTree = "<group>"; };
+		F801AF6D238FFA5600C391D8 /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
+		F801AF6F238FFD2D00C391D8 /* FriendsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsPresenter.swift; sourceTree = "<group>"; };
+		F801AF71239001CD00C391D8 /* FriendsModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsModuleBuilder.swift; sourceTree = "<group>"; };
+		F801AFAA23900BF700C391D8 /* FriendsViewInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewInterface.swift; sourceTree = "<group>"; };
 		F8152A5E238AC15C009F937F /* SteamFunClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SteamFunClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8152A61238AC15C009F937F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8152A6A238AC15D009F937F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -123,6 +134,7 @@
 		F854F5B7238C281200E757C9 /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
 		F854F5B9238C29CA00E757C9 /* SnapKit+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SnapKit+Extensions.swift"; sourceTree = "<group>"; };
 		F854F5BD238C320900E757C9 /* ProfileNavbarContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNavbarContentView.swift; sourceTree = "<group>"; };
+		F860F1572390268A00E9430B /* ArrowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowView.swift; sourceTree = "<group>"; };
 		F86FB9D2238C5CE700A62E86 /* OwnedGamesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnedGamesCell.swift; sourceTree = "<group>"; };
 		F86FB9D4238C6D2700A62E86 /* UIImageView+Initializers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Initializers.swift"; sourceTree = "<group>"; };
 		F86FB9D6238C740200A62E86 /* OwnedGamesHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnedGamesHeaderCell.swift; sourceTree = "<group>"; };
@@ -172,12 +184,14 @@
 			path = Entities;
 			sourceTree = "<group>";
 		};
-		F801AEED238FD09C00C391D8 /* FriendsListFlow */ = {
+		F801AEED238FD09C00C391D8 /* FriendsFlow */ = {
 			isa = PBXGroup;
 			children = (
-				F801AEEE238FD0AB00C391D8 /* FriendsListViewController.swift */,
+				F801AFA923900BE600C391D8 /* View */,
+				F801AFAC23900C0B00C391D8 /* Presenter */,
+				F801AFAD23900C1100C391D8 /* Builder */,
 			);
-			path = FriendsListFlow;
+			path = FriendsFlow;
 			sourceTree = "<group>";
 		};
 		F801AF0D238FD64600C391D8 /* GradientView */ = {
@@ -195,6 +209,41 @@
 				F801AF15238FE1DD00C391D8 /* FeatureColor.swift */,
 			);
 			path = FeatureColors;
+			sourceTree = "<group>";
+		};
+		F801AF6C238FFA4A00C391D8 /* FriendsList */ = {
+			isa = PBXGroup;
+			children = (
+				F801AEEE238FD0AB00C391D8 /* FriendsListViewController.swift */,
+				F801AF6A238FF40A00C391D8 /* FriendsListCell.swift */,
+			);
+			path = FriendsList;
+			sourceTree = "<group>";
+		};
+		F801AFA923900BE600C391D8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F801AF6C238FFA4A00C391D8 /* FriendsList */,
+				F801AFAA23900BF700C391D8 /* FriendsViewInterface.swift */,
+				F801AF6D238FFA5600C391D8 /* FriendsViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F801AFAC23900C0B00C391D8 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				F801AF6F238FFD2D00C391D8 /* FriendsPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		F801AFAD23900C1100C391D8 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				F801AF71239001CD00C391D8 /* FriendsModuleBuilder.swift */,
+			);
+			path = Builder;
 			sourceTree = "<group>";
 		};
 		F8152A55238AC15C009F937F = {
@@ -383,6 +432,7 @@
 				F854F5B0238C227100E757C9 /* BlurView */,
 				F854F5A7238C1D8C00E757C9 /* Button */,
 				F801AF0D238FD64600C391D8 /* GradientView */,
+				F860F1572390268A00E9430B /* ArrowView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -410,7 +460,7 @@
 			children = (
 				F8152A75238AC184009F937F /* SteamAuthFlow */,
 				F8152A9C238AE7DD009F937F /* ProfileFlow */,
-				F801AEED238FD09C00C391D8 /* FriendsListFlow */,
+				F801AEED238FD09C00C391D8 /* FriendsFlow */,
 			);
 			path = Flows;
 			sourceTree = "<group>";
@@ -607,6 +657,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F847226D238DDCF700ECA269 /* TouchThroughView.swift in Sources */,
+				F801AF6B238FF40A00C391D8 /* FriendsListCell.swift in Sources */,
 				F854F5BA238C29CA00E757C9 /* SnapKit+Extensions.swift in Sources */,
 				F8492402238DCED900FCDE07 /* String+Plurals.swift in Sources */,
 				F86FB9DB238C858B00A62E86 /* OwnedGame.Minutes+Format.swift in Sources */,
@@ -638,19 +689,23 @@
 				F8152A77238AC197009F937F /* SteamAuthViewController.swift in Sources */,
 				F8152A9E238AE7EE009F937F /* ProfileViewController.swift in Sources */,
 				F831C214238EEB65004A284D /* UIScrollView+Extensions.swift in Sources */,
+				F801AF72239001CD00C391D8 /* FriendsModuleBuilder.swift in Sources */,
 				F8152A79238AD459009F937F /* SteamAuthPresenter.swift in Sources */,
 				F835B081238C3B81002460C4 /* UIColor+Palette.swift in Sources */,
 				F8D1741B238EDA9B00C47C87 /* ProfileViewInterface.swift in Sources */,
 				F835B0A3238C4185002460C4 /* UILabel+Initializers.swift in Sources */,
+				F801AF70238FFD2D00C391D8 /* FriendsPresenter.swift in Sources */,
 				F801AF16238FE1DD00C391D8 /* FeatureColor.swift in Sources */,
 				F854F4A5238B238F00E757C9 /* Steam+PublicMethods.swift in Sources */,
 				F835B0A6238C4209002460C4 /* UIFont+Palette.swift in Sources */,
+				F860F1582390268A00E9430B /* ArrowView.swift in Sources */,
 				F801AF18238FEEDA00C391D8 /* Shadow+Palette.swift in Sources */,
 				F854F5B2238C227B00E757C9 /* BlurView.swift in Sources */,
 				F835B0A9238C4434002460C4 /* ProfileNavbarHeaderContentView.swift in Sources */,
 				F854F5AB238C1DE900E757C9 /* CustomNavbarSnappingBehavior.swift in Sources */,
 				F854F5B8238C281200E757C9 /* UIApplication+Extensions.swift in Sources */,
 				F8D1741D238EDE5E00C47C87 /* ThrobberViewController.swift in Sources */,
+				F801AF6E238FFA5600C391D8 /* FriendsViewController.swift in Sources */,
 				F84923FF238DC5C200FCDE07 /* ProfileActionButton.swift in Sources */,
 				F854F4B1238B2F3600E757C9 /* OwnedGame.swift in Sources */,
 				F8152AAB238B174B009F937F /* AppLauncher.swift in Sources */,
@@ -658,6 +713,7 @@
 				F86FB9D5238C6D2700A62E86 /* UIImageView+Initializers.swift in Sources */,
 				F854F5B6238C27D700E757C9 /* ExpandableNavbarContentView.swift in Sources */,
 				F8152AA5238AF505009F937F /* ProfilePresenter.swift in Sources */,
+				F801AFAB23900BF700C391D8 /* FriendsViewInterface.swift in Sources */,
 				F801AEEC238FC24700C391D8 /* UIView+Shadow.swift in Sources */,
 				F8152A97238AD790009F937F /* Monads.swift in Sources */,
 				F86FB9D7238C740200A62E86 /* OwnedGamesHeaderCell.swift in Sources */,

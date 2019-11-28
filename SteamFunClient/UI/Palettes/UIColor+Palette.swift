@@ -32,6 +32,8 @@ public extension UIColor {
     
     static let raszagal = UIColor.rgb(28, 29, 36)
     
+    static let imrian = UIColor.rgb(159, 176, 215)
+    
     static let talandar = UIColor.rgb(138, 159, 235)
     
     static let rohana = UIColor.rgb(77, 115, 255)
@@ -39,7 +41,6 @@ public extension UIColor {
     static let zoraya = UIColor.rgb(233, 234, 245)
     
     //ulrezaj
-    //zoraya
     //dabiri
     //imrian
 }

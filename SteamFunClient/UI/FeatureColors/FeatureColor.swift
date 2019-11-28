@@ -55,3 +55,21 @@ extension FeatureColor {
         static let background = themeDependent(dark: .raszagal, light: .artanis)
     }
 }
+
+extension FeatureColor {
+    
+    struct Friends {
+        
+        static let navbarTitle = themeDependent(dark: .artanis, light: .artanis)
+        
+        static let background = themeDependent(dark: .vorazun, light: .artanis)
+        
+        static let avatarBar = themeDependent(dark: .mohandar, light: .imrian)
+        
+        static let friendName = themeDependent(dark: .artanis, light: .vorazun)
+        
+        static let friendRealName = themeDependent(dark: .selendis, light: .serdath)
+        
+        static let friendCell = themeDependent(dark: .raszagal, light: .zoraya)
+    }
+}

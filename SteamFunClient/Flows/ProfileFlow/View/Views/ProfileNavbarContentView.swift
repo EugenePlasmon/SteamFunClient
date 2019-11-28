@@ -14,6 +14,12 @@ final class ProfileNavbarContentView: ExpandableNavbarContentView {
     
     let viewModel: ProfileViewModel
     
+    var onActionButtonTap: ProfileActionButton.OnTapClosure? {
+        didSet {
+            friendsActionButton.onTap = onActionButtonTap
+        }
+    }
+    
     // MARK: - Views
     
     private lazy var avatar: UIImageView = {
