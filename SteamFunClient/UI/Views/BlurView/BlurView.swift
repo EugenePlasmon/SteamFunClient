@@ -43,10 +43,10 @@ public final class BlurView: UIVisualEffectView {
     /// - Parameters:
     ///   - color: Тоновый цвет блюра.
     ///   - opacity: Уроверь прозрачности, число от 0 до 1.
-    ///              По умолчанию 0.88;
+    ///              По умолчанию 0.9;
     ///              большие значения не рекомендуются, так как сам блюр перестанет быть видимым.
     ///   - blurRadius: Радиус блюра. По умолчанию 8.0 - не слишком сильное и не слишком слабое размытие.
-    public init(color: UIColor, opacity: CGFloat = 0.88, blurRadius: CGFloat = 8.0) {
+    public init(color: UIColor, opacity: CGFloat = 0.9, blurRadius: CGFloat = 8.0) {
         self.color = color
         self.opacity = opacity
         self.blurRadius = blurRadius

@@ -54,6 +54,11 @@ private struct PlayerSummariesResponse: Codable {
 
 private struct PlayerOwnedGamesResponse: Codable {
     let games: [OwnedGame]
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.games = (try? container.decode([OwnedGame].self, forKey: .games)) ?? []
+    }
 }
 
 private struct FriendsList: Codable {

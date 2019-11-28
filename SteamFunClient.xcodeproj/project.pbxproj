@@ -63,6 +63,7 @@
 		F854F5BA238C29CA00E757C9 /* SnapKit+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F854F5B9238C29CA00E757C9 /* SnapKit+Extensions.swift */; };
 		F854F5BE238C320900E757C9 /* ProfileNavbarContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F854F5BD238C320900E757C9 /* ProfileNavbarContentView.swift */; };
 		F860F1582390268A00E9430B /* ArrowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F860F1572390268A00E9430B /* ArrowView.swift */; };
+		F8650F72239071860033818A /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8650F71239071860033818A /* Log.swift */; };
 		F86FB9D3238C5CE700A62E86 /* OwnedGamesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86FB9D2238C5CE700A62E86 /* OwnedGamesCell.swift */; };
 		F86FB9D5238C6D2700A62E86 /* UIImageView+Initializers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86FB9D4238C6D2700A62E86 /* UIImageView+Initializers.swift */; };
 		F86FB9D7238C740200A62E86 /* OwnedGamesHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86FB9D6238C740200A62E86 /* OwnedGamesHeaderCell.swift */; };
@@ -135,6 +136,7 @@
 		F854F5B9238C29CA00E757C9 /* SnapKit+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SnapKit+Extensions.swift"; sourceTree = "<group>"; };
 		F854F5BD238C320900E757C9 /* ProfileNavbarContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNavbarContentView.swift; sourceTree = "<group>"; };
 		F860F1572390268A00E9430B /* ArrowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowView.swift; sourceTree = "<group>"; };
+		F8650F71239071860033818A /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		F86FB9D2238C5CE700A62E86 /* OwnedGamesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnedGamesCell.swift; sourceTree = "<group>"; };
 		F86FB9D4238C6D2700A62E86 /* UIImageView+Initializers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Initializers.swift"; sourceTree = "<group>"; };
 		F86FB9D6238C740200A62E86 /* OwnedGamesHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnedGamesHeaderCell.swift; sourceTree = "<group>"; };
@@ -324,6 +326,7 @@
 		F8152AAD238B1B6C009F937F /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				F8650F70239071790033818A /* Log */,
 				F854F4A1238B235B00E757C9 /* Steam */,
 				F854F4A9238B271C00E757C9 /* ApplicationLaunch */,
 				F854F4E9238BE5AD00E757C9 /* Operators */,
@@ -499,6 +502,14 @@
 				F854F5B1238C227B00E757C9 /* BlurView.swift */,
 			);
 			path = BlurView;
+			sourceTree = "<group>";
+		};
+		F8650F70239071790033818A /* Log */ = {
+			isa = PBXGroup;
+			children = (
+				F8650F71239071860033818A /* Log.swift */,
+			);
+			path = Log;
 			sourceTree = "<group>";
 		};
 		F8D17415238ED65D00C47C87 /* View */ = {
@@ -685,6 +696,7 @@
 				F831C212238EE818004A284D /* TabbarViewController.swift in Sources */,
 				F8152A62238AC15C009F937F /* AppDelegate.swift in Sources */,
 				F854F4A7238B23A400E757C9 /* Steam.SteamIDCaretaker.swift in Sources */,
+				F8650F72239071860033818A /* Log.swift in Sources */,
 				F854F5BE238C320900E757C9 /* ProfileNavbarContentView.swift in Sources */,
 				F8152A77238AC197009F937F /* SteamAuthViewController.swift in Sources */,
 				F8152A9E238AE7EE009F937F /* ProfileViewController.swift in Sources */,

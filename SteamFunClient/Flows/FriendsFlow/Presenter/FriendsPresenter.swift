@@ -54,6 +54,7 @@ final class FriendsPresenter {
 extension FriendsPresenter: FriendsViewOutput {
     
     func viewDidLoad() {
+        log(.openFlow, "Friends (of user steamID=\(user.id))")
         self.viewInput?.showLoader()
         loadData { [weak self] data in
             guard let self = self else { return }

@@ -57,6 +57,7 @@ final class ProfileDataLoader {
             result.onSuccess {
                 self?.loadedData.steamUser = $0
             }.onFailure {
+                log($0)
                 self?.loadedData.errors.append($0)
             }
             completion()
@@ -68,6 +69,7 @@ final class ProfileDataLoader {
             result.onSuccess {
                 self?.loadedData.friends = $0
             }.onFailure {
+                log($0)
                 self?.loadedData.errors.append($0)
             }
             completion()
@@ -79,6 +81,7 @@ final class ProfileDataLoader {
             result.onSuccess {
                 self?.loadedData.ownedGames = $0
             }.onFailure {
+                log($0)
                 self?.loadedData.errors.append($0)
             }
             completion()

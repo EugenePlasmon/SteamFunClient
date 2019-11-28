@@ -26,6 +26,7 @@ final class ProfilePresenter {
 extension ProfilePresenter: ProfileViewOutput {
     
     func viewDidLoad() {
+        log(.openFlow, "Profile, steamID = \(steamID)")
         self.viewInput?.showLoader()
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {

@@ -8,6 +8,16 @@
 
 import UIKit
 
+extension UINavigationController {
+    
+    func createNavigationBackButton() -> ArrowView? {
+        guard self.viewControllers.count > 1 else { return nil }
+        return ArrowView(insets: .init(top: 8.0, left: 12.0, bottom: 8.0, right: 12.0)) { [weak self] in
+            self?.popViewController(animated: true)
+        }
+    }
+}
+
 final class ArrowView: UIControl {
     
     enum Direction {

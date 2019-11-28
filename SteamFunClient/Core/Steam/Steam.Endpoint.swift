@@ -41,6 +41,10 @@ extension Steam {
         private func constructRequest(method: String, parameters: [String: Any]) -> DataRequest {
             let url = baseUrl.appendingPathComponent(method)
             let parameters = ["key": Steam.apiKey].merging(parameters) { $1 }
+            
+            let curl = url.appendingPathComponent("?").absoluteString + parameters.map { $0.key + "=" + "\($0.value)" }.joined(separator: "&")
+            log(.startNetworkRequest, curl)
+            
             return AF.request(url, parameters: parameters)
         }
     }
