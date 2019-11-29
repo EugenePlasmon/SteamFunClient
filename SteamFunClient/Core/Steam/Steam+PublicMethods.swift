@@ -69,6 +69,11 @@ private struct FriendsList: Codable {
     enum CodingKeys: String, CodingKey {
         case friendsList = "friendslist"
     }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.friendsList = (try? container.decode(Friends.self, forKey: .friendsList)) ?? Friends(friends: [])
+    }
 }
 
 private struct PlayerStats<T: Codable>: Codable {

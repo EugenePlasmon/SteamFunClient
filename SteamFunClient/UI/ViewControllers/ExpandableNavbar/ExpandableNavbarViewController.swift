@@ -22,30 +22,15 @@ public final class ExpandableNavbarViewController: UIViewController, CustomNavba
     
     // MARK: - Public properties
     
+    public var config: Config {
+        didSet { didSetConfig(oldValue: oldValue) }
+    }
+    
     /// Замыкание, которое выполнится при нажатии юзером кнопки назад.
     public var onBackButtonTap: (() -> Void)? {
         didSet {
-            self.headerView.onBackButtonTap = self.onBackButtonTap
-        }
-    }
-    
-    public var config: Config {
-        didSet {
-            if config.backgroundBlurColor != oldValue.backgroundBlurColor {
-                headerView.backgroundBlurColor = config.backgroundBlurColor
-                blurView?.color = config.backgroundBlurColor
-            }
-            if config.showBackButton != oldValue.showBackButton {
-                headerView.backButton.isHidden = !config.showBackButton
-            }
-            if config.scrollViewInsets != oldValue.scrollViewInsets {
-                updateScrollViewInsets()
-            }
-            if config.hasBlur != oldValue.hasBlur {
-                blurView?.removeFromSuperview()
-                if config.hasBlur {
-                    addBlurView()
-                }
+            if let onBackButtonTap = self.onBackButtonTap {
+                headerView.backButton?.onTap = onBackButtonTap
             }
         }
     }
@@ -207,12 +192,22 @@ public final class ExpandableNavbarViewController: UIViewController, CustomNavba
     private func addHeaderView() {
         view.addSubview(self.headerView)
         
-        headerView.backButton.isHidden = !config.showBackButton
+        addOrRemoveBackButtonIfNeeded()
         
         headerView.snp.makeConstraints {
             $0.top.left.right.equalToSuperview()
             $0.height.equalTo(Constants.headerHeight)
         }
+    }
+    
+    private func addOrRemoveBackButtonIfNeeded() {
+        let backButton = config.showBackButton
+            ? navigationController?.createNavigationBackButton()
+            : nil
+        if let onBackButtonTap = self.onBackButtonTap {
+            backButton?.onTap = onBackButtonTap
+        }
+        headerView.backButton = backButton
     }
     
     private func addContentContainerView() {
@@ -229,6 +224,25 @@ public final class ExpandableNavbarViewController: UIViewController, CustomNavba
     }
     
     // MARK: - Private
+    
+    private func didSetConfig(oldValue: Config) {
+        if config.backgroundBlurColor != oldValue.backgroundBlurColor {
+            headerView.backgroundBlurColor = config.backgroundBlurColor
+            blurView?.color = config.backgroundBlurColor
+        }
+        if config.showBackButton != oldValue.showBackButton {
+            addOrRemoveBackButtonIfNeeded()
+        }
+        if config.scrollViewInsets != oldValue.scrollViewInsets {
+            updateScrollViewInsets()
+        }
+        if config.hasBlur != oldValue.hasBlur {
+            blurView?.removeFromSuperview()
+            if config.hasBlur {
+                addBlurView()
+            }
+        }
+    }
     
     private func removeContentView() {
         if let contentView = self.contentView {

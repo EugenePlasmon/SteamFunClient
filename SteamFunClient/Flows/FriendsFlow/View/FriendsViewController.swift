@@ -70,9 +70,6 @@ final class FriendsViewController: UIViewController {
     
     private func addNavbar(viewModel: FriendsViewModel) {
         let navbar = ExpandableNavbarViewController(scrollView: friendsListViewController?.tableView, config: navbarConfig)
-        navbar.onBackButtonTap = { [weak self] in
-            self?.navigationController?.popViewController(animated: true)
-        }
         self.navbar = navbar
         
         let navbarHeaderContentView = ProfileNavbarHeaderContentView() // TODO: заменить

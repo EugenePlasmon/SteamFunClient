@@ -14,8 +14,11 @@ internal final class ExpandableNavbarHeaderView: UIView {
     // MARK: - Internal properties
     
     /// Кнопка назад.
-    internal lazy var backButton = ArrowView(insets: .init(top: 8.0, left: 12.0, bottom: 8.0, right: 12.0)) { [weak self] in
-        self?.onBackButtonTap?()
+    internal var backButton: ArrowView? {
+        didSet {
+            oldValue?.removeFromSuperview()
+            addBackButton()
+        }
     }
     
     /// Цвет бекграунда с блюром.
@@ -24,9 +27,6 @@ internal final class ExpandableNavbarHeaderView: UIView {
             self.headerBlurView.color = self.backgroundBlurColor
         }
     }
-    
-    /// Замыкание, которое выполнится при нажатии юзером кнопки назад. Вью передаст управление навбару.
-    internal var onBackButtonTap: (() -> Void)?
     
     internal private(set) var contentView: UIView?
     
@@ -114,7 +114,6 @@ internal final class ExpandableNavbarHeaderView: UIView {
         if hasBlur {
             addBlurView()
         }
-        addBackButton()
         addContentContainerView()
     }
     
@@ -125,6 +124,7 @@ internal final class ExpandableNavbarHeaderView: UIView {
     }
     
     private func addBackButton() {
+        guard let backButton = self.backButton else { return }
         self.addSubview(backButton)
         backButton.snp.makeConstraints {
             $0.left.equalToSuperview().offset(8.0)

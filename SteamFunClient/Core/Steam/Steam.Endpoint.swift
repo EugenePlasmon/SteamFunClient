@@ -42,7 +42,10 @@ extension Steam {
             let url = baseUrl.appendingPathComponent(method)
             let parameters = ["key": Steam.apiKey].merging(parameters) { $1 }
             
-            let curl = url.appendingPathComponent("?").absoluteString + parameters.map { $0.key + "=" + "\($0.value)" }.joined(separator: "&")
+            let curl = url.appendingPathComponent("?").absoluteString
+                + parameters
+                    .map { $0.key + "=" + "\($0.value)" }
+                    .joined(separator: "&")
             log(.startNetworkRequest, curl)
             
             return AF.request(url, parameters: parameters)

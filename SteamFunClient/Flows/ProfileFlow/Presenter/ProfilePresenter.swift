@@ -29,19 +29,16 @@ extension ProfilePresenter: ProfileViewOutput {
         log(.openFlow, "Profile, steamID = \(steamID)")
         self.viewInput?.showLoader()
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            
-            self.dataLoader.load { [weak self] result in
-                guard let self = self else { return }
-                result.onSuccess { loadedData in
-                    self.loadedData = loadedData
-                    let (steamUser, friends, ownedGames) = loadedData
-                    let viewModel = ProfileViewModel(name: steamUser.personName, realName: steamUser.realName, avatarLink: steamUser.avatarLinks.full, friendsCount: friends.count, ownedGames: ownedGames)
-                    self.viewInput?.showData(viewModel: viewModel)
-                }.onFailure {
-                    // TODO:
-                    print($0)
-                }
+        self.dataLoader.load { [weak self] result in
+            guard let self = self else { return }
+            result.onSuccess { loadedData in
+                self.loadedData = loadedData
+                let (steamUser, friends, ownedGames) = loadedData
+                let viewModel = ProfileViewModel(name: steamUser.personName, realName: steamUser.realName, avatarLink: steamUser.avatarLinks.full, friendsCount: friends.count, ownedGames: ownedGames)
+                self.viewInput?.showData(viewModel: viewModel)
+            }.onFailure {
+                // TODO:
+                print($0)
             }
         }
     }

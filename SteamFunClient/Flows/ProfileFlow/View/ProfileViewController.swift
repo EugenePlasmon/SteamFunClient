@@ -73,9 +73,6 @@ final class ProfileViewController: UIViewController {
     
     private func addNavbar(viewModel: ProfileViewModel) {
         let navbar = ExpandableNavbarViewController(scrollView: ownedGamesViewController?.tableView, config: navbarConfig)
-        navbar.onBackButtonTap = { [weak self] in
-            self?.navigationController?.popViewController(animated: true)
-        }
         let navbarContentView = ProfileNavbarContentView(viewModel: viewModel)
         navbarContentView.onActionButtonTap = { [weak self] type in
             if case .friends = type {
