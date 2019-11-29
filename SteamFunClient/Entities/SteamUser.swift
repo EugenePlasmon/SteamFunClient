@@ -22,7 +22,7 @@ struct SteamUser: Codable {
         }
     }
     
-    enum CommunityVisibility: Int, Codable {
+    enum Visibility: Int, Codable {
         case `private` = 1
         case friendsOnly = 2
         case `public` = 3
@@ -34,7 +34,9 @@ struct SteamUser: Codable {
     let countryCode: String?
     let creationDate: Date?
     let avatarLinks: AvatarLinks
-    let communityVisibility: CommunityVisibility
+    let visibility: Visibility
+    let isOnline: Bool
+    let lastLogout: Date?
     
     enum CodingKeys: String, CodingKey {
         case id = "steamid"
@@ -42,7 +44,9 @@ struct SteamUser: Codable {
         case realName = "realname"
         case creationDate = "timecreated"
         case countryCode = "loccountrycode"
-        case communityVisibility = "communityvisibilitystate"
+        case visibility = "communityvisibilitystate"
+        case isOnline = "personastate"
+        case lastLogout = "lastlogoff"
     }
     
     init(from decoder: Decoder) throws {
@@ -59,6 +63,10 @@ struct SteamUser: Codable {
         let creationDateTimestamp = try? container.decode(Double.self, forKey: .creationDate)
         self.creationDate = creationDateTimestamp >>- { Date(timeIntervalSince1970: $0) }
         self.avatarLinks = try AvatarLinks(from: decoder)
-        self.communityVisibility = try container.decode(CommunityVisibility.self, forKey: .communityVisibility)
+        self.visibility = try container.decode(Visibility.self, forKey: .visibility)
+        let personaState = try container.decode(Int.self, forKey: .isOnline)
+        self.isOnline = personaState != 0
+        let lastLogoutTimestamp = try? container.decode(Double.self, forKey: .lastLogout)
+        self.lastLogout = lastLogoutTimestamp >>- { Date(timeIntervalSince1970: $0) }
     }
 }

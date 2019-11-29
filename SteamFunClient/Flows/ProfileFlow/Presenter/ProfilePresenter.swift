@@ -27,7 +27,7 @@ final class ProfilePresenter {
         return ProfileViewModel(name: steamUser.personName,
                                 realName: steamUser.realName,
                                 avatarLink: steamUser.avatarLinks.full,
-                                friendsVisible: steamUser.communityVisibility == .public,
+                                friendsVisible: steamUser.visibility == .public,
                                 friendsCount: friends.count,
                                 ownedGames: ownedGames)
     }
