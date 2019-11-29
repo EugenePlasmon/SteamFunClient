@@ -12,7 +12,7 @@ final class ProfileActionButton: UIControl {
     
     enum `Type` {
         case friends(count: Int)
-        case achievements(count: Int)
+        case hiddenFriends
         case more
     }
     
@@ -51,19 +51,17 @@ final class ProfileActionButton: UIControl {
     private func configureUI() {
         switch type {
         case .friends(let count):
-            addNumberAndTextLabels()
+            configureAsFriends()
             numberLabel.text = "\(count)"
             textLabel.text = String.plural(forCount: count,
                                            zeroFiveTen: "друзей",
                                            one: "друг",
                                            twoFour: "друга")
-        case .achievements(let count):
-            addNumberAndTextLabels()
-            numberLabel.text = "\(count)"
-            textLabel.text = String.plural(forCount: count,
-                                           zeroFiveTen: "призов",
-                                           one: "приз",
-                                           twoFour: "приза")
+            isUserInteractionEnabled = count > 0
+        case .hiddenFriends:
+            isUserInteractionEnabled = false
+            configureAsHiddenFriends()
+            textLabel.text = "Друзья\nскрыты"
         case .more:
             addMoreAndTextLabel()
             textLabel.text = "подробнее"
@@ -71,9 +69,12 @@ final class ProfileActionButton: UIControl {
         updateColors()
     }
     
-    private func addNumberAndTextLabels() {
+    private func configureAsFriends() {
         addSubview(numberLabel)
         addSubview(textLabel)
+        
+        numberLabel.numberOfLines = 1
+        textLabel.numberOfLines = 1
         
         numberLabel.snp.makeConstraints {
             $0.top.left.right.equalToSuperview()
@@ -82,6 +83,12 @@ final class ProfileActionButton: UIControl {
             $0.left.bottom.right.equalToSuperview()
             $0.top.equalTo(numberLabel.snp.bottom)
         }
+    }
+    
+    private func configureAsHiddenFriends() {
+        addSubview(textLabel)
+        textLabel.snp.pinToAllSuperviewEdges()
+        textLabel.numberOfLines = 0
     }
     
     private func addMoreAndTextLabel() {
@@ -106,12 +113,16 @@ final class ProfileActionButton: UIControl {
     }
     
     private func updateColors() {
-        let color = isHighlighted ? Constants.pressedColor : Constants.defaultColor
         switch type {
-        case .friends, .achievements:
+        case .friends(let count):
+            let alpha: CGFloat = count > 0 ? 1.0 : 0.5
+            let color = (isHighlighted ? Constants.pressedColor : Constants.defaultColor).withAlphaComponent(alpha)
             numberLabel.textColor = color
             textLabel.textColor = color
+        case .hiddenFriends:
+            numberLabel.textColor = Constants.defaultColor.withAlphaComponent(0.5)
         case .more:
+            let color = isHighlighted ? Constants.pressedColor : Constants.defaultColor
             more.color = color
             textLabel.textColor = color
         }

@@ -21,6 +21,16 @@ final class ProfilePresenter {
     init(steamID: SteamID) {
         self.steamID = steamID
     }
+    
+    private func viewModel(from data: LoadedData) -> ProfileViewModel {
+        let (steamUser, friends, ownedGames) = data
+        return ProfileViewModel(name: steamUser.personName,
+                                realName: steamUser.realName,
+                                avatarLink: steamUser.avatarLinks.full,
+                                friendsVisible: steamUser.communityVisibility == .public,
+                                friendsCount: friends.count,
+                                ownedGames: ownedGames)
+    }
 }
 
 extension ProfilePresenter: ProfileViewOutput {
@@ -33,9 +43,7 @@ extension ProfilePresenter: ProfileViewOutput {
             guard let self = self else { return }
             result.onSuccess { loadedData in
                 self.loadedData = loadedData
-                let (steamUser, friends, ownedGames) = loadedData
-                let viewModel = ProfileViewModel(name: steamUser.personName, realName: steamUser.realName, avatarLink: steamUser.avatarLinks.full, friendsCount: friends.count, ownedGames: ownedGames)
-                self.viewInput?.showData(viewModel: viewModel)
+                self.viewInput?.showData(viewModel: loadedData >>> self.viewModel)
             }.onFailure {
                 // TODO:
                 print($0)
