@@ -1,5 +1,5 @@
 //
-//  OwnedGamesCell.swift
+//  OwnedGameCell.swift
 //  SteamFunClient
 //
 //  Created by Evgeny Kireev on 25.11.2019.
@@ -8,9 +8,9 @@
 
 import UIKit
 
-final class OwnedGamesCell: UITableViewCell {
+final class OwnedGameCell: UITableViewCell {
     
-    static let reuseIdentifier = "OwnedGamesCellReuseIdentifier"
+    static let reuseIdentifier = "OwnedGameCellReuseIdentifier"
     
     var imageUrl: String? {
         didSet {
@@ -33,7 +33,7 @@ final class OwnedGamesCell: UITableViewCell {
     // MARK: - Views
     
     private let containerView = UIView()
-    private let gameImageView = UIImageView(contentMode: .scaleAspectFit)
+    private let gameImageView = UIImageView(contentMode: .scaleAspectFill)
     private let titleLabel = UILabel(color: FeatureColor.Profile.gameName,
                                      font: .abathur,
                                      numberOfLines: 0,

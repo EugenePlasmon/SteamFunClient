@@ -24,10 +24,10 @@ final class ProfilePresenter {
     
     private func viewModel(from data: LoadedData) -> ProfileViewModel {
         let (steamUser, friends, ownedGames) = data
-        return ProfileViewModel(name: steamUser.personName,
+        return ProfileViewModel(isHiddenProfile: steamUser.visibility != .public,
+                                name: steamUser.personName,
                                 realName: steamUser.realName,
                                 avatarLink: steamUser.avatarLinks.full,
-                                friendsVisible: steamUser.visibility == .public,
                                 friendsCount: friends.count,
                                 ownedGames: ownedGames)
     }

@@ -41,7 +41,7 @@ final class OwnedGamesHeaderCell: UITableViewCell {
         label.snp.makeConstraints {
             $0.left.equalToSuperview().offset(16.0)
             $0.right.equalToSuperview().offset(-16.0)
-            $0.top.equalToSuperview().offset(14.0)
+            $0.top.equalToSuperview().offset(12.0)
             $0.bottom.equalToSuperview().offset(-8.0)
         }
     }

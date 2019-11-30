@@ -90,7 +90,7 @@ final class ArrowView: UIControl {
         case .right:
             pointA = CGPoint(x: minX, y: minY)
             pointB = CGPoint(x: maxX, y: midY)
-            pointC = CGPoint(x: minX, y: minY)
+            pointC = CGPoint(x: minX, y: maxY)
         }
         context.move(to: pointA)
         context.addLine(to: pointB)

@@ -10,10 +10,10 @@ import Foundation
 
 struct ProfileViewModel {
     
+    let isHiddenProfile: Bool
     let name: String
     let realName: String?
     let avatarLink: String?
-    let friendsVisible: Bool
     let friendsCount: Int
     let ownedGames: [OwnedGame]
 }

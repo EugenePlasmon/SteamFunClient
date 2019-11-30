@@ -43,9 +43,9 @@ final class ProfileNavbarContentView: ExpandableNavbarContentView {
     
     private let actionButtonsStackView = UIStackView()
     private lazy var friendsActionButton: ProfileActionButton = {
-        let type: ProfileActionButton.`Type` = self.viewModel.friendsVisible
-            ? .friends(count: viewModel.friendsCount)
-            : .hiddenFriends
+        let type: ProfileActionButton.`Type` = self.viewModel.isHiddenProfile
+            ? .hiddenFriends
+            : .friends(count: viewModel.friendsCount)
         return ProfileActionButton(type: type)
     }()
 //    private let achievementsActionButton = ProfileActionButton(type: .achievements(count: 666))

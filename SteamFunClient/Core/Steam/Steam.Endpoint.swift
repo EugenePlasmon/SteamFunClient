@@ -21,16 +21,40 @@ extension Steam {
         
         case playerGameAchievements(steamID: SteamID, gameID: GameID)
         
+        case dota2MatchesHistory(steamID: SteamID32, heroID: Int?, startAtMatchID: Int?, batchSize: Int?)
+        
+        case dota2MatchDetails(matchID: Int)
+        
         var request: DataRequest {
             switch self {
             case .playerSummaries(let id):
-                return ("ISteamUser/GetPlayerSummaries/v0002", ["steamids": "\(id)"]) >>> constructRequest
+                return ("ISteamUser/GetPlayerSummaries/v0002",
+                        ["steamids": "\(id)"])
+                    >>> constructRequest
             case .friendsList(let id):
-                return ("ISteamUser/GetFriendList/v0001", ["steamid": "\(id)", "relationship": "friend"]) >>> constructRequest
+                return ("ISteamUser/GetFriendList/v0001",
+                        ["steamid": "\(id)", "relationship": "friend"])
+                    >>> constructRequest
             case .playerOwnedGames(let id):
-                return ("IPlayerService/GetOwnedGames/v0001", ["steamid": "\(id)", "include_appinfo": true]) >>> constructRequest
+                return ("IPlayerService/GetOwnedGames/v0001",
+                        ["steamid": "\(id)", "include_appinfo": 1])
+                    >>> constructRequest
             case .playerGameAchievements(let steamID, let gameID):
-                return ("ISteamUserStats/GetPlayerAchievements/v0001", ["steamid": "\(steamID)", "appid": "\(gameID)"]) >>> constructRequest
+                return ("ISteamUserStats/GetPlayerAchievements/v0001",
+                        ["steamid": "\(steamID)", "appid": "\(gameID)"])
+                    >>> constructRequest
+            case .dota2MatchesHistory(let steamID, let heroID, let startAtMatchID, let batchSize):
+                var parameters: [String: Any] = ["account_id": steamID]
+                heroID >>- { parameters["hero_id"] = $0 }
+                startAtMatchID >>- { parameters["start_at_match_id"] = $0 }
+                batchSize >>- { parameters["matches_requested"] = $0 }
+                return ("IDOTA2Match_570/GetMatchHistory/v1",
+                        parameters)
+                    >>> constructRequest
+            case .dota2MatchDetails(let matchID):
+                return ("IDOTA2Match_570/GetMatchDetails/v1",
+                        ["match_id": matchID, "include_persona_names": 1])
+                    >>> constructRequest
             }
         }
         

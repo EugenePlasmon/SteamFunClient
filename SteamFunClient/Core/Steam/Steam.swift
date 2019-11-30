@@ -9,6 +9,7 @@
 import Foundation
 
 typealias SteamID = Int
+typealias SteamID32 = Int
 typealias GameID = Int
 
 struct Steam { }

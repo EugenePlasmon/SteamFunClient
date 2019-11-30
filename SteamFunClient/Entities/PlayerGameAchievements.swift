@@ -8,15 +8,23 @@
 
 import Foundation
 
-struct PlayerGameAchievements: Codable {
+struct PlayerGameAchievements {
     
-    // MARK: - Properties
+    struct Achievement {
+        
+        let apiName: String
+        let achieved: Bool
+        let unlockDate: Date?
+    }
     
     let steamID: SteamID
     let gameName: String
     let achievements: [Achievement]
-    
-    // MARK: - Codable
+}
+
+// MARK: - Codable
+
+extension PlayerGameAchievements: Codable {
     
     enum CodingKeys: String, CodingKey {
         case steamID
@@ -37,35 +45,22 @@ struct PlayerGameAchievements: Codable {
     }
 }
 
-// MARK: - Achievement
-
-extension PlayerGameAchievements {
+extension PlayerGameAchievements.Achievement: Codable {
     
-    struct Achievement: Codable {
-        
-        // MARK: - Properties
-        
-        let apiName: String
-        let achieved: Bool
-        let unlockDate: Date?
-        
-        // MARK: - Codable
-        
-        enum CodingKeys: String, CodingKey {
-            case apiName = "apiname"
-            case achieved
-            case unlockDate = "unlocktime"
-        }
-        
-        init(from decoder: Decoder) throws {
-            let container = try decoder.container(keyedBy: CodingKeys.self)
-            self.apiName = try container.decode(String.self, forKey: .apiName)
-            self.achieved = (try? container.decode(Bool.self, forKey: .achieved)) ?? false
-            if let unlockTimestamp = try? container.decode(Double.self, forKey: .unlockDate), unlockTimestamp != 0 {
-                self.unlockDate = Date(timeIntervalSince1970: unlockTimestamp)
-            } else {
-                self.unlockDate = nil
-            }
+    enum CodingKeys: String, CodingKey {
+        case apiName = "apiname"
+        case achieved
+        case unlockDate = "unlocktime"
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.apiName = try container.decode(String.self, forKey: .apiName)
+        self.achieved = (try? container.decode(Bool.self, forKey: .achieved)) ?? false
+        if let unlockTimestamp = try? container.decode(Double.self, forKey: .unlockDate), unlockTimestamp != 0 {
+            self.unlockDate = Date(timeIntervalSince1970: unlockTimestamp)
+        } else {
+            self.unlockDate = nil
         }
     }
 }

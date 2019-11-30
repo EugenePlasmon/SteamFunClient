@@ -10,37 +10,38 @@ import UIKit
 
 public extension UIColor {
     
-    static let artanis = UIColor.rgb(255, 255, 255)
+    static let artanis = rgb(255, 255, 255)
     
-    static let tassadar = UIColor.rgb(226, 226, 226)
+    static let tassadar = rgb(226, 226, 226)
     
-    static let selendis = UIColor.rgb(179, 179, 179)
+    static let selendis = rgb(179, 179, 179)
     
-    static let serdath = UIColor.rgb(105, 105, 105)
+    static let serdath = rgb(105, 105, 105)
     
-    static let aldaris = UIColor.rgb(51, 51, 51)
+    static let aldaris = rgb(51, 51, 51)
     
-    static let vorazun = UIColor.rgb(21, 21, 21)
+    static let vorazun = rgb(21, 21, 21)
     
-    static let alarak = UIColor.rgb(0, 0, 0)
+    static let alarak = rgb(0, 0, 0)
     
-    static let mohandar = UIColor.rgb(66, 72, 94)
+    static let mohandar = rgb(66, 72, 94)
     
-    static let zeratul = UIColor.rgb(38, 42, 60)
+    static let zeratul = rgb(38, 42, 60)
     
-    static let fenix = UIColor.rgb(17, 24, 47)
+    static let fenix = rgb(17, 24, 47)
     
-    static let raszagal = UIColor.rgb(28, 29, 36)
+    static let raszagal = rgb(28, 29, 36)
     
-    static let imrian = UIColor.rgb(159, 176, 215)
+    static let imrian = rgb(159, 176, 215)
     
-    static let talandar = UIColor.rgb(138, 159, 235)
+    static let talandar = rgb(138, 159, 235)
     
-    static let rohana = UIColor.rgb(77, 115, 255)
+    static let rohana = rgb(77, 115, 255)
     
-    static let zoraya = UIColor.rgb(233, 234, 245)
+    static let zoraya = rgb(233, 234, 245)
     
-    //ulrezaj
+    static let ulrezaj = rgb(205, 37, 37)
+    
     //dabiri
     //imrian
 }

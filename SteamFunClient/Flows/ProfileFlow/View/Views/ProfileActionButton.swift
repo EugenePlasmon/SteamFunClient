@@ -120,7 +120,7 @@ final class ProfileActionButton: UIControl {
             numberLabel.textColor = color
             textLabel.textColor = color
         case .hiddenFriends:
-            numberLabel.textColor = Constants.defaultColor.withAlphaComponent(0.5)
+            textLabel.textColor = Constants.defaultColor.withAlphaComponent(0.5)
         case .more:
             let color = isHighlighted ? Constants.pressedColor : Constants.defaultColor
             more.color = color

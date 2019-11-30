@@ -12,11 +12,15 @@ extension UIFont {
     
     static let kerrigan = UIFont.Family<Helvetica>.font(.bold, size: 24.0)
     
+    static let izsha = UIFont.Family<Helvetica>.font(.bold, size: 20.0)
+    
     static let stukov = UIFont.Family<Helvetica>.font(.medium, size: 20.0)
     
     static let dehaka = UIFont.Family<Helvetica>.font(.regular, size: 20.0)
     
     static let abathur = UIFont.Family<Helvetica>.font(.regular, size: 16.0)
+    
+    static let brakk  = UIFont.Family<Helvetica>.font(.medium, size: 14.0)
     
     static let zagara = UIFont.Family<Helvetica>.font(.regular, size: 14.0)
     
@@ -24,8 +28,6 @@ extension UIFont {
     
     static let niadra = UIFont.Family<Helvetica>.font(.regular, size: 10.0)
     
-    //static let izsha
-    //static let brakk
     //static let nafash
     //static let naktul
     //static let brakk

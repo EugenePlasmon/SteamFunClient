@@ -1,5 +1,5 @@
 //
-//  OwnedGamesViewController.swift
+//  GamesTableViewController.swift
 //  SteamFunClient
 //
 //  Created by Evgeny Kireev on 25.11.2019.
@@ -9,13 +9,20 @@
 import UIKit
 import SnapKit
 
-final class OwnedGamesViewController: UIViewController {
+final class GamesTableViewController: UIViewController {
     
     struct HeaderModel {
         let title: String
     }
     
-    let games: [OwnedGame]
+    struct Dota2CellModel {
+        let title: String = "Dota 2"
+        let subtitle: String = "Статистика игрока"
+        let backgroundImage: UIImage? = UIImage(named: "dota2Poster")
+    }
+    
+    let ownedGames: [OwnedGame]
+    let dota2Game = Dota2CellModel()
     
     private var headers: [HeaderModel] = [.init(title: "Купленные игры")]
     
@@ -23,7 +30,8 @@ final class OwnedGamesViewController: UIViewController {
         let tableView = UITableView()
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(OwnedGamesCell.self, forCellReuseIdentifier: OwnedGamesCell.reuseIdentifier)
+        tableView.register(Dota2Cell.self, forCellReuseIdentifier: Dota2Cell.reuseIdentifier)
+        tableView.register(OwnedGameCell.self, forCellReuseIdentifier: OwnedGameCell.reuseIdentifier)
         tableView.register(OwnedGamesHeaderCell.self, forCellReuseIdentifier: OwnedGamesHeaderCell.reuseIdentifier)
         return tableView
     }()
@@ -36,7 +44,7 @@ final class OwnedGamesViewController: UIViewController {
     // MARK: - Init
     
     init(games: [OwnedGame]) {
-        self.games = games
+        self.ownedGames = games
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -69,23 +77,36 @@ final class OwnedGamesViewController: UIViewController {
 
 // MARK: - UITableViewDataSource
 
-extension OwnedGamesViewController: UITableViewDataSource {
+extension GamesTableViewController: UITableViewDataSource {
+    
+    private var showDotaCell: Bool { true }
+    
+    private var showOwnedGamesHeader: Bool { ownedGames.count > 0 ? true : false }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return headers.count + games.count
+        return (showDotaCell ? 1 : 0) + (showOwnedGamesHeader ? 1 : 0) + ownedGames.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let dotaCellIndex = showDotaCell ? 0 : nil
+        let ownedGamesHeaderIndex = !showOwnedGamesHeader ? nil : (showDotaCell ? 1 : 0)
         switch indexPath.row {
-        case 0:
+        case dotaCellIndex:
+            let dota2Cell = tableView.dequeueReusableCell(withIdentifier: Dota2Cell.reuseIdentifier, for: indexPath) as! Dota2Cell
+            dota2Cell.backgroundImage = dota2Game.backgroundImage
+            dota2Cell.title = dota2Game.title
+            dota2Cell.subtitle = dota2Game.subtitle
+            dota2Cell.selectionStyle = .none
+            return dota2Cell
+        case ownedGamesHeaderIndex:
             let header = tableView.dequeueReusableCell(withIdentifier: OwnedGamesHeaderCell.reuseIdentifier, for: indexPath) as! OwnedGamesHeaderCell
             header.title = "Купленные игры"
             header.selectionStyle = .none
             return header
         case let row:
-            let index = row - 1
-            let cell = tableView.dequeueReusableCell(withIdentifier: OwnedGamesCell.reuseIdentifier, for: indexPath) as! OwnedGamesCell
-            guard let game = games[safe: index] else {
+            let index = row - (showDotaCell ? 1 : 0) - (showOwnedGamesHeader ? 1 : 0)
+            let cell = tableView.dequeueReusableCell(withIdentifier: OwnedGameCell.reuseIdentifier, for: indexPath) as! OwnedGameCell
+            guard let game = ownedGames[safe: index] else {
                 return cell
             }
             cell.imageUrl = game.logoUrl
@@ -99,17 +120,17 @@ extension OwnedGamesViewController: UITableViewDataSource {
 
 // MARK: - UITableViewDelegate
 
-extension OwnedGamesViewController: UITableViewDelegate {
+extension GamesTableViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let game = self.games[safe: indexPath.row] else {
+        guard let game = self.ownedGames[safe: indexPath.row] else {
             return
         }
         onGameSelect?(game)
     }
 }
 
-extension OwnedGamesViewController: UIScrollViewDelegate {
+extension GamesTableViewController: UIScrollViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         navbar?.scrollViewDidScroll(scrollView)

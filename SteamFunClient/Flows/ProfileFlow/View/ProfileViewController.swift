@@ -16,11 +16,12 @@ final class ProfileViewController: UIViewController {
     
     private var throbberViewController: ThrobberViewController?
     
-    private var ownedGamesViewController: OwnedGamesViewController?
+    private var ownedGamesViewController: GamesTableViewController?
     
     private lazy var navbarConfig =
         ExpandableNavbarViewController.Config(backgroundBlurColor: .zeratul,
                                               showBackButton: showBackButton,
+                                              scrollViewInsets: .init(top: 16.0, left: 0, bottom: 0, right: 0),
                                               hasBlur: true)
     private var showBackButton: Bool {
         return self.navigationController >>- { $0.viewControllers.count > 1 } ?? false
@@ -28,6 +29,7 @@ final class ProfileViewController: UIViewController {
     private var navbar: ExpandableNavbarViewController?
     private var navbarContentView: ProfileNavbarContentView?
     private var navbarHeaderContentView: ProfileNavbarHeaderContentView?
+    private lazy var hiddenProfileLabel = UILabel(text: "Профиль скрыт настройками приватности", color: .ulrezaj, font: .brakk, numberOfLines: 0, textAlignment: .center)
     
     // MARK: - Init
     
@@ -57,7 +59,8 @@ final class ProfileViewController: UIViewController {
     }
     
     private func addOwnedGamesViewController(viewModel: ProfileViewModel) {
-        let ownedGamesViewController = OwnedGamesViewController(games: viewModel.ownedGames)
+        let ownedGamesViewController = GamesTableViewController(games: viewModel.ownedGames)
+        navbar?.scrollView = ownedGamesViewController.tableView
         self.ownedGamesViewController = ownedGamesViewController
         addChild(ownedGamesViewController)
         view.addSubview(ownedGamesViewController.view)
@@ -67,6 +70,17 @@ final class ProfileViewController: UIViewController {
                 $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
             } else {
                 $0.bottom.equalToSuperview()
+            }
+        }
+    }
+    
+    private func addHiddenProfileLabel() {
+        view.addSubview(hiddenProfileLabel)
+        hiddenProfileLabel.snp.makeConstraints {
+            if let navbar = navbar?.view {
+                $0.top.equalTo(navbar.snp.bottom).offset(28.0)
+                $0.centerX.equalToSuperview()
+                $0.width.equalToSuperview().multipliedBy(0.6)
             }
         }
     }
@@ -83,16 +97,18 @@ final class ProfileViewController: UIViewController {
         self.navbar = navbar
         self.navbarContentView = navbarContentView
         
-        let navbarHeaderContentView = ProfileNavbarHeaderContentView()
-        navbarHeaderContentView.title = viewModel.name
-        navbarHeaderContentView.avatarUrl = viewModel.avatarLink
-        
         addChild(navbar)
         view.addSubview(navbar.view)
         navbar.view.snp.makeConstraints { $0.top.left.right.equalToSuperview() }
         navbar.addContentView(navbarContentView)
-        navbar.addHeaderContentView(navbarHeaderContentView)
         ownedGamesViewController?.navbar = navbar
+        
+        if !viewModel.isHiddenProfile {
+            let navbarHeaderContentView = ProfileNavbarHeaderContentView()
+            navbarHeaderContentView.title = viewModel.name
+            navbarHeaderContentView.avatarUrl = viewModel.avatarLink
+            navbar.addHeaderContentView(navbarHeaderContentView)
+        }
     }
     
     private func removeThrobberViewController() {
@@ -114,7 +130,12 @@ extension ProfileViewController: ProfileViewInput {
     
     func showData(viewModel: ProfileViewModel) {
         removeThrobberViewController()
-        addOwnedGamesViewController(viewModel: viewModel)
-        addNavbar(viewModel: viewModel)
+        if viewModel.isHiddenProfile {
+            addNavbar(viewModel: viewModel)
+            addHiddenProfileLabel()
+        } else {
+            addOwnedGamesViewController(viewModel: viewModel)
+            addNavbar(viewModel: viewModel)
+        }
     }
 }

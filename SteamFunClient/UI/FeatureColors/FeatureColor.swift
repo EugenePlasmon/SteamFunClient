@@ -26,6 +26,10 @@ extension FeatureColor {
         
         static let gamesListTitle = themeDependent(dark: .artanis, light: .aldaris)
         
+        static let dota2Title = themeDependent(dark: .artanis, light: .artanis)
+        
+        static let dota2Subtitle = themeDependent(dark: .artanis, light: .artanis)
+        
         static let gameName = themeDependent(dark: .artanis, light: .vorazun)
         
         static let gamePlaytime = themeDependent(dark: .selendis, light: .serdath)
