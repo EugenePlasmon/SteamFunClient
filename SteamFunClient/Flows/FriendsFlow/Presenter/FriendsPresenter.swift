@@ -19,35 +19,38 @@ final class FriendsPresenter {
         self.user = user
     }
     
-    private func loadData(then completion: @escaping ([SteamUser]) -> Void) {
-        let dispatchGroup = DispatchGroup()
-        var data: [SteamUser] = []
-        
-        for friend in friends {
-            dispatchGroup.enter()
-            Steam.getProfileInfo(for: friend.id) { result in
-                result.onSuccess {
-                    data.append($0)
-                }.onFailure {
-                    // TODO:
-                    print($0)
-                }
-                dispatchGroup.leave()
-            }
-        }
-        
-        dispatchGroup.notify(queue: .main) {
-            completion(data)
-        }
-    }
-    
-    private func viewModel(from data: [SteamUser]) -> FriendsViewModel {
-        let cells = data.compactMap {
-            FriendsViewModel.Cell(steamID: $0.id, name: $0.personName, realName: $0.realName, avatarLink: $0.avatarLinks.full)
+    private lazy var initialViewModel: FriendsViewModel = {
+        let cells = friends.compactMap { friend in
+            FriendsViewModel.Cell(steamID: friend.id, state: .loading, onWillDisplay: { [weak self] cell in self?.willDisplayCell(cell) })
         }
         return FriendsViewModel(title: "Друзья " + user.personName,
                                 avatarLink: user.avatarLinks.full,
                                 cells: cells)
+    }()
+    
+    private lazy var viewModel = initialViewModel
+    
+    private func willDisplayCell(_ cell: FriendsViewModel.Cell) {
+        guard case .loading = cell.state else { return }
+        Steam.getProfileInfo(for: cell.steamID) { [weak self] result in
+            guard let self = self else { return }
+            result.onSuccess {
+                guard case (let i, var cell)? = self.viewModel.cells.enumerated().first(where: { $1.steamID == cell.steamID }) else {
+                    return
+                }
+                cell.state = .data(name: $0.personName, realName: $0.realName, avatarLink: $0.avatarLinks.full)
+                self.updateCell(at: i, with: cell)
+            }.onFailure {
+                // TODO:
+                print($0)
+            }
+        }
+    }
+    
+    private func updateCell(at index: Int, with cell: FriendsViewModel.Cell) {
+        viewModel.cells[index] = cell
+        viewInput?.updateCellsData(cells: viewModel.cells, updatedAt: index)
+        
     }
 }
 
@@ -55,11 +58,7 @@ extension FriendsPresenter: FriendsViewOutput {
     
     func viewDidLoad() {
         log(.openFlow, "Friends (of user steamID=\(user.id))")
-        self.viewInput?.showLoader()
-        loadData { [weak self] data in
-            guard let self = self else { return }
-            self.viewInput?.showData(viewModel: self.viewModel(from: data))
-        }
+        self.viewInput?.showData(viewModel: initialViewModel)
     }
     
     func viewDidSelectFriend(with id: SteamID) {

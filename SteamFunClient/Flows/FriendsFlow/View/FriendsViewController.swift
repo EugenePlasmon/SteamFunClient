@@ -104,4 +104,8 @@ extension FriendsViewController: FriendsViewInput {
         addFriendsListViewController(viewModel: viewModel)
         addNavbar(viewModel: viewModel)
     }
+    
+    func updateCellsData(cells: [FriendsViewModel.Cell], updatedAt index: Int) {
+        self.friendsListViewController?.updateCellsData(cells: cells, updatedAt: index)
+    }
 }

@@ -12,6 +12,13 @@ final class FriendsListCell: UITableViewCell {
     
     static let reuseIdentifier = "FriendsListCellReuseIdentifier"
     
+    var isLoading: Bool = false {
+        didSet {
+            isLoading ? activityIndicator.startAnimating() : activityIndicator.stopAnimating()
+            [avatar, nameLabel, realNameLabel].forEach { $0.isHidden = isLoading }
+        }
+    }
+    
     var avatarUrl: String? {
         didSet {
             avatarUrl
@@ -43,6 +50,7 @@ final class FriendsListCell: UITableViewCell {
     private let realNameLabel = UILabel(color: FeatureColor.Friends.friendRealName,
                                         font: .niadra,
                                         compressionResistancePriorityY: .required)
+    private let activityIndicator = UIActivityIndicatorView()
     
     // MARK: - Init
     
@@ -69,6 +77,7 @@ final class FriendsListCell: UITableViewCell {
         containerView.addSubview(textsContainerView)
         textsContainerView.addSubview(nameLabel)
         textsContainerView.addSubview(realNameLabel)
+        containerView.addSubview(activityIndicator)
         
         containerView.snp.makeConstraints {
             $0.top.equalToSuperview()
@@ -102,6 +111,10 @@ final class FriendsListCell: UITableViewCell {
         realNameLabel.snp.makeConstraints {
             $0.bottom.left.right.equalToSuperview()
             $0.top.equalTo(nameLabel.snp.bottom).offset(4.0)
+        }
+        
+        activityIndicator.snp.makeConstraints {
+            $0.center.equalToSuperview()
         }
     }
 }

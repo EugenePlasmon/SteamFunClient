@@ -12,14 +12,17 @@ struct FriendsViewModel {
     
     struct Cell {
         let steamID: SteamID
-        let name: String
-        let realName: String?
-        let avatarLink: String?
+        var state: State
+        let onWillDisplay: (Cell) -> Void
+        enum State {
+            case loading
+            case data(name: String, realName: String?, avatarLink: String?)
+        }
     }
     
     let title: String
     let avatarLink: String?
-    let cells: [Cell]
+    var cells: [Cell]
 }
 
 protocol FriendsViewInput: class {
@@ -27,6 +30,8 @@ protocol FriendsViewInput: class {
     func showLoader()
     
     func showData(viewModel: FriendsViewModel)
+    
+    func updateCellsData(cells: [FriendsViewModel.Cell], updatedAt index: Int)
 }
 
 protocol FriendsViewOutput: class {

@@ -10,7 +10,7 @@ import UIKit
 
 final class FriendsListViewController: UIViewController {
     
-    let cellModels: [FriendsViewModel.Cell]
+    private(set) var cellModels: [FriendsViewModel.Cell]
     
     private(set) lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -55,6 +55,32 @@ final class FriendsListViewController: UIViewController {
         view.addSubview(tableView)
         tableView.snp.makeConstraints { $0.left.top.bottom.right.equalToSuperview() }
     }
+    
+    func updateCellsData(cells: [FriendsViewModel.Cell], updatedAt index: Int) {
+        self.cellModels = cells
+        
+        let indexPath = IndexPath(row: index, section: 0)
+        guard let contains = tableView.indexPathsForVisibleRows?.contains(indexPath)
+            , contains
+            , let cell = tableView.cellForRow(at: indexPath) as? FriendsListCell
+            , let friend = cells[safe: indexPath.row] else {
+                return
+        }
+        configure(cell, with: friend)
+    }
+    
+    private func configure(_ cell: FriendsListCell, with friend: FriendsViewModel.Cell) {
+        switch friend.state {
+        case .loading:
+            cell.isLoading = true
+        case .data(let name, let realName, let avatarLink):
+            cell.isLoading = false
+            cell.avatarUrl = avatarLink
+            cell.name = name
+            cell.realName = realName
+        }
+        cell.selectionStyle = .none
+    }
 }
 
 // MARK: - UITableViewDataSource
@@ -70,10 +96,7 @@ extension FriendsListViewController: UITableViewDataSource {
         guard let friend = cellModels[safe: indexPath.row] else {
             return cell
         }
-        cell.avatarUrl = friend.avatarLink
-        cell.name = friend.name
-        cell.realName = friend.realName
-        cell.selectionStyle = .none
+        configure(cell, with: friend)
         return cell
     }
 }
@@ -83,9 +106,12 @@ extension FriendsListViewController: UITableViewDataSource {
 extension FriendsListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let friend = self.cellModels[safe: indexPath.row] else {
-            return
-        }
+        guard let friend = self.cellModels[safe: indexPath.row] else { return }
         onFriendSelect?(friend)
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard let cellModel = self.cellModels[safe: indexPath.row] else { return }
+        cellModel.onWillDisplay(cellModel)
     }
 }
