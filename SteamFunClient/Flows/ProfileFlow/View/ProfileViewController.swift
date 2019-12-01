@@ -52,6 +52,12 @@ final class ProfileViewController: UIViewController {
     
     private func addOwnedGamesViewController(viewModel: ProfileViewModel) {
         let ownedGamesViewController = GamesTableViewController(games: viewModel.ownedGames)
+        ownedGamesViewController.onDotaSelect = { [weak self] in
+            self?.output.viewDidTapDota()
+        }
+        ownedGamesViewController.onGameSelect = { [weak self] game in
+            self?.output.viewDidTapGame(game)
+        }
         navbar?.scrollView = ownedGamesViewController.tableView
         self.ownedGamesViewController = ownedGamesViewController
         addChild(ownedGamesViewController)

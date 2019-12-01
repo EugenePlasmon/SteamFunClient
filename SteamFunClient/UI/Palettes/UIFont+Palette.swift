@@ -20,7 +20,9 @@ extension UIFont {
     
     static let abathur = UIFont.Family<Helvetica>.font(.regular, size: 16.0)
     
-    static let brakk  = UIFont.Family<Helvetica>.font(.medium, size: 14.0)
+    static let nafash = UIFont.Family<Helvetica>.font(.bold, size: 14.0)
+    
+    static let brakk = UIFont.Family<Helvetica>.font(.medium, size: 14.0)
     
     static let zagara = UIFont.Family<Helvetica>.font(.regular, size: 14.0)
     
@@ -28,7 +30,6 @@ extension UIFont {
     
     static let niadra = UIFont.Family<Helvetica>.font(.regular, size: 10.0)
     
-    //static let nafash
     //static let naktul
     //static let brakk
 }

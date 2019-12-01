@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 final class AppLauncher {
     
@@ -17,15 +18,52 @@ final class AppLauncher {
     }
     
     func start() {
+        if dropRealmDBOnStart {
+            let realm = try! Realm()
+            try! realm.write {
+                realm.deleteAll()
+            }
+        }
+        
+        fetchSteamID()
+        fetchDota2Heroes { [weak self] in
+            self?.startInitialFlow()
+        }
+    }
+    
+    private func fetchDota2Heroes(then completion: @escaping () -> Void) {
+        switch Dota2HeroResourceManager.shared.state {
+        case .error, .finished:
+            completion()
+            return
+        case .loading:
+            Dota2HeroResourceManager.shared.onLoad = { _ in
+                completion()
+            }
+        }
+    }
+    
+    private func fetchSteamID() {
         do {
             try Steam.SteamIDCaretaker.fetch()
         } catch {
             // TODO:
         }
+    }
+    
+    // MARK: - Start flow
+    
+    private func startInitialFlow() {
+        // TODO: Debug
+        if let debugSteamID = debugSteamID {
+            self.startTabBarFlow(steamID: debugSteamID)
+            return
+        }
+        
         if let steamID = Steam.SteamIDCaretaker.steamID {
-            startTabBarFlow(steamID: steamID)
+            self.startTabBarFlow(steamID: steamID)
         } else {
-            startSteamAuthFlow()
+            self.startSteamAuthFlow()
         }
     }
     
@@ -36,7 +74,7 @@ final class AppLauncher {
                 self?.startTabBarFlow(steamID: steamID)
             }.onFailure {
                 // TODO:
-                print($0)
+                log($0)
             }
         }
         let navigationController = UINavigationController(rootViewController: steamAuthViewController)

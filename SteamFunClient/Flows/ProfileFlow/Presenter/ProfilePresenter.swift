@@ -46,7 +46,7 @@ extension ProfilePresenter: ProfileViewOutput {
                 self.viewInput?.showData(viewModel: loadedData >>> self.viewModel)
             }.onFailure {
                 // TODO:
-                print($0)
+                log($0)
             }
         }
     }
@@ -62,5 +62,15 @@ extension ProfilePresenter: ProfileViewOutput {
         try? Steam.SteamIDCaretaker.clear()
         // TODO:
         (UIApplication.shared.delegate as! AppDelegate).appLauncher.start()
+    }
+    
+    func viewDidTapDota() {
+        guard let loadedData = self.loadedData else { return }
+        let dotaViewController = Dota2ModuleBuilder.build(steamUser: loadedData.user)
+        self.viewInput?.navigationController?.pushViewController(dotaViewController, animated: true)
+    }
+    
+    func viewDidTapGame(_ game: Game) {
+        
     }
 }

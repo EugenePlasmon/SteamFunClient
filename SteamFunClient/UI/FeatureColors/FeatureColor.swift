@@ -93,26 +93,51 @@ extension FeatureColor {
         static let background = themeDependent(dark: .vorazun, light: .artanis)
         
         static let gameCell = themeDependent(dark: .raszagal, light: .zoraya)
+    }
+}
+
+extension FeatureColor {
+    
+    struct Dota2 {
         
-//        static let name = themeDependent(dark: .artanis, light: .artanis)
-//
-//        static let realName = themeDependent(dark: .tassadar, light: .artanis)
-//
-//        static let actionButtonDefault = themeDependent(dark: .artanis, light: .artanis)
-//
-//        static let actionButtonPressed = themeDependent(dark: .selendis, light: .selendis)
-//
-//
-//        static let gamesListTitle = themeDependent(dark: .artanis, light: .aldaris)
-//
-//        static let dota2Title = themeDependent(dark: .artanis, light: .artanis)
-//
-//        static let dota2Subtitle = themeDependent(dark: .artanis, light: .artanis)
-//
-//        static let gameName = themeDependent(dark: .artanis, light: .vorazun)
-//
-//        static let gamePlaytime = themeDependent(dark: .selendis, light: .serdath)
-//
-//        static let gameCell = themeDependent(dark: .raszagal, light: .zoraya)
+        static let background = themeDependent(dark: .vorazun, light: .artanis)
+        
+        
+    }
+    
+    struct Dota2ShortStats {
+        
+        static let title = themeDependent(dark: .artanis, light: .aldaris)
+        
+        static let background = themeDependent(dark: .raszagal, light: .zoraya)
+        
+        static let statTitle = themeDependent(dark: .artanis, light: .aldaris)
+        
+        static let statSubtitle = themeDependent(dark: .selendis, light: .serdath)
+        
+        static let moreButton = themeDependent(dark: .artanis, light: .aldaris)
+    }
+    
+    struct Dota2MatchHistory {
+        
+        static let headerTexts = themeDependent(dark: .artanis, light: .vorazun)
+        
+        struct Cell {
+            
+            static let background = themeDependent(dark: .raszagal, light: .zoraya)
+            
+            static let heroName = themeDependent(dark: .tassadar, light: .aldaris)
+            
+            static let heroStroke = themeDependent(dark: .rohana, light: .rohana)
+            
+            static let team = themeDependent(dark: .tassadar, light: .aldaris)
+            
+            static let win = themeDependent(dark: .dabiri, light: .dabiri)
+            
+            static let lose = themeDependent(dark: .rastadon, light: .rastadon)
+            
+            static let date = themeDependent(dark: .tassadar, light: .aldaris)
+        }
+        
     }
 }

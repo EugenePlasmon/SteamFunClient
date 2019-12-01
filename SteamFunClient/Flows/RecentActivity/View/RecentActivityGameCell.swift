@@ -80,8 +80,7 @@ final class RecentActivityGameCell: UITableViewCell {
         
         containerView.snp.makeConstraints {
             $0.top.equalToSuperview()
-            $0.left.equalToSuperview().offset(16.0)
-            $0.right.equalToSuperview().offset(-16.0)
+            $0.left.right.equalToSuperview().inset(16.0)
             $0.bottom.equalToSuperview().offset(-8.0)
         }
         

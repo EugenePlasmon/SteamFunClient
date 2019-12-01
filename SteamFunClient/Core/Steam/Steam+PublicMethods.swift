@@ -60,17 +60,25 @@ extension Steam {
         }
     }
     
-    static func dota2MatchesHistory(steamID: SteamID32,
-                                    heroID: Int? = nil,
-                                    startAtMatchID: Int? = nil,
-                                    batchSize: Int? = nil,
-                                    then completion: @escaping (Result<PlayerMatchesHistory, AFError>) -> Void) {
+    static func dota2Heroes(then completion: @escaping (Result<[Dota2Hero], AFError>) -> Void) {
+        Steam.Endpoint.dota2Heroes.request.responseDecodable(of: Response<Heroes>.self, decoder: decoder(keyPath: "result")) { dataResponse in
+            dataResponse.result
+                .map { $0.result.heroes }
+                >>> completion
+        }
+    }
+    
+    static func dota2MatchHistory(steamID32: SteamID32,
+                                  heroID: Int? = nil,
+                                  startAtMatchID: Int? = nil,
+                                  batchSize: Int? = nil,
+                                  then completion: @escaping (Result<PlayerMatchHistory, AFError>) -> Void) {
         
-        Steam.Endpoint.dota2MatchesHistory(steamID: steamID,
-                                           heroID: heroID,
-                                           startAtMatchID: startAtMatchID,
-                                           batchSize: batchSize)
-            .request.responseDecodable(of: Response<PlayerMatchesHistory>.self, decoder: decoder(keyPath: "result")) { dataResponse in
+        Steam.Endpoint.dota2MatchHistory(steamID32: steamID32,
+                                         heroID: heroID,
+                                         startAtMatchID: startAtMatchID,
+                                         batchSize: batchSize)
+            .request.responseDecodable(of: Response<PlayerMatchHistory>.self, decoder: decoder(keyPath: "result")) { dataResponse in
                 dataResponse.result
                     .map { $0.result }
                     >>> completion
@@ -146,4 +154,8 @@ private struct FriendsList: Codable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.friendsList = (try? container.decode(Friends.self, forKey: .friendsList)) ?? Friends(friends: [])
     }
+}
+
+private struct Heroes: Decodable {
+    let heroes: [Dota2Hero]
 }

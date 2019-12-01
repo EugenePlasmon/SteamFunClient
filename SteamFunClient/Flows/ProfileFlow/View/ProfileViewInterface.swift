@@ -32,4 +32,8 @@ protocol ProfileViewOutput: class {
     func viewDidTapFriends()
     
     func viewDidTapLogout()
+    
+    func viewDidTapDota()
+    
+    func viewDidTapGame(_ game: Game)
 }

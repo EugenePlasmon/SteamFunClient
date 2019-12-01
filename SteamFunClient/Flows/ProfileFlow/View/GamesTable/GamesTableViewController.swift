@@ -30,7 +30,7 @@ final class GamesTableViewController: UIViewController {
         let tableView = UITableView()
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(Dota2Cell.self, forCellReuseIdentifier: Dota2Cell.reuseIdentifier)
+        tableView.register(Dota2ProfileCell.self, forCellReuseIdentifier: Dota2ProfileCell.reuseIdentifier)
         tableView.register(OwnedGameCell.self, forCellReuseIdentifier: OwnedGameCell.reuseIdentifier)
         tableView.register(OwnedGamesHeaderCell.self, forCellReuseIdentifier: OwnedGamesHeaderCell.reuseIdentifier)
         return tableView
@@ -40,6 +40,7 @@ final class GamesTableViewController: UIViewController {
     
     typealias OnGameSelectClosure = (Game) -> Void
     var onGameSelect: OnGameSelectClosure?
+    var onDotaSelect: (() -> Void)?
     
     // MARK: - Init
     
@@ -80,19 +81,24 @@ final class GamesTableViewController: UIViewController {
 extension GamesTableViewController: UITableViewDataSource {
     
     private var showDotaCell: Bool { true }
-    
     private var showOwnedGamesHeader: Bool { ownedGames.count > 0 ? true : false }
+    
+    private var dotaCellIndex: Int? { showDotaCell ? 0 : nil }
+    private var ownedGamesHeaderIndex: Int? { showOwnedGamesHeader ? (showDotaCell ? 1 : 0) : nil }
+    
+    private func game(atIndexPath indexPath: IndexPath) -> Game? {
+        let index = indexPath.row - (showDotaCell ? 1 : 0) - (showOwnedGamesHeader ? 1 : 0)
+        return ownedGames[safe: index]
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return (showDotaCell ? 1 : 0) + (showOwnedGamesHeader ? 1 : 0) + ownedGames.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let dotaCellIndex = showDotaCell ? 0 : nil
-        let ownedGamesHeaderIndex = !showOwnedGamesHeader ? nil : (showDotaCell ? 1 : 0)
         switch indexPath.row {
         case dotaCellIndex:
-            let dota2Cell = tableView.dequeueReusableCell(withIdentifier: Dota2Cell.reuseIdentifier, for: indexPath) as! Dota2Cell
+            let dota2Cell = tableView.dequeueReusableCell(withIdentifier: Dota2ProfileCell.reuseIdentifier, for: indexPath) as! Dota2ProfileCell
             dota2Cell.backgroundImage = dota2Game.backgroundImage
             dota2Cell.title = dota2Game.title
             dota2Cell.subtitle = dota2Game.subtitle
@@ -103,10 +109,9 @@ extension GamesTableViewController: UITableViewDataSource {
             header.title = "Купленные игры"
             header.selectionStyle = .none
             return header
-        case let row:
-            let index = row - (showDotaCell ? 1 : 0) - (showOwnedGamesHeader ? 1 : 0)
+        case _:
             let cell = tableView.dequeueReusableCell(withIdentifier: OwnedGameCell.reuseIdentifier, for: indexPath) as! OwnedGameCell
-            guard let game = ownedGames[safe: index] else {
+            guard let game = game(atIndexPath: indexPath) else {
                 return cell
             }
             cell.imageUrl = game.logoUrl
@@ -123,10 +128,18 @@ extension GamesTableViewController: UITableViewDataSource {
 extension GamesTableViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let game = self.ownedGames[safe: indexPath.row] else {
+        switch indexPath.row {
+        case dotaCellIndex:
+            onDotaSelect?()
+        case ownedGamesHeaderIndex:
             return
+        default:
+            guard let game = game(atIndexPath: indexPath) else {
+                return
+            }
+            onGameSelect?(game)
         }
-        onGameSelect?(game)
+        
     }
 }
 

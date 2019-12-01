@@ -42,6 +42,7 @@ public extension UIColor {
     
     static let ulrezaj = rgb(205, 37, 37)
     
-    //dabiri
-    //imrian
+    static let dabiri = rgb(81, 213, 39)
+    
+    static let rastadon = rgb(236, 63, 8)
 }

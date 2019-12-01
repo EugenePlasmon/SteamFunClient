@@ -30,24 +30,3 @@ func rgb(_ red: CGFloat, _ green: CGFloat, _ blue: CGFloat) -> UIColor {
 func rgba(_ red: CGFloat, _ green: CGFloat, _ blue: CGFloat, _ alpha: CGFloat) -> UIColor {
     return UIColor(red: red/255.0, green: green/255.0, blue: blue/255.0, alpha: alpha)
 }
-
-public extension UIColor {
-    
-    func darken(by: CGFloat) -> UIColor {
-        var hue: CGFloat = 0
-        var saturation: CGFloat = 0
-        var brightness: CGFloat = 0
-        var alpha: CGFloat = 0
-        self.getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha)
-        return .init(hue: hue, saturation: saturation, brightness: max(brightness - by, 0), alpha: alpha)
-    }
-    
-    func lighten(by: CGFloat) -> UIColor {
-        var hue: CGFloat = 0
-        var saturation: CGFloat = 0
-        var brightness: CGFloat = 0
-        var alpha: CGFloat = 0
-        self.getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha)
-        return .init(hue: hue, saturation: saturation, brightness: min(brightness + by, 1), alpha: alpha)
-    }
-}
