@@ -16,12 +16,7 @@ final class FriendsViewController: UIViewController {
     
     private var friendsListViewController: FriendsListViewController?
     
-    private let navbarConfig =
-        ExpandableNavbarViewController.Config(backgroundBlurColor: .zeratul,
-                                              showBackButton: true,
-                                              scrollViewInsets: .init(top: 16.0, left: 0, bottom: 16.0, right: 0),
-                                              hasBlur: true)
-    private var navbar: ExpandableNavbarViewController?
+    private var navbar: ExpandableNavbar?
     
     // MARK: - Init
     
@@ -69,11 +64,11 @@ final class FriendsViewController: UIViewController {
     }
     
     private func addNavbar(viewModel: FriendsViewModel) {
-        let navbar = ExpandableNavbarViewController(scrollView: friendsListViewController?.tableView, config: navbarConfig)
+        let navbar = ExpandableNavbar(scrollView: friendsListViewController?.tableView, config: defaultNavbarConfig)
         self.navbar = navbar
         
-        let navbarHeaderContentView = ProfileNavbarHeaderContentView() // TODO: заменить
-        navbarHeaderContentView.avatarUrl = viewModel.avatarLink
+        let navbarHeaderContentView = ExpandableNavbar.HeaderContentView.ImageAndText()
+        navbarHeaderContentView.imageUrl = viewModel.avatarLink
         navbarHeaderContentView.title = viewModel.title
         
         addChild(navbar)
@@ -90,14 +85,6 @@ final class FriendsViewController: UIViewController {
 }
 
 extension FriendsViewController: FriendsViewInput {
-    
-    func showLoader() {
-        let throbberViewController = ThrobberViewController()
-        self.throbberViewController = throbberViewController
-        addChild(throbberViewController)
-        view.addSubview(throbberViewController.view)
-        throbberViewController.view.snp.pinToAllSuperviewEdges()
-    }
     
     func showData(viewModel: FriendsViewModel) {
         removeThrobberViewController()

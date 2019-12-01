@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Kingfisher
 
-final class ProfileNavbarContentView: ExpandableNavbarContentView {
+final class ProfileNavbarContentView: ExpandableNavbar.ContentView {
     
     let viewModel: ProfileViewModel
     

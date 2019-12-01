@@ -32,9 +32,9 @@ extension Steam {
     }
     
     static func getOwnedGames(for steamID: SteamID,
-                              then completion: @escaping (Result<[OwnedGame], AFError>) -> Void) {
+                              then completion: @escaping (Result<[Game], AFError>) -> Void) {
         
-        Steam.Endpoint.playerOwnedGames(id: steamID).request.responseDecodable(of: Response<PlayerOwnedGamesResponse>.self, decoder: decoder(keyPath: "response")) { dataResponse in
+        Steam.Endpoint.playerOwnedGames(id: steamID).request.responseDecodable(of: Response<GamesResponse>.self, decoder: decoder(keyPath: "response")) { dataResponse in
             dataResponse.result
                 .map { $0.result.games }
                 >>> completion
@@ -45,9 +45,17 @@ extension Steam {
                                           gameID: GameID,
                                           then completion: @escaping (Result<PlayerGameAchievements, AFError>) -> Void) {
         
-        Steam.Endpoint.playerGameAchievements(steamID: steamID, gameID: gameID).request.responseDecodable(of: PlayerStats<PlayerGameAchievements>.self) { dataResponse in
+        Steam.Endpoint.playerGameAchievements(steamID: steamID, gameID: gameID).request.responseDecodable(of: Response<PlayerGameAchievements>.self, decoder: decoder(keyPath: "playerStats")) { dataResponse in
             dataResponse.result
-                .map { $0.playerStats }
+                .map { $0.result }
+                >>> completion
+        }
+    }
+    
+    static func getRecentlyPlayedGames(steamID: SteamID, then completion: @escaping (Result<[Game], AFError>) -> Void) {
+        Steam.Endpoint.recentlyPlayedGames(steamID: steamID).request.responseDecodable(of: Response<GamesResponse>.self, decoder: decoder(keyPath: "response")) { dataResponse in
+            dataResponse.result
+                .map { $0.result.games }
                 >>> completion
         }
     }
@@ -116,12 +124,12 @@ private struct PlayerSummariesResponse: Codable {
     let players: [SteamUser]
 }
 
-private struct PlayerOwnedGamesResponse: Codable {
-    let games: [OwnedGame]
+private struct GamesResponse: Codable {
+    let games: [Game]
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.games = (try? container.decode([OwnedGame].self, forKey: .games)) ?? []
+        self.games = (try? container.decode([Game].self, forKey: .games)) ?? []
     }
 }
 
@@ -138,8 +146,4 @@ private struct FriendsList: Codable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.friendsList = (try? container.decode(Friends.self, forKey: .friendsList)) ?? Friends(friends: [])
     }
-}
-
-private struct PlayerStats<T: Codable>: Codable {
-    let playerStats: T
 }

@@ -15,7 +15,7 @@ struct ProfileViewModel {
     let realName: String?
     let avatarLink: String?
     let friendsCount: Int
-    let ownedGames: [OwnedGame]
+    let ownedGames: [Game]
 }
 
 protocol ProfileViewInput: class {

@@ -21,6 +21,8 @@ extension Steam {
         
         case playerGameAchievements(steamID: SteamID, gameID: GameID)
         
+        case recentlyPlayedGames(steamID: SteamID)
+        
         case dota2MatchesHistory(steamID: SteamID32, heroID: Int?, startAtMatchID: Int?, batchSize: Int?)
         
         case dota2MatchDetails(matchID: Int)
@@ -42,6 +44,10 @@ extension Steam {
             case .playerGameAchievements(let steamID, let gameID):
                 return ("ISteamUserStats/GetPlayerAchievements/v0001",
                         ["steamid": "\(steamID)", "appid": "\(gameID)"])
+                    >>> constructRequest
+            case .recentlyPlayedGames(let steamID):
+                return ("IPlayerService/GetRecentlyPlayedGames/v0001",
+                        ["steamid": steamID])
                     >>> constructRequest
             case .dota2MatchesHistory(let steamID, let heroID, let startAtMatchID, let batchSize):
                 var parameters: [String: Any] = ["account_id": steamID]

@@ -27,8 +27,6 @@ struct FriendsViewModel {
 
 protocol FriendsViewInput: class {
     
-    func showLoader()
-    
     func showData(viewModel: FriendsViewModel)
     
     func updateCellsData(cells: [FriendsViewModel.Cell], updatedAt index: Int)

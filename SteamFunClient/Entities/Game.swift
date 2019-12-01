@@ -1,5 +1,5 @@
 //
-//  OwnedGame.swift
+//  Game.swift
 //  SteamFunClient
 //
 //  Created by Evgeny Kireev on 25.11.2019.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct OwnedGame: Codable {
+struct Game: Codable {
     
     typealias Minutes = Int
     

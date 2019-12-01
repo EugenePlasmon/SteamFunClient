@@ -15,7 +15,7 @@ final class ProfilePresenter {
     private let steamID: SteamID
     private lazy var dataLoader = ProfileDataLoader(steamID: steamID)
     
-    private typealias LoadedData = (user: SteamUser, friends: [Friend], ownedGames: [OwnedGame])
+    private typealias LoadedData = (user: SteamUser, friends: [Friend], ownedGames: [Game])
     private var loadedData: LoadedData?
     
     init(steamID: SteamID) {

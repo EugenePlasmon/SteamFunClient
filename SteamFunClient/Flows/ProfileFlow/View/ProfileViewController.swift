@@ -18,17 +18,9 @@ final class ProfileViewController: UIViewController {
     
     private var ownedGamesViewController: GamesTableViewController?
     
-    private lazy var navbarConfig =
-        ExpandableNavbarViewController.Config(backgroundBlurColor: .zeratul,
-                                              showBackButton: showBackButton,
-                                              scrollViewInsets: .init(top: 16.0, left: 0, bottom: 0, right: 0),
-                                              hasBlur: true)
-    private var showBackButton: Bool {
-        return self.navigationController >>- { $0.viewControllers.count > 1 } ?? false
-    }
-    private var navbar: ExpandableNavbarViewController?
+    private var navbar: ExpandableNavbar?
     private var navbarContentView: ProfileNavbarContentView?
-    private var navbarHeaderContentView: ProfileNavbarHeaderContentView?
+    private var navbarHeaderContentView: ExpandableNavbar.HeaderContentView.ImageAndText?
     private lazy var hiddenProfileLabel = UILabel(text: "Профиль скрыт настройками приватности", color: .ulrezaj, font: .brakk, numberOfLines: 0, textAlignment: .center)
     
     // MARK: - Init
@@ -86,7 +78,7 @@ final class ProfileViewController: UIViewController {
     }
     
     private func addNavbar(viewModel: ProfileViewModel) {
-        let navbar = ExpandableNavbarViewController(scrollView: ownedGamesViewController?.tableView, config: navbarConfig)
+        let navbar = ExpandableNavbar(scrollView: ownedGamesViewController?.tableView, config: defaultNavbarConfig)
         let navbarContentView = ProfileNavbarContentView(viewModel: viewModel)
         navbarContentView.onActionButtonTap = { [weak self] type in
             if case .friends = type {
@@ -104,9 +96,9 @@ final class ProfileViewController: UIViewController {
         ownedGamesViewController?.navbar = navbar
         
         if !viewModel.isHiddenProfile {
-            let navbarHeaderContentView = ProfileNavbarHeaderContentView()
+            let navbarHeaderContentView = ExpandableNavbar.HeaderContentView.ImageAndText()
             navbarHeaderContentView.title = viewModel.name
-            navbarHeaderContentView.avatarUrl = viewModel.avatarLink
+            navbarHeaderContentView.imageUrl = viewModel.avatarLink
             navbar.addHeaderContentView(navbarHeaderContentView)
         }
     }

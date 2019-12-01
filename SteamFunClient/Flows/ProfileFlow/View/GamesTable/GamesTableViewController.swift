@@ -21,7 +21,7 @@ final class GamesTableViewController: UIViewController {
         let backgroundImage: UIImage? = UIImage(named: "dota2Poster")
     }
     
-    let ownedGames: [OwnedGame]
+    let ownedGames: [Game]
     let dota2Game = Dota2CellModel()
     
     private var headers: [HeaderModel] = [.init(title: "Купленные игры")]
@@ -36,14 +36,14 @@ final class GamesTableViewController: UIViewController {
         return tableView
     }()
     
-    weak var navbar: ExpandableNavbarViewController?
+    weak var navbar: ExpandableNavbar?
     
-    typealias OnGameSelectClosure = (OwnedGame) -> Void
+    typealias OnGameSelectClosure = (Game) -> Void
     var onGameSelect: OnGameSelectClosure?
     
     // MARK: - Init
     
-    init(games: [OwnedGame]) {
+    init(games: [Game]) {
         self.ownedGames = games
         super.init(nibName: nil, bundle: nil)
     }

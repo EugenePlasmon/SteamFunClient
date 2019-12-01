@@ -45,17 +45,7 @@ final class AppLauncher {
     }
     
     private func startTabBarFlow(steamID: SteamID) {
-        let profileViewController = ProfileModuleBuilder.build(steamID: steamID)
-        let profileNavigationController = UINavigationController(rootViewController: profileViewController)
-        profileNavigationController.interactivePopGestureRecognizer?.delegate = nil
-        
-        // TODO:
-        profileNavigationController.tabBarItem = UITabBarItem(title: "Профиль", image: UIImage(named: "tabbar_profile"), selectedImage: nil)
-        
-        let tabBarController = TabbarViewController()
-        tabBarController.viewControllers = [profileNavigationController]
-        
-        self.window?.rootViewController = tabBarController
+        self.window?.rootViewController = TabbarConfigurator(steamID: steamID).createTabbar()
         self.window?.makeKeyAndVisible()
     }
 }

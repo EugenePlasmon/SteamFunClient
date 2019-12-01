@@ -19,12 +19,12 @@ final class ProfileDataLoader {
     private struct LoadedData {
         var steamUser: SteamUser?
         var friends: [Friend]?
-        var ownedGames: [OwnedGame]?
+        var ownedGames: [Game]?
         var errors: [Error] = []
     }
     private var loadedData = LoadedData()
     
-    func load(then completion: @escaping (Result<(SteamUser, [Friend], [OwnedGame]), Error>) -> Void) {
+    func load(then completion: @escaping (Result<(SteamUser, [Friend], [Game]), Error>) -> Void) {
         let dispatchGroup = DispatchGroup()
         
         dispatchGroup.enter()

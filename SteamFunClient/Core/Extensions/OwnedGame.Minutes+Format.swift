@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension OwnedGame.Minutes {
+extension Game.Minutes {
     
     var hoursAndMinutes: String {
         let minutes = self % 60

@@ -40,6 +40,14 @@ extension FeatureColor {
 
 extension FeatureColor {
     
+    struct Navbar {
+        
+        static let background = themeDependent(dark: .zeratul, light: .zeratul)
+    }
+}
+
+extension FeatureColor {
+    
     struct Tabbar {
         
         static let item = themeDependent(dark: .artanis, light: .artanis)
@@ -75,5 +83,36 @@ extension FeatureColor {
         static let friendRealName = themeDependent(dark: .selendis, light: .serdath)
         
         static let friendCell = themeDependent(dark: .raszagal, light: .zoraya)
+    }
+}
+
+extension FeatureColor {
+    
+    struct RecentActivity {
+        
+        static let background = themeDependent(dark: .vorazun, light: .artanis)
+        
+        static let gameCell = themeDependent(dark: .raszagal, light: .zoraya)
+        
+//        static let name = themeDependent(dark: .artanis, light: .artanis)
+//
+//        static let realName = themeDependent(dark: .tassadar, light: .artanis)
+//
+//        static let actionButtonDefault = themeDependent(dark: .artanis, light: .artanis)
+//
+//        static let actionButtonPressed = themeDependent(dark: .selendis, light: .selendis)
+//
+//
+//        static let gamesListTitle = themeDependent(dark: .artanis, light: .aldaris)
+//
+//        static let dota2Title = themeDependent(dark: .artanis, light: .artanis)
+//
+//        static let dota2Subtitle = themeDependent(dark: .artanis, light: .artanis)
+//
+//        static let gameName = themeDependent(dark: .artanis, light: .vorazun)
+//
+//        static let gamePlaytime = themeDependent(dark: .selendis, light: .serdath)
+//
+//        static let gameCell = themeDependent(dark: .raszagal, light: .zoraya)
     }
 }

@@ -1,5 +1,5 @@
 //
-//  ExpandableNavbarViewController.swift
+//  ExpandableNavbar.swift
 //  SteamFunClient
 //
 //  Created by Evgeny Kireev on 25.11.2019.
@@ -11,14 +11,7 @@ import SnapKit
 
 /// Кастомный навигейшн бар в виде вью контроллера.
 /// Поведение скроллинга и инсетов скролл вью инкапсулируется в этом классе.
-public final class ExpandableNavbarViewController: UIViewController, CustomNavbarSnappingBehavior, CustomNavbarScrollViewInsetsBehavior {
-    
-    public struct Config {
-        public var backgroundBlurColor: UIColor
-        public var showBackButton: Bool
-        public var scrollViewInsets: UIEdgeInsets = .zero
-        public var hasBlur: Bool
-    }
+public final class ExpandableNavbar: UIViewController, CustomNavbarSnappingBehavior, CustomNavbarScrollViewInsetsBehavior {
     
     // MARK: - Public properties
     
@@ -67,7 +60,7 @@ public final class ExpandableNavbarViewController: UIViewController, CustomNavba
     private let contentContainerView = UIView()
     
     /// Вью в `contentContainerView` или `nil`, если не была добавлена извне с помощью метода `addContentView(_:)`
-    private var contentView: ExpandableNavbarContentView?
+    private var contentView: ContentView?
     
     /// Констрейнт контент вью к верху навбара. Его меняем для эффекта схлопывания/разворачивания навбара.
     private var contentViewTopConstraint: NSLayoutConstraint?
@@ -112,10 +105,12 @@ public final class ExpandableNavbarViewController: UIViewController, CustomNavba
     
     // MARK: - Public
     
-    public func addContentView(_ contentView: ExpandableNavbarContentView) {
+    public func addContentView(_ contentView: ContentView) {
         removeContentView()
         self.contentView = contentView
-        contentView.output = self
+        contentView.onLayoutSubviews = { [weak self] in
+            self?.updateContentHeight()
+        }
         contentContainerView.addSubview(contentView)
         contentView.snp.pinToAllSuperviewEdges()
         self.needsScrollToBeginAfterContentHeightChange = true
@@ -270,7 +265,7 @@ public final class ExpandableNavbarViewController: UIViewController, CustomNavba
 }
 
 // MARK: - UIScrollViewDelegate
-extension ExpandableNavbarViewController: UIScrollViewDelegate {
+extension ExpandableNavbar: UIScrollViewDelegate {
     
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         // 0. Предварительные расчеты
@@ -303,13 +298,5 @@ extension ExpandableNavbarViewController: UIScrollViewDelegate {
     
     public func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         self.snapScrollView(scrollView, targetContentOffset: targetContentOffset)
-    }
-}
-
-// MARK: - ExpandableNavbarContentViewOutput
-extension ExpandableNavbarViewController: ExpandableNavbarContentViewOutput {
-    
-    public func contentViewDidLayoutSubviews() {
-        self.updateContentHeight()
     }
 }

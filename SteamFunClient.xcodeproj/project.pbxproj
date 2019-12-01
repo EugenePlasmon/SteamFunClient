@@ -43,7 +43,7 @@
 		F835B085238C3C36002460C4 /* UIColor+Initializers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F835B084238C3C36002460C4 /* UIColor+Initializers.swift */; };
 		F835B0A3238C4185002460C4 /* UILabel+Initializers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F835B0A2238C4185002460C4 /* UILabel+Initializers.swift */; };
 		F835B0A6238C4209002460C4 /* UIFont+Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = F835B0A5238C4209002460C4 /* UIFont+Palette.swift */; };
-		F835B0A9238C4434002460C4 /* ProfileNavbarHeaderContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F835B0A8238C4434002460C4 /* ProfileNavbarHeaderContentView.swift */; };
+		F835B0A9238C4434002460C4 /* ExpandableNavbar+HeaderContentViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = F835B0A8238C4434002460C4 /* ExpandableNavbar+HeaderContentViews.swift */; };
 		F847226D238DDCF700ECA269 /* TouchThroughView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F847226C238DDCF700ECA269 /* TouchThroughView.swift */; };
 		F84923FF238DC5C200FCDE07 /* ProfileActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84923FE238DC5C200FCDE07 /* ProfileActionButton.swift */; };
 		F8492402238DCED900FCDE07 /* String+Plurals.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8492401238DCED900FCDE07 /* String+Plurals.swift */; };
@@ -52,14 +52,14 @@
 		F854F4A7238B23A400E757C9 /* Steam.SteamIDCaretaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F854F4A6238B23A400E757C9 /* Steam.SteamIDCaretaker.swift */; };
 		F854F4AC238B273E00E757C9 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = F854F4AB238B273E00E757C9 /* Button.swift */; };
 		F854F4AF238B2AC700E757C9 /* GamesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F854F4AE238B2AC700E757C9 /* GamesTableViewController.swift */; };
-		F854F4B1238B2F3600E757C9 /* OwnedGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = F854F4B0238B2F3600E757C9 /* OwnedGame.swift */; };
+		F854F4B1238B2F3600E757C9 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = F854F4B0238B2F3600E757C9 /* Game.swift */; };
 		F854F4B3238B308500E757C9 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F854F4B2238B308500E757C9 /* String+Extensions.swift */; };
 		F854F5AB238C1DE900E757C9 /* CustomNavbarSnappingBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = F854F5AA238C1DE900E757C9 /* CustomNavbarSnappingBehavior.swift */; };
 		F854F5AD238C1E0D00E757C9 /* CustomNavbarScrollViewInsetsBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = F854F5AC238C1E0D00E757C9 /* CustomNavbarScrollViewInsetsBehavior.swift */; };
-		F854F5AF238C1E6400E757C9 /* ExpandableNavbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F854F5AE238C1E6400E757C9 /* ExpandableNavbarViewController.swift */; };
+		F854F5AF238C1E6400E757C9 /* ExpandableNavbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F854F5AE238C1E6400E757C9 /* ExpandableNavbar.swift */; };
 		F854F5B2238C227B00E757C9 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F854F5B1238C227B00E757C9 /* BlurView.swift */; };
 		F854F5B4238C274D00E757C9 /* ExpandableNavbarHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F854F5B3238C274D00E757C9 /* ExpandableNavbarHeaderView.swift */; };
-		F854F5B6238C27D700E757C9 /* ExpandableNavbarContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F854F5B5238C27D700E757C9 /* ExpandableNavbarContentView.swift */; };
+		F854F5B6238C27D700E757C9 /* ExpandableNavbar.ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F854F5B5238C27D700E757C9 /* ExpandableNavbar.ContentView.swift */; };
 		F854F5B8238C281200E757C9 /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F854F5B7238C281200E757C9 /* UIApplication+Extensions.swift */; };
 		F854F5BA238C29CA00E757C9 /* SnapKit+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F854F5B9238C29CA00E757C9 /* SnapKit+Extensions.swift */; };
 		F854F5BE238C320900E757C9 /* ProfileNavbarContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F854F5BD238C320900E757C9 /* ProfileNavbarContentView.swift */; };
@@ -67,6 +67,8 @@
 		F8650F72239071860033818A /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8650F71239071860033818A /* Log.swift */; };
 		F8650F752391B4D40033818A /* PlayerMatchesHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8650F742391B4D40033818A /* PlayerMatchesHistory.swift */; };
 		F8650F772391B94F0033818A /* MatchDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8650F762391B94F0033818A /* MatchDetails.swift */; };
+		F8664033239403540087D4BA /* ExpandableNavbar.Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8664032239403540087D4BA /* ExpandableNavbar.Config.swift */; };
+		F8664035239404FB0087D4BA /* TabbarConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8664034239404FB0087D4BA /* TabbarConfigurator.swift */; };
 		F867B08C239286F100BA9235 /* Dota2Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F867B08B239286F100BA9235 /* Dota2Cell.swift */; };
 		F86FB9D3238C5CE700A62E86 /* OwnedGameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86FB9D2238C5CE700A62E86 /* OwnedGameCell.swift */; };
 		F86FB9D5238C6D2700A62E86 /* UIImageView+Initializers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86FB9D4238C6D2700A62E86 /* UIImageView+Initializers.swift */; };
@@ -74,6 +76,12 @@
 		F86FB9D9238C7F8400A62E86 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86FB9D8238C7F8400A62E86 /* Friend.swift */; };
 		F86FB9DB238C858B00A62E86 /* OwnedGame.Minutes+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86FB9DA238C858A00A62E86 /* OwnedGame.Minutes+Format.swift */; };
 		F881E86F238E80380076376D /* PlayerGameAchievements.swift in Sources */ = {isa = PBXBuildFile; fileRef = F881E86E238E80380076376D /* PlayerGameAchievements.swift */; };
+		F88F7FE12393C098000F3E20 /* RecentActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88F7FE02393C098000F3E20 /* RecentActivityViewController.swift */; };
+		F88F7FE52393CCE8000F3E20 /* RecentActivityPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88F7FE42393CCE8000F3E20 /* RecentActivityPresenter.swift */; };
+		F88F7FE82393D07F000F3E20 /* RecentActivityViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88F7FE72393D07F000F3E20 /* RecentActivityViewInterface.swift */; };
+		F88F7FEA2393E8B4000F3E20 /* RecentActivityModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88F7FE92393E8B4000F3E20 /* RecentActivityModuleBuilder.swift */; };
+		F88F7FEC2393EBCF000F3E20 /* RecentActivityGameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88F7FEB2393EBCF000F3E20 /* RecentActivityGameCell.swift */; };
+		F88F7FEE2393F5B5000F3E20 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88F7FED2393F5B5000F3E20 /* UIViewController+Extensions.swift */; };
 		F8D17419238ED67800C47C87 /* ProfileDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D17418238ED67800C47C87 /* ProfileDataLoader.swift */; };
 		F8D1741B238EDA9B00C47C87 /* ProfileViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D1741A238EDA9B00C47C87 /* ProfileViewInterface.swift */; };
 		F8D1741D238EDE5E00C47C87 /* ThrobberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D1741C238EDE5E00C47C87 /* ThrobberViewController.swift */; };
@@ -120,7 +128,7 @@
 		F835B084238C3C36002460C4 /* UIColor+Initializers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Initializers.swift"; sourceTree = "<group>"; };
 		F835B0A2238C4185002460C4 /* UILabel+Initializers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Initializers.swift"; sourceTree = "<group>"; };
 		F835B0A5238C4209002460C4 /* UIFont+Palette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Palette.swift"; sourceTree = "<group>"; };
-		F835B0A8238C4434002460C4 /* ProfileNavbarHeaderContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNavbarHeaderContentView.swift; sourceTree = "<group>"; };
+		F835B0A8238C4434002460C4 /* ExpandableNavbar+HeaderContentViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExpandableNavbar+HeaderContentViews.swift"; sourceTree = "<group>"; };
 		F847226C238DDCF700ECA269 /* TouchThroughView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchThroughView.swift; sourceTree = "<group>"; };
 		F84923FE238DC5C200FCDE07 /* ProfileActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileActionButton.swift; sourceTree = "<group>"; };
 		F8492401238DCED900FCDE07 /* String+Plurals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Plurals.swift"; sourceTree = "<group>"; };
@@ -129,14 +137,14 @@
 		F854F4A6238B23A400E757C9 /* Steam.SteamIDCaretaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Steam.SteamIDCaretaker.swift; sourceTree = "<group>"; };
 		F854F4AB238B273E00E757C9 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		F854F4AE238B2AC700E757C9 /* GamesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesTableViewController.swift; sourceTree = "<group>"; };
-		F854F4B0238B2F3600E757C9 /* OwnedGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnedGame.swift; sourceTree = "<group>"; };
+		F854F4B0238B2F3600E757C9 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		F854F4B2238B308500E757C9 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		F854F5AA238C1DE900E757C9 /* CustomNavbarSnappingBehavior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavbarSnappingBehavior.swift; sourceTree = "<group>"; };
 		F854F5AC238C1E0D00E757C9 /* CustomNavbarScrollViewInsetsBehavior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavbarScrollViewInsetsBehavior.swift; sourceTree = "<group>"; };
-		F854F5AE238C1E6400E757C9 /* ExpandableNavbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableNavbarViewController.swift; sourceTree = "<group>"; };
+		F854F5AE238C1E6400E757C9 /* ExpandableNavbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableNavbar.swift; sourceTree = "<group>"; };
 		F854F5B1238C227B00E757C9 /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
 		F854F5B3238C274D00E757C9 /* ExpandableNavbarHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableNavbarHeaderView.swift; sourceTree = "<group>"; };
-		F854F5B5238C27D700E757C9 /* ExpandableNavbarContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableNavbarContentView.swift; sourceTree = "<group>"; };
+		F854F5B5238C27D700E757C9 /* ExpandableNavbar.ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableNavbar.ContentView.swift; sourceTree = "<group>"; };
 		F854F5B7238C281200E757C9 /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
 		F854F5B9238C29CA00E757C9 /* SnapKit+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SnapKit+Extensions.swift"; sourceTree = "<group>"; };
 		F854F5BD238C320900E757C9 /* ProfileNavbarContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNavbarContentView.swift; sourceTree = "<group>"; };
@@ -144,6 +152,8 @@
 		F8650F71239071860033818A /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		F8650F742391B4D40033818A /* PlayerMatchesHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerMatchesHistory.swift; sourceTree = "<group>"; };
 		F8650F762391B94F0033818A /* MatchDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchDetails.swift; sourceTree = "<group>"; };
+		F8664032239403540087D4BA /* ExpandableNavbar.Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableNavbar.Config.swift; sourceTree = "<group>"; };
+		F8664034239404FB0087D4BA /* TabbarConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarConfigurator.swift; sourceTree = "<group>"; };
 		F867B08B239286F100BA9235 /* Dota2Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dota2Cell.swift; sourceTree = "<group>"; };
 		F86FB9D2238C5CE700A62E86 /* OwnedGameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnedGameCell.swift; sourceTree = "<group>"; };
 		F86FB9D4238C6D2700A62E86 /* UIImageView+Initializers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Initializers.swift"; sourceTree = "<group>"; };
@@ -151,6 +161,12 @@
 		F86FB9D8238C7F8400A62E86 /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		F86FB9DA238C858A00A62E86 /* OwnedGame.Minutes+Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OwnedGame.Minutes+Format.swift"; sourceTree = "<group>"; };
 		F881E86E238E80380076376D /* PlayerGameAchievements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerGameAchievements.swift; sourceTree = "<group>"; };
+		F88F7FE02393C098000F3E20 /* RecentActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentActivityViewController.swift; sourceTree = "<group>"; };
+		F88F7FE42393CCE8000F3E20 /* RecentActivityPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentActivityPresenter.swift; sourceTree = "<group>"; };
+		F88F7FE72393D07F000F3E20 /* RecentActivityViewInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentActivityViewInterface.swift; sourceTree = "<group>"; };
+		F88F7FE92393E8B4000F3E20 /* RecentActivityModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentActivityModuleBuilder.swift; sourceTree = "<group>"; };
+		F88F7FEB2393EBCF000F3E20 /* RecentActivityGameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentActivityGameCell.swift; sourceTree = "<group>"; };
+		F88F7FED2393F5B5000F3E20 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		F8D17418238ED67800C47C87 /* ProfileDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDataLoader.swift; sourceTree = "<group>"; };
 		F8D1741A238EDA9B00C47C87 /* ProfileViewInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewInterface.swift; sourceTree = "<group>"; };
 		F8D1741C238EDE5E00C47C87 /* ThrobberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThrobberViewController.swift; sourceTree = "<group>"; };
@@ -314,7 +330,7 @@
 				F8650F782391B9530033818A /* Dota2 */,
 				F8152AA2238AF1B2009F937F /* SteamUser.swift */,
 				F86FB9D8238C7F8400A62E86 /* Friend.swift */,
-				F854F4B0238B2F3600E757C9 /* OwnedGame.swift */,
+				F854F4B0238B2F3600E757C9 /* Game.swift */,
 				F881E86E238E80380076376D /* PlayerGameAchievements.swift */,
 			);
 			path = Entities;
@@ -335,9 +351,9 @@
 		F8152AAD238B1B6C009F937F /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				F8650F70239071790033818A /* Log */,
 				F854F4A1238B235B00E757C9 /* Steam */,
 				F854F4A9238B271C00E757C9 /* ApplicationLaunch */,
+				F8650F70239071790033818A /* Log */,
 				F854F4E9238BE5AD00E757C9 /* Operators */,
 				F8152AAC238B1B5D009F937F /* Extensions */,
 			);
@@ -356,8 +372,8 @@
 			isa = PBXGroup;
 			children = (
 				F854F5A8238C1D9200E757C9 /* ExpandableNavbar */,
-				F8D1741C238EDE5E00C47C87 /* ThrobberViewController.swift */,
-				F831C211238EE818004A284D /* TabbarViewController.swift */,
+				F88F7FF02393F787000F3E20 /* Throbber */,
+				F88F7FF12393F78D000F3E20 /* Tabbar */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -385,6 +401,7 @@
 				F86FB9D4238C6D2700A62E86 /* UIImageView+Initializers.swift */,
 				F831C213238EEB65004A284D /* UIScrollView+Extensions.swift */,
 				F801AEEB238FC24700C391D8 /* UIView+Shadow.swift */,
+				F88F7FED2393F5B5000F3E20 /* UIViewController+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -403,7 +420,6 @@
 			isa = PBXGroup;
 			children = (
 				F854F5BD238C320900E757C9 /* ProfileNavbarContentView.swift */,
-				F835B0A8238C4434002460C4 /* ProfileNavbarHeaderContentView.swift */,
 				F84923FE238DC5C200FCDE07 /* ProfileActionButton.swift */,
 			);
 			path = Views;
@@ -421,8 +437,8 @@
 			isa = PBXGroup;
 			children = (
 				F8152A9F238AEC23009F937F /* Steam.swift */,
-				F854F4A4238B238F00E757C9 /* Steam+PublicMethods.swift */,
 				F854F4A2238B236E00E757C9 /* Steam.Endpoint.swift */,
+				F854F4A4238B238F00E757C9 /* Steam+PublicMethods.swift */,
 				F854F4A6238B23A400E757C9 /* Steam.SteamIDCaretaker.swift */,
 			);
 			path = Steam;
@@ -474,6 +490,7 @@
 				F8152A75238AC184009F937F /* SteamAuthFlow */,
 				F8152A9C238AE7DD009F937F /* ProfileFlow */,
 				F801AEED238FD09C00C391D8 /* FriendsFlow */,
+				F88F7FE22393C09B000F3E20 /* RecentActivity */,
 			);
 			path = Flows;
 			sourceTree = "<group>";
@@ -489,9 +506,11 @@
 		F854F5A8238C1D9200E757C9 /* ExpandableNavbar */ = {
 			isa = PBXGroup;
 			children = (
+				F88F7FEF2393F779000F3E20 /* ContentViews */,
 				F854F5A9238C1DDB00E757C9 /* Internal */,
-				F854F5AE238C1E6400E757C9 /* ExpandableNavbarViewController.swift */,
-				F854F5B5238C27D700E757C9 /* ExpandableNavbarContentView.swift */,
+				F854F5AE238C1E6400E757C9 /* ExpandableNavbar.swift */,
+				F8664032239403540087D4BA /* ExpandableNavbar.Config.swift */,
+				F854F5B5238C27D700E757C9 /* ExpandableNavbar.ContentView.swift */,
 			);
 			path = ExpandableNavbar;
 			sourceTree = "<group>";
@@ -530,6 +549,51 @@
 				F8650F762391B94F0033818A /* MatchDetails.swift */,
 			);
 			path = Dota2;
+			sourceTree = "<group>";
+		};
+		F88F7FE22393C09B000F3E20 /* RecentActivity */ = {
+			isa = PBXGroup;
+			children = (
+				F88F7FE62393D072000F3E20 /* View */,
+				F88F7FE42393CCE8000F3E20 /* RecentActivityPresenter.swift */,
+				F88F7FE92393E8B4000F3E20 /* RecentActivityModuleBuilder.swift */,
+			);
+			path = RecentActivity;
+			sourceTree = "<group>";
+		};
+		F88F7FE62393D072000F3E20 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F88F7FE72393D07F000F3E20 /* RecentActivityViewInterface.swift */,
+				F88F7FE02393C098000F3E20 /* RecentActivityViewController.swift */,
+				F88F7FEB2393EBCF000F3E20 /* RecentActivityGameCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F88F7FEF2393F779000F3E20 /* ContentViews */ = {
+			isa = PBXGroup;
+			children = (
+				F835B0A8238C4434002460C4 /* ExpandableNavbar+HeaderContentViews.swift */,
+			);
+			path = ContentViews;
+			sourceTree = "<group>";
+		};
+		F88F7FF02393F787000F3E20 /* Throbber */ = {
+			isa = PBXGroup;
+			children = (
+				F8D1741C238EDE5E00C47C87 /* ThrobberViewController.swift */,
+			);
+			path = Throbber;
+			sourceTree = "<group>";
+		};
+		F88F7FF12393F78D000F3E20 /* Tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				F831C211238EE818004A284D /* TabbarViewController.swift */,
+				F8664034239404FB0087D4BA /* TabbarConfigurator.swift */,
+			);
+			path = Tabbar;
 			sourceTree = "<group>";
 		};
 		F8D17415238ED65D00C47C87 /* View */ = {
@@ -689,6 +753,7 @@
 			files = (
 				F847226D238DDCF700ECA269 /* TouchThroughView.swift in Sources */,
 				F801AF6B238FF40A00C391D8 /* FriendsListCell.swift in Sources */,
+				F8664033239403540087D4BA /* ExpandableNavbar.Config.swift in Sources */,
 				F854F5BA238C29CA00E757C9 /* SnapKit+Extensions.swift in Sources */,
 				F8492402238DCED900FCDE07 /* String+Plurals.swift in Sources */,
 				F86FB9DB238C858B00A62E86 /* OwnedGame.Minutes+Format.swift in Sources */,
@@ -699,15 +764,17 @@
 				F854F4A3238B236E00E757C9 /* Steam.Endpoint.swift in Sources */,
 				F854F4AF238B2AC700E757C9 /* GamesTableViewController.swift in Sources */,
 				F801AF0C238FD5FA00C391D8 /* GradientView.swift in Sources */,
+				F8664035239404FB0087D4BA /* TabbarConfigurator.swift in Sources */,
 				F803A5072391BD7B00784B88 /* DotaTeam.swift in Sources */,
 				F8152AA0238AEC23009F937F /* Steam.swift in Sources */,
-				F854F5AF238C1E6400E757C9 /* ExpandableNavbarViewController.swift in Sources */,
+				F854F5AF238C1E6400E757C9 /* ExpandableNavbar.swift in Sources */,
 				F8152AA7238AF518009F937F /* ProfileModuleBuilder.swift in Sources */,
 				F8152A99238AD8B1009F937F /* Array+Extensions.swift in Sources */,
 				F854F5B4238C274D00E757C9 /* ExpandableNavbarHeaderView.swift in Sources */,
 				F8152A9B238ADA6C009F937F /* SteamAuthModuleBuilder.swift in Sources */,
 				F8152AA3238AF1B2009F937F /* SteamUser.swift in Sources */,
 				F86FB9D3238C5CE700A62E86 /* OwnedGameCell.swift in Sources */,
+				F88F7FEE2393F5B5000F3E20 /* UIViewController+Extensions.swift in Sources */,
 				F86FB9D9238C7F8400A62E86 /* Friend.swift in Sources */,
 				F835B085238C3C36002460C4 /* UIColor+Initializers.swift in Sources */,
 				F854F4B3238B308500E757C9 /* String+Extensions.swift in Sources */,
@@ -717,6 +784,7 @@
 				F801AEEF238FD0AB00C391D8 /* FriendsListViewController.swift in Sources */,
 				F831C212238EE818004A284D /* TabbarViewController.swift in Sources */,
 				F8152A62238AC15C009F937F /* AppDelegate.swift in Sources */,
+				F88F7FEA2393E8B4000F3E20 /* RecentActivityModuleBuilder.swift in Sources */,
 				F854F4A7238B23A400E757C9 /* Steam.SteamIDCaretaker.swift in Sources */,
 				F8650F72239071860033818A /* Log.swift in Sources */,
 				F854F5BE238C320900E757C9 /* ProfileNavbarContentView.swift in Sources */,
@@ -736,18 +804,22 @@
 				F860F1582390268A00E9430B /* ArrowView.swift in Sources */,
 				F801AF18238FEEDA00C391D8 /* Shadow+Palette.swift in Sources */,
 				F854F5B2238C227B00E757C9 /* BlurView.swift in Sources */,
-				F835B0A9238C4434002460C4 /* ProfileNavbarHeaderContentView.swift in Sources */,
+				F835B0A9238C4434002460C4 /* ExpandableNavbar+HeaderContentViews.swift in Sources */,
 				F854F5AB238C1DE900E757C9 /* CustomNavbarSnappingBehavior.swift in Sources */,
 				F854F5B8238C281200E757C9 /* UIApplication+Extensions.swift in Sources */,
 				F8D1741D238EDE5E00C47C87 /* ThrobberViewController.swift in Sources */,
 				F801AF6E238FFA5600C391D8 /* FriendsViewController.swift in Sources */,
+				F88F7FE82393D07F000F3E20 /* RecentActivityViewInterface.swift in Sources */,
 				F84923FF238DC5C200FCDE07 /* ProfileActionButton.swift in Sources */,
-				F854F4B1238B2F3600E757C9 /* OwnedGame.swift in Sources */,
+				F854F4B1238B2F3600E757C9 /* Game.swift in Sources */,
 				F8152AAB238B174B009F937F /* AppLauncher.swift in Sources */,
+				F88F7FE12393C098000F3E20 /* RecentActivityViewController.swift in Sources */,
 				F801AF0F238FD65300C391D8 /* Gradient.swift in Sources */,
 				F86FB9D5238C6D2700A62E86 /* UIImageView+Initializers.swift in Sources */,
-				F854F5B6238C27D700E757C9 /* ExpandableNavbarContentView.swift in Sources */,
+				F88F7FE52393CCE8000F3E20 /* RecentActivityPresenter.swift in Sources */,
+				F854F5B6238C27D700E757C9 /* ExpandableNavbar.ContentView.swift in Sources */,
 				F867B08C239286F100BA9235 /* Dota2Cell.swift in Sources */,
+				F88F7FEC2393EBCF000F3E20 /* RecentActivityGameCell.swift in Sources */,
 				F8152AA5238AF505009F937F /* ProfilePresenter.swift in Sources */,
 				F801AFAB23900BF700C391D8 /* FriendsViewInterface.swift in Sources */,
 				F801AEEC238FC24700C391D8 /* UIView+Shadow.swift in Sources */,
