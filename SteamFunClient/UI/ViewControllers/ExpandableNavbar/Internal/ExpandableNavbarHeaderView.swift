@@ -67,7 +67,10 @@ internal final class ExpandableNavbarHeaderView: UIView {
         removeContentView()
         self.contentView = contentView
         contentContainerView.addSubview(contentView)
-        contentView.snp.pinToAllSuperviewEdges()
+        contentView.snp.makeConstraints {
+            $0.left.right.equalToSuperview().inset(44.0)
+            $0.top.bottom.equalToSuperview()
+        }
         self.setNeedsLayout()
         self.layoutIfNeeded()
     }

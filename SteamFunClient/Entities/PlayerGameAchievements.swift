@@ -56,9 +56,10 @@ extension PlayerGameAchievements.Achievement: Codable {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.apiName = try container.decode(String.self, forKey: .apiName)
-        self.achieved = (try? container.decode(Bool.self, forKey: .achieved)) ?? false
-        if let unlockTimestamp = try? container.decode(Double.self, forKey: .unlockDate), unlockTimestamp != 0 {
-            self.unlockDate = Date(timeIntervalSince1970: unlockTimestamp)
+        let achieved = (try? container.decode(Int.self, forKey: .achieved)) ?? 0
+        self.achieved = achieved == 1
+        if let unlockTimestamp = try? container.decode(Int.self, forKey: .unlockDate), unlockTimestamp != 0 {
+            self.unlockDate = Date(timeIntervalSince1970: TimeInterval(unlockTimestamp))
         } else {
             self.unlockDate = nil
         }

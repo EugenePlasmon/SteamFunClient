@@ -14,30 +14,33 @@ extension Steam {
     static func getProfileInfo(for steamID: SteamID,
                                then completion: @escaping (Result<SteamUser, AFError>) -> Void) {
         
-        Steam.Endpoint.playerSummaries(id: steamID).request.responseDecodable(of: Response<PlayerSummariesResponse>.self, decoder: decoder(keyPath: "response")) { dataResponse in
-            dataResponse.result
-                .map { $0.result.players.first! }
-                >>> completion
+        Steam.Endpoint.playerSummaries(id: steamID).request
+            .responseDecodable(of: Response<PlayerSummariesResponse>.self, decoder: decoder(keyPath: "response")) { dataResponse in
+                dataResponse.result
+                    .map { $0.result.players.first! }
+                    >>> completion
         }
     }
     
     static func getFriends(for steamID: SteamID,
                            then completion: @escaping (Result<[Friend], AFError>) -> Void) {
         
-        Steam.Endpoint.friendsList(id: steamID).request.responseDecodable(of: FriendsList.self) { dataResponse in
-            dataResponse.result
-                .map { $0.friendsList.friends }
-                >>> completion
+        Steam.Endpoint.friendsList(id: steamID).request
+            .responseDecodable(of: FriendsList.self) { dataResponse in
+                dataResponse.result
+                    .map { $0.friendsList.friends }
+                    >>> completion
         }
     }
     
     static func getOwnedGames(for steamID: SteamID,
                               then completion: @escaping (Result<[Game], AFError>) -> Void) {
         
-        Steam.Endpoint.playerOwnedGames(id: steamID).request.responseDecodable(of: Response<GamesResponse>.self, decoder: decoder(keyPath: "response")) { dataResponse in
-            dataResponse.result
-                .map { $0.result.games }
-                >>> completion
+        Steam.Endpoint.playerOwnedGames(id: steamID).request
+            .responseDecodable(of: Response<GamesResponse>.self, decoder: decoder(keyPath: "response")) { dataResponse in
+                dataResponse.result
+                    .map { $0.result.games }
+                    >>> completion
         }
     }
     
@@ -45,26 +48,54 @@ extension Steam {
                                           gameID: GameID,
                                           then completion: @escaping (Result<PlayerGameAchievements, AFError>) -> Void) {
         
-        Steam.Endpoint.playerGameAchievements(steamID: steamID, gameID: gameID).request.responseDecodable(of: Response<PlayerGameAchievements>.self, decoder: decoder(keyPath: "playerStats")) { dataResponse in
-            dataResponse.result
-                .map { $0.result }
-                >>> completion
+        Steam.Endpoint.playerGameAchievements(steamID: steamID, gameID: gameID).request
+            .responseDecodable(of: Response<PlayerGameAchievements>.self, decoder: decoder(keyPath: "playerstats")) { dataResponse in
+                dataResponse.result
+                    .map { $0.result }
+                    >>> completion
         }
     }
     
-    static func getRecentlyPlayedGames(steamID: SteamID, then completion: @escaping (Result<[Game], AFError>) -> Void) {
-        Steam.Endpoint.recentlyPlayedGames(steamID: steamID).request.responseDecodable(of: Response<GamesResponse>.self, decoder: decoder(keyPath: "response")) { dataResponse in
-            dataResponse.result
-                .map { $0.result.games }
-                >>> completion
+    static func getGlobalAchievementPercentages(gameID: GameID,
+                                                then completion: @escaping (Result<GlobalAchievementPercentages, AFError>) -> Void) {
+        
+        Steam.Endpoint.globalAchievementPercentages(gameID: gameID).request
+            .responseDecodable(of: Response<GlobalAchievementPercentages>.self, decoder: decoder(keyPath: "achievementpercentages")) { dataResponse in
+                dataResponse.result
+                    .map { $0.result }
+                    >>> completion
+        }
+    }
+    
+    static func getRecentlyPlayedGames(steamID: SteamID,
+                                       then completion: @escaping (Result<[Game], AFError>) -> Void) {
+        
+        Steam.Endpoint.recentlyPlayedGames(steamID: steamID).request
+            .responseDecodable(of: Response<GamesResponse>.self, decoder: decoder(keyPath: "response")) { dataResponse in
+                dataResponse.result
+                    .map { $0.result.games }
+                    >>> completion
+        }
+    }
+    
+    static func getGameSchema(gameID: GameID,
+                              then completion: @escaping (Result<GameSchema, AFError>) -> Void) {
+        
+        Steam.Endpoint.gameSchema(gameID: gameID).request
+            .responseDecodable(of: Response<GameSchema>.self, decoder: decoder(keyPath: "game")) { dataResponse in
+                dataResponse.result
+                    .map { $0.result }
+                    >>> completion
         }
     }
     
     static func dota2Heroes(then completion: @escaping (Result<[Dota2Hero], AFError>) -> Void) {
-        Steam.Endpoint.dota2Heroes.request.responseDecodable(of: Response<Heroes>.self, decoder: decoder(keyPath: "result")) { dataResponse in
-            dataResponse.result
-                .map { $0.result.heroes }
-                >>> completion
+        
+        Steam.Endpoint.dota2Heroes.request
+            .responseDecodable(of: Response<Heroes>.self, decoder: decoder(keyPath: "result")) { dataResponse in
+                dataResponse.result
+                    .map { $0.result.heroes }
+                    >>> completion
         }
     }
     
@@ -85,9 +116,11 @@ extension Steam {
         }
     }
     
-    static func dota2MatchDetails(matchID: Int, then completion: @escaping (Result<MatchDetails, AFError>) -> Void) {
-        Steam.Endpoint.dota2MatchDetails(matchID: matchID)
-            .request.responseDecodable(of: Response<MatchDetails>.self, decoder: decoder(keyPath: "result")) { dataResponse in
+    static func dota2MatchDetails(matchID: Int,
+                                  then completion: @escaping (Result<MatchDetails, AFError>) -> Void) {
+        
+        Steam.Endpoint.dota2MatchDetails(matchID: matchID).request
+            .responseDecodable(of: Response<MatchDetails>.self, decoder: decoder(keyPath: "result")) { dataResponse in
                 dataResponse.result
                     .map { $0.result }
                     >>> completion
