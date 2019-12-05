@@ -71,6 +71,7 @@ extension ProfilePresenter: ProfileViewOutput {
     }
     
     func viewDidTapGame(_ game: Game) {
-        
+        let viewController = GameAchievementsModuleBuilder.build(game: game, steamID: steamID)
+        self.viewInput?.navigationController?.pushViewController(viewController, animated: true)
     }
 }

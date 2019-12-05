@@ -101,8 +101,6 @@ extension FeatureColor {
     struct Dota2 {
         
         static let background = themeDependent(dark: .vorazun, light: .artanis)
-        
-        
     }
     
     struct Dota2ShortStats {
@@ -139,5 +137,25 @@ extension FeatureColor {
             static let date = themeDependent(dark: .tassadar, light: .aldaris)
         }
         
+    }
+}
+
+extension FeatureColor {
+    
+    struct Achievements {
+        
+        static let gameName = themeDependent(dark: .artanis, light: .artanis)
+        
+        static let playerProgress = themeDependent(dark: .artanis, light: .artanis)
+        
+        static let playerProgressBackground = themeDependent(dark: .serdath, light: .serdath)
+        
+        static let achievementCell = themeDependent(dark: .raszagal, light: .zoraya)
+        
+        static let achievementName = themeDependent(dark: .artanis, light: .vorazun)
+        
+        static let achievementPercentage = themeDependent(dark: .selendis, light: .serdath)
+        
+        static let achievementDescription = themeDependent(dark: .selendis, light: .serdath)
     }
 }

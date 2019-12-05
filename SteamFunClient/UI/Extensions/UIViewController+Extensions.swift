@@ -12,9 +12,9 @@ extension UIViewController {
     
     var defaultNavbarConfig: ExpandableNavbar.Config {
         return ExpandableNavbar.Config(backgroundBlurColor: FeatureColor.Navbar.background,
-                                                     showBackButton: showNavbarBackButton,
-                                                     scrollViewInsets: .init(top: 16.0, left: 0, bottom: 8.0, right: 0),
-                                                     hasBlur: true)
+                                       showBackButton: showNavbarBackButton,
+                                       scrollViewInsets: .init(top: 16.0, left: 0, bottom: 8.0, right: 0),
+                                       hasBlur: true)
     }
     
     var showNavbarBackButton: Bool {

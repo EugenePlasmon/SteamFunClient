@@ -23,9 +23,12 @@ extension ExpandableNavbar.HeaderContentView {
         
         var imageUrl: String? {
             didSet {
-                imageUrl
-                    >>- { URL(string: $0) }
-                    >>- { imageView.kf.setImage(with: $0) }
+                guard let imageUrl = imageUrl else {
+                    imageView.isHidden = true
+                    return
+                }
+                imageView.isHidden = false
+                URL(string: imageUrl) >>- { imageView.kf.setImage(with: $0) }
             }
         }
         

@@ -21,7 +21,11 @@ extension Steam {
         
         case playerGameAchievements(steamID: SteamID, gameID: GameID)
         
+        case globalAchievementPercentages(gameID: GameID)
+        
         case recentlyPlayedGames(steamID: SteamID)
+        
+        case gameSchema(gameID: GameID)
         
         case dota2Heroes
         
@@ -47,9 +51,17 @@ extension Steam {
                 return ("ISteamUserStats/GetPlayerAchievements/v0001",
                         ["steamid": "\(steamID)", "appid": "\(gameID)"])
                     >>> constructRequest
+            case .globalAchievementPercentages(let gameID):
+                return ("ISteamUserStats/GetGlobalAchievementPercentagesForApp/v0002",
+                        ["gameid": "\(gameID)"])
+                    >>> constructRequest
             case .recentlyPlayedGames(let steamID):
                 return ("IPlayerService/GetRecentlyPlayedGames/v0001",
                         ["steamid": steamID])
+                    >>> constructRequest
+            case .gameSchema(let gameID):
+                return ("ISteamUserStats/GetSchemaForGame/v2",
+                        ["appid": gameID, "l": "russian"])
                     >>> constructRequest
             case .dota2Heroes:
                 return ("IEconDOTA2_570/GetHeroes/v1", ["language": "english"])
