@@ -21,7 +21,7 @@
 		F801AF70238FFD2D00C391D8 /* FriendsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F801AF6F238FFD2D00C391D8 /* FriendsPresenter.swift */; };
 		F801AF72239001CD00C391D8 /* FriendsModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F801AF71239001CD00C391D8 /* FriendsModuleBuilder.swift */; };
 		F801AFAB23900BF700C391D8 /* FriendsViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = F801AFAA23900BF700C391D8 /* FriendsViewInterface.swift */; };
-		F803A5072391BD7B00784B88 /* DotaTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = F803A5062391BD7B00784B88 /* DotaTeam.swift */; };
+		F803A5072391BD7B00784B88 /* Dota2Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = F803A5062391BD7B00784B88 /* Dota2Team.swift */; };
 		F8152A62238AC15C009F937F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8152A61238AC15C009F937F /* AppDelegate.swift */; };
 		F8152A6B238AC15D009F937F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8152A6A238AC15D009F937F /* Assets.xcassets */; };
 		F8152A6E238AC15D009F937F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8152A6C238AC15D009F937F /* LaunchScreen.storyboard */; };
@@ -47,6 +47,7 @@
 		F847226D238DDCF700ECA269 /* TouchThroughView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F847226C238DDCF700ECA269 /* TouchThroughView.swift */; };
 		F84923FF238DC5C200FCDE07 /* ProfileActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84923FE238DC5C200FCDE07 /* ProfileActionButton.swift */; };
 		F8492402238DCED900FCDE07 /* String+Plurals.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8492401238DCED900FCDE07 /* String+Plurals.swift */; };
+		F84EA7822397E58900ACEFDC /* Dota2MatchesPersistentStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84EA7812397E58900ACEFDC /* Dota2MatchesPersistentStorage.swift */; };
 		F854F4A3238B236E00E757C9 /* Steam.Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F854F4A2238B236E00E757C9 /* Steam.Endpoint.swift */; };
 		F854F4A5238B238F00E757C9 /* Steam+PublicMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = F854F4A4238B238F00E757C9 /* Steam+PublicMethods.swift */; };
 		F854F4A7238B23A400E757C9 /* Steam.SteamIDCaretaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F854F4A6238B23A400E757C9 /* Steam.SteamIDCaretaker.swift */; };
@@ -63,13 +64,33 @@
 		F854F5B8238C281200E757C9 /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F854F5B7238C281200E757C9 /* UIApplication+Extensions.swift */; };
 		F854F5BA238C29CA00E757C9 /* SnapKit+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F854F5B9238C29CA00E757C9 /* SnapKit+Extensions.swift */; };
 		F854F5BE238C320900E757C9 /* ProfileNavbarContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F854F5BD238C320900E757C9 /* ProfileNavbarContentView.swift */; };
+		F85ED26C2397F66600FA6DFA /* Dota2MatchHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85ED26B2397F66600FA6DFA /* Dota2MatchHistoryViewController.swift */; };
+		F85ED26E239801A000FA6DFA /* ImageWithSubtextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85ED26D239801A000FA6DFA /* ImageWithSubtextView.swift */; };
+		F85ED270239801D200FA6DFA /* Dota2MatchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85ED26F239801D200FA6DFA /* Dota2MatchCell.swift */; };
+		F85ED2752398030700FA6DFA /* Dota2ViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85ED2742398030700FA6DFA /* Dota2ViewInterface.swift */; };
 		F860F1582390268A00E9430B /* ArrowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F860F1572390268A00E9430B /* ArrowView.swift */; };
 		F8650F72239071860033818A /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8650F71239071860033818A /* Log.swift */; };
-		F8650F752391B4D40033818A /* PlayerMatchesHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8650F742391B4D40033818A /* PlayerMatchesHistory.swift */; };
+		F8650F752391B4D40033818A /* PlayerMatchHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8650F742391B4D40033818A /* PlayerMatchHistory.swift */; };
 		F8650F772391B94F0033818A /* MatchDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8650F762391B94F0033818A /* MatchDetails.swift */; };
 		F8664033239403540087D4BA /* ExpandableNavbar.Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8664032239403540087D4BA /* ExpandableNavbar.Config.swift */; };
 		F8664035239404FB0087D4BA /* TabbarConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8664034239404FB0087D4BA /* TabbarConfigurator.swift */; };
-		F867B08C239286F100BA9235 /* Dota2Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F867B08B239286F100BA9235 /* Dota2Cell.swift */; };
+		F866403823943D460087D4BA /* Dota2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F866403723943D460087D4BA /* Dota2ViewController.swift */; };
+		F866403A23943D6B0087D4BA /* Dota2Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F866403923943D6B0087D4BA /* Dota2Presenter.swift */; };
+		F866403C23943D760087D4BA /* Dota2ModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F866403B23943D760087D4BA /* Dota2ModuleBuilder.swift */; };
+		F866404223943F150087D4BA /* Dota2ShortStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F866404123943F150087D4BA /* Dota2ShortStatsViewController.swift */; };
+		F8664044239441060087D4BA /* UIView+Initializers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8664043239441060087D4BA /* UIView+Initializers.swift */; };
+		F8664046239445090087D4BA /* Dota2ShortStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8664045239445090087D4BA /* Dota2ShortStatView.swift */; };
+		F8664064239446B90087D4BA /* UnicodeStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8664063239446B90087D4BA /* UnicodeStrings.swift */; };
+		F86640A923958D1C0087D4BA /* Dota2Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86640A823958D1C0087D4BA /* Dota2Hero.swift */; };
+		F86640AC2395A38E0087D4BA /* Dota2HeroResourceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86640AB2395A38E0087D4BA /* Dota2HeroResourceManager.swift */; };
+		F86640AE2395B2CA0087D4BA /* Dota2MatchesRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86640AD2395B2CA0087D4BA /* Dota2MatchesRequestManager.swift */; };
+		F866411E2397CA430087D4BA /* Dota2MatchHistoryPagedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F866411D2397CA430087D4BA /* Dota2MatchHistoryPagedLoader.swift */; };
+		F86641202397CA5A0087D4BA /* Dota2MatchDetailsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F866411F2397CA5A0087D4BA /* Dota2MatchDetailsLoader.swift */; };
+		F86641232397CDB20087D4BA /* RealmDota2Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86641222397CDB20087D4BA /* RealmDota2Player.swift */; };
+		F86641262397CDD10087D4BA /* RealmDota2MatchDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86641252397CDD10087D4BA /* RealmDota2MatchDetails.swift */; };
+		F86641282397CDE90087D4BA /* RealmDota2UserMatches.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86641272397CDE90087D4BA /* RealmDota2UserMatches.swift */; };
+		F866412A2397CE380087D4BA /* Dota2UserMatches.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86641292397CE380087D4BA /* Dota2UserMatches.swift */; };
+		F867B08C239286F100BA9235 /* Dota2ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F867B08B239286F100BA9235 /* Dota2ProfileCell.swift */; };
 		F86FB9D3238C5CE700A62E86 /* OwnedGameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86FB9D2238C5CE700A62E86 /* OwnedGameCell.swift */; };
 		F86FB9D5238C6D2700A62E86 /* UIImageView+Initializers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86FB9D4238C6D2700A62E86 /* UIImageView+Initializers.swift */; };
 		F86FB9D7238C740200A62E86 /* OwnedGamesHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86FB9D6238C740200A62E86 /* OwnedGamesHeaderCell.swift */; };
@@ -82,6 +103,10 @@
 		F88F7FEA2393E8B4000F3E20 /* RecentActivityModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88F7FE92393E8B4000F3E20 /* RecentActivityModuleBuilder.swift */; };
 		F88F7FEC2393EBCF000F3E20 /* RecentActivityGameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88F7FEB2393EBCF000F3E20 /* RecentActivityGameCell.swift */; };
 		F88F7FEE2393F5B5000F3E20 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88F7FED2393F5B5000F3E20 /* UIViewController+Extensions.swift */; };
+		F8C2363223981AEB00C48301 /* DebugConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C2363123981AEB00C48301 /* DebugConstants.swift */; };
+		F8C23634239832B500C48301 /* Dota2MatchHistoryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C23633239832B500C48301 /* Dota2MatchHistoryHeaderView.swift */; };
+		F8C23636239837CC00C48301 /* UIEdgeInsets+Initializers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C23635239837CC00C48301 /* UIEdgeInsets+Initializers.swift */; };
+		F8C23638239859E800C48301 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C23637239859E800C48301 /* UIColor+Extensions.swift */; };
 		F8D17419238ED67800C47C87 /* ProfileDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D17418238ED67800C47C87 /* ProfileDataLoader.swift */; };
 		F8D1741B238EDA9B00C47C87 /* ProfileViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D1741A238EDA9B00C47C87 /* ProfileViewInterface.swift */; };
 		F8D1741D238EDE5E00C47C87 /* ThrobberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D1741C238EDE5E00C47C87 /* ThrobberViewController.swift */; };
@@ -104,7 +129,7 @@
 		F801AF6F238FFD2D00C391D8 /* FriendsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsPresenter.swift; sourceTree = "<group>"; };
 		F801AF71239001CD00C391D8 /* FriendsModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsModuleBuilder.swift; sourceTree = "<group>"; };
 		F801AFAA23900BF700C391D8 /* FriendsViewInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewInterface.swift; sourceTree = "<group>"; };
-		F803A5062391BD7B00784B88 /* DotaTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotaTeam.swift; sourceTree = "<group>"; };
+		F803A5062391BD7B00784B88 /* Dota2Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dota2Team.swift; sourceTree = "<group>"; };
 		F8152A5E238AC15C009F937F /* SteamFunClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SteamFunClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8152A61238AC15C009F937F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8152A6A238AC15D009F937F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -132,6 +157,7 @@
 		F847226C238DDCF700ECA269 /* TouchThroughView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchThroughView.swift; sourceTree = "<group>"; };
 		F84923FE238DC5C200FCDE07 /* ProfileActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileActionButton.swift; sourceTree = "<group>"; };
 		F8492401238DCED900FCDE07 /* String+Plurals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Plurals.swift"; sourceTree = "<group>"; };
+		F84EA7812397E58900ACEFDC /* Dota2MatchesPersistentStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dota2MatchesPersistentStorage.swift; sourceTree = "<group>"; };
 		F854F4A2238B236E00E757C9 /* Steam.Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Steam.Endpoint.swift; sourceTree = "<group>"; };
 		F854F4A4238B238F00E757C9 /* Steam+PublicMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Steam+PublicMethods.swift"; sourceTree = "<group>"; };
 		F854F4A6238B23A400E757C9 /* Steam.SteamIDCaretaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Steam.SteamIDCaretaker.swift; sourceTree = "<group>"; };
@@ -148,13 +174,33 @@
 		F854F5B7238C281200E757C9 /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
 		F854F5B9238C29CA00E757C9 /* SnapKit+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SnapKit+Extensions.swift"; sourceTree = "<group>"; };
 		F854F5BD238C320900E757C9 /* ProfileNavbarContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNavbarContentView.swift; sourceTree = "<group>"; };
+		F85ED26B2397F66600FA6DFA /* Dota2MatchHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dota2MatchHistoryViewController.swift; sourceTree = "<group>"; };
+		F85ED26D239801A000FA6DFA /* ImageWithSubtextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageWithSubtextView.swift; sourceTree = "<group>"; };
+		F85ED26F239801D200FA6DFA /* Dota2MatchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dota2MatchCell.swift; sourceTree = "<group>"; };
+		F85ED2742398030700FA6DFA /* Dota2ViewInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dota2ViewInterface.swift; sourceTree = "<group>"; };
 		F860F1572390268A00E9430B /* ArrowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowView.swift; sourceTree = "<group>"; };
 		F8650F71239071860033818A /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
-		F8650F742391B4D40033818A /* PlayerMatchesHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerMatchesHistory.swift; sourceTree = "<group>"; };
+		F8650F742391B4D40033818A /* PlayerMatchHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerMatchHistory.swift; sourceTree = "<group>"; };
 		F8650F762391B94F0033818A /* MatchDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchDetails.swift; sourceTree = "<group>"; };
 		F8664032239403540087D4BA /* ExpandableNavbar.Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableNavbar.Config.swift; sourceTree = "<group>"; };
 		F8664034239404FB0087D4BA /* TabbarConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarConfigurator.swift; sourceTree = "<group>"; };
-		F867B08B239286F100BA9235 /* Dota2Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dota2Cell.swift; sourceTree = "<group>"; };
+		F866403723943D460087D4BA /* Dota2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dota2ViewController.swift; sourceTree = "<group>"; };
+		F866403923943D6B0087D4BA /* Dota2Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dota2Presenter.swift; sourceTree = "<group>"; };
+		F866403B23943D760087D4BA /* Dota2ModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dota2ModuleBuilder.swift; sourceTree = "<group>"; };
+		F866404123943F150087D4BA /* Dota2ShortStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dota2ShortStatsViewController.swift; sourceTree = "<group>"; };
+		F8664043239441060087D4BA /* UIView+Initializers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Initializers.swift"; sourceTree = "<group>"; };
+		F8664045239445090087D4BA /* Dota2ShortStatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dota2ShortStatView.swift; sourceTree = "<group>"; };
+		F8664063239446B90087D4BA /* UnicodeStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnicodeStrings.swift; sourceTree = "<group>"; };
+		F86640A823958D1C0087D4BA /* Dota2Hero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dota2Hero.swift; sourceTree = "<group>"; };
+		F86640AB2395A38E0087D4BA /* Dota2HeroResourceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dota2HeroResourceManager.swift; sourceTree = "<group>"; };
+		F86640AD2395B2CA0087D4BA /* Dota2MatchesRequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dota2MatchesRequestManager.swift; sourceTree = "<group>"; };
+		F866411D2397CA430087D4BA /* Dota2MatchHistoryPagedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dota2MatchHistoryPagedLoader.swift; sourceTree = "<group>"; };
+		F866411F2397CA5A0087D4BA /* Dota2MatchDetailsLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dota2MatchDetailsLoader.swift; sourceTree = "<group>"; };
+		F86641222397CDB20087D4BA /* RealmDota2Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDota2Player.swift; sourceTree = "<group>"; };
+		F86641252397CDD10087D4BA /* RealmDota2MatchDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDota2MatchDetails.swift; sourceTree = "<group>"; };
+		F86641272397CDE90087D4BA /* RealmDota2UserMatches.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDota2UserMatches.swift; sourceTree = "<group>"; };
+		F86641292397CE380087D4BA /* Dota2UserMatches.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dota2UserMatches.swift; sourceTree = "<group>"; };
+		F867B08B239286F100BA9235 /* Dota2ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dota2ProfileCell.swift; sourceTree = "<group>"; };
 		F86FB9D2238C5CE700A62E86 /* OwnedGameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnedGameCell.swift; sourceTree = "<group>"; };
 		F86FB9D4238C6D2700A62E86 /* UIImageView+Initializers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Initializers.swift"; sourceTree = "<group>"; };
 		F86FB9D6238C740200A62E86 /* OwnedGamesHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnedGamesHeaderCell.swift; sourceTree = "<group>"; };
@@ -167,6 +213,10 @@
 		F88F7FE92393E8B4000F3E20 /* RecentActivityModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentActivityModuleBuilder.swift; sourceTree = "<group>"; };
 		F88F7FEB2393EBCF000F3E20 /* RecentActivityGameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentActivityGameCell.swift; sourceTree = "<group>"; };
 		F88F7FED2393F5B5000F3E20 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		F8C2363123981AEB00C48301 /* DebugConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugConstants.swift; sourceTree = "<group>"; };
+		F8C23633239832B500C48301 /* Dota2MatchHistoryHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dota2MatchHistoryHeaderView.swift; sourceTree = "<group>"; };
+		F8C23635239837CC00C48301 /* UIEdgeInsets+Initializers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+Initializers.swift"; sourceTree = "<group>"; };
+		F8C23637239859E800C48301 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		F8D17418238ED67800C47C87 /* ProfileDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDataLoader.swift; sourceTree = "<group>"; };
 		F8D1741A238EDA9B00C47C87 /* ProfileViewInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewInterface.swift; sourceTree = "<group>"; };
 		F8D1741C238EDE5E00C47C87 /* ThrobberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThrobberViewController.swift; sourceTree = "<group>"; };
@@ -218,14 +268,6 @@
 				F801AFAD23900C1100C391D8 /* Builder */,
 			);
 			path = FriendsFlow;
-			sourceTree = "<group>";
-		};
-		F801AF0D238FD64600C391D8 /* GradientView */ = {
-			isa = PBXGroup;
-			children = (
-				F801AF0B238FD5FA00C391D8 /* GradientView.swift */,
-			);
-			path = GradientView;
 			sourceTree = "<group>";
 		};
 		F801AF10238FDF9600C391D8 /* FeatureColors */ = {
@@ -300,6 +342,7 @@
 				F8152AAE238B1B9C009F937F /* SupportingFiles */,
 				F8152A6A238AC15D009F937F /* Assets.xcassets */,
 				F8152A6F238AC15D009F937F /* Info.plist */,
+				F8C2363123981AEB00C48301 /* DebugConstants.swift */,
 			);
 			path = SteamFunClient;
 			sourceTree = "<group>";
@@ -352,7 +395,9 @@
 			isa = PBXGroup;
 			children = (
 				F854F4A1238B235B00E757C9 /* Steam */,
+				F86640AA2395A3630087D4BA /* Dota2 */,
 				F854F4A9238B271C00E757C9 /* ApplicationLaunch */,
+				F86641212397CD870087D4BA /* RealmDataBase */,
 				F8650F70239071790033818A /* Log */,
 				F854F4E9238BE5AD00E757C9 /* Operators */,
 				F8152AAC238B1B5D009F937F /* Extensions */,
@@ -386,6 +431,7 @@
 				F854F4AA238B273600E757C9 /* Views */,
 				F831C210238EE804004A284D /* ViewControllers */,
 				F801AEE8238FC14100C391D8 /* Entities */,
+				F8664062239446AE0087D4BA /* Constants */,
 				F835B083238C3B8B002460C4 /* Extensions */,
 			);
 			path = UI;
@@ -398,10 +444,13 @@
 				F854F5B9238C29CA00E757C9 /* SnapKit+Extensions.swift */,
 				F835B0A2238C4185002460C4 /* UILabel+Initializers.swift */,
 				F835B084238C3C36002460C4 /* UIColor+Initializers.swift */,
+				F8C23637239859E800C48301 /* UIColor+Extensions.swift */,
+				F8664043239441060087D4BA /* UIView+Initializers.swift */,
 				F86FB9D4238C6D2700A62E86 /* UIImageView+Initializers.swift */,
 				F831C213238EEB65004A284D /* UIScrollView+Extensions.swift */,
 				F801AEEB238FC24700C391D8 /* UIView+Shadow.swift */,
 				F88F7FED2393F5B5000F3E20 /* UIViewController+Extensions.swift */,
+				F8C23635239837CC00C48301 /* UIEdgeInsets+Initializers.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -433,13 +482,21 @@
 			path = BaseViews;
 			sourceTree = "<group>";
 		};
+		F84EA7802397E57800ACEFDC /* Storages */ = {
+			isa = PBXGroup;
+			children = (
+				F854F4A6238B23A400E757C9 /* Steam.SteamIDCaretaker.swift */,
+				F84EA7812397E58900ACEFDC /* Dota2MatchesPersistentStorage.swift */,
+			);
+			path = Storages;
+			sourceTree = "<group>";
+		};
 		F854F4A1238B235B00E757C9 /* Steam */ = {
 			isa = PBXGroup;
 			children = (
 				F8152A9F238AEC23009F937F /* Steam.swift */,
 				F854F4A2238B236E00E757C9 /* Steam.Endpoint.swift */,
 				F854F4A4238B238F00E757C9 /* Steam+PublicMethods.swift */,
-				F854F4A6238B23A400E757C9 /* Steam.SteamIDCaretaker.swift */,
 			);
 			path = Steam;
 			sourceTree = "<group>";
@@ -457,10 +514,11 @@
 			isa = PBXGroup;
 			children = (
 				F847226B238DDCE700ECA269 /* BaseViews */,
-				F854F5B0238C227100E757C9 /* BlurView */,
-				F854F5A7238C1D8C00E757C9 /* Button */,
-				F801AF0D238FD64600C391D8 /* GradientView */,
+				F854F5B1238C227B00E757C9 /* BlurView.swift */,
+				F854F4AB238B273E00E757C9 /* Button.swift */,
+				F801AF0B238FD5FA00C391D8 /* GradientView.swift */,
 				F860F1572390268A00E9430B /* ArrowView.swift */,
+				F85ED26D239801A000FA6DFA /* ImageWithSubtextView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -469,7 +527,7 @@
 			isa = PBXGroup;
 			children = (
 				F854F4AE238B2AC700E757C9 /* GamesTableViewController.swift */,
-				F867B08B239286F100BA9235 /* Dota2Cell.swift */,
+				F867B08B239286F100BA9235 /* Dota2ProfileCell.swift */,
 				F86FB9D2238C5CE700A62E86 /* OwnedGameCell.swift */,
 				F86FB9D6238C740200A62E86 /* OwnedGamesHeaderCell.swift */,
 			);
@@ -491,16 +549,9 @@
 				F8152A9C238AE7DD009F937F /* ProfileFlow */,
 				F801AEED238FD09C00C391D8 /* FriendsFlow */,
 				F88F7FE22393C09B000F3E20 /* RecentActivity */,
+				F866403623943D030087D4BA /* Dota2 */,
 			);
 			path = Flows;
-			sourceTree = "<group>";
-		};
-		F854F5A7238C1D8C00E757C9 /* Button */ = {
-			isa = PBXGroup;
-			children = (
-				F854F4AB238B273E00E757C9 /* Button.swift */,
-			);
-			path = Button;
 			sourceTree = "<group>";
 		};
 		F854F5A8238C1D9200E757C9 /* ExpandableNavbar */ = {
@@ -525,12 +576,39 @@
 			path = Internal;
 			sourceTree = "<group>";
 		};
-		F854F5B0238C227100E757C9 /* BlurView */ = {
+		F85ED26A2397F4C500FA6DFA /* MatchHistory */ = {
 			isa = PBXGroup;
 			children = (
-				F854F5B1238C227B00E757C9 /* BlurView.swift */,
+				F85ED26B2397F66600FA6DFA /* Dota2MatchHistoryViewController.swift */,
+				F85ED26F239801D200FA6DFA /* Dota2MatchCell.swift */,
 			);
-			path = BlurView;
+			path = MatchHistory;
+			sourceTree = "<group>";
+		};
+		F85ED271239802EB00FA6DFA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F85ED2742398030700FA6DFA /* Dota2ViewInterface.swift */,
+				F866403723943D460087D4BA /* Dota2ViewController.swift */,
+				F8C23633239832B500C48301 /* Dota2MatchHistoryHeaderView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F85ED272239802F100FA6DFA /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				F866403923943D6B0087D4BA /* Dota2Presenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		F85ED273239802F500FA6DFA /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				F866403B23943D760087D4BA /* Dota2ModuleBuilder.swift */,
+			);
+			path = Builder;
 			sourceTree = "<group>";
 		};
 		F8650F70239071790033818A /* Log */ = {
@@ -544,19 +622,120 @@
 		F8650F782391B9530033818A /* Dota2 */ = {
 			isa = PBXGroup;
 			children = (
-				F803A5062391BD7B00784B88 /* DotaTeam.swift */,
-				F8650F742391B4D40033818A /* PlayerMatchesHistory.swift */,
+				F803A5062391BD7B00784B88 /* Dota2Team.swift */,
+				F86640A823958D1C0087D4BA /* Dota2Hero.swift */,
+				F86641292397CE380087D4BA /* Dota2UserMatches.swift */,
+				F8650F742391B4D40033818A /* PlayerMatchHistory.swift */,
 				F8650F762391B94F0033818A /* MatchDetails.swift */,
 			);
 			path = Dota2;
+			sourceTree = "<group>";
+		};
+		F866403623943D030087D4BA /* Dota2 */ = {
+			isa = PBXGroup;
+			children = (
+				F866403F23943EE40087D4BA /* Submodules */,
+				F85ED271239802EB00FA6DFA /* View */,
+				F85ED272239802F100FA6DFA /* Presenter */,
+				F85ED273239802F500FA6DFA /* Builder */,
+			);
+			path = Dota2;
+			sourceTree = "<group>";
+		};
+		F866403D23943ED00087D4BA /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				F88F7FE42393CCE8000F3E20 /* RecentActivityPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		F866403E23943ED90087D4BA /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				F88F7FE92393E8B4000F3E20 /* RecentActivityModuleBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		F866403F23943EE40087D4BA /* Submodules */ = {
+			isa = PBXGroup;
+			children = (
+				F85ED26A2397F4C500FA6DFA /* MatchHistory */,
+				F866404023943EF40087D4BA /* ShortStats */,
+			);
+			path = Submodules;
+			sourceTree = "<group>";
+		};
+		F866404023943EF40087D4BA /* ShortStats */ = {
+			isa = PBXGroup;
+			children = (
+				F866404123943F150087D4BA /* Dota2ShortStatsViewController.swift */,
+				F8664045239445090087D4BA /* Dota2ShortStatView.swift */,
+			);
+			path = ShortStats;
+			sourceTree = "<group>";
+		};
+		F8664062239446AE0087D4BA /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				F8664063239446B90087D4BA /* UnicodeStrings.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		F86640AA2395A3630087D4BA /* Dota2 */ = {
+			isa = PBXGroup;
+			children = (
+				F866411C2397C9EB0087D4BA /* Heroes */,
+				F866411B2397C9E50087D4BA /* Matches */,
+			);
+			path = Dota2;
+			sourceTree = "<group>";
+		};
+		F866411B2397C9E50087D4BA /* Matches */ = {
+			isa = PBXGroup;
+			children = (
+				F86640AD2395B2CA0087D4BA /* Dota2MatchesRequestManager.swift */,
+				F866411F2397CA5A0087D4BA /* Dota2MatchDetailsLoader.swift */,
+				F866411D2397CA430087D4BA /* Dota2MatchHistoryPagedLoader.swift */,
+			);
+			path = Matches;
+			sourceTree = "<group>";
+		};
+		F866411C2397C9EB0087D4BA /* Heroes */ = {
+			isa = PBXGroup;
+			children = (
+				F86640AB2395A38E0087D4BA /* Dota2HeroResourceManager.swift */,
+			);
+			path = Heroes;
+			sourceTree = "<group>";
+		};
+		F86641212397CD870087D4BA /* RealmDataBase */ = {
+			isa = PBXGroup;
+			children = (
+				F84EA7802397E57800ACEFDC /* Storages */,
+				F86641242397CDC40087D4BA /* Entities */,
+			);
+			path = RealmDataBase;
+			sourceTree = "<group>";
+		};
+		F86641242397CDC40087D4BA /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				F86641222397CDB20087D4BA /* RealmDota2Player.swift */,
+				F86641252397CDD10087D4BA /* RealmDota2MatchDetails.swift */,
+				F86641272397CDE90087D4BA /* RealmDota2UserMatches.swift */,
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 		F88F7FE22393C09B000F3E20 /* RecentActivity */ = {
 			isa = PBXGroup;
 			children = (
 				F88F7FE62393D072000F3E20 /* View */,
-				F88F7FE42393CCE8000F3E20 /* RecentActivityPresenter.swift */,
-				F88F7FE92393E8B4000F3E20 /* RecentActivityModuleBuilder.swift */,
+				F866403D23943ED00087D4BA /* Presenter */,
+				F866403E23943ED90087D4BA /* Builder */,
 			);
 			path = RecentActivity;
 			sourceTree = "<group>";
@@ -751,39 +930,52 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F85ED26C2397F66600FA6DFA /* Dota2MatchHistoryViewController.swift in Sources */,
 				F847226D238DDCF700ECA269 /* TouchThroughView.swift in Sources */,
 				F801AF6B238FF40A00C391D8 /* FriendsListCell.swift in Sources */,
+				F8C23634239832B500C48301 /* Dota2MatchHistoryHeaderView.swift in Sources */,
 				F8664033239403540087D4BA /* ExpandableNavbar.Config.swift in Sources */,
 				F854F5BA238C29CA00E757C9 /* SnapKit+Extensions.swift in Sources */,
 				F8492402238DCED900FCDE07 /* String+Plurals.swift in Sources */,
 				F86FB9DB238C858B00A62E86 /* OwnedGame.Minutes+Format.swift in Sources */,
 				F854F5AD238C1E0D00E757C9 /* CustomNavbarScrollViewInsetsBehavior.swift in Sources */,
 				F801AEEA238FC16100C391D8 /* Shadow.swift in Sources */,
+				F866411E2397CA430087D4BA /* Dota2MatchHistoryPagedLoader.swift in Sources */,
+				F8C23638239859E800C48301 /* UIColor+Extensions.swift in Sources */,
 				F8152AA9238AF833009F937F /* Result+Extensions.swift in Sources */,
+				F866403A23943D6B0087D4BA /* Dota2Presenter.swift in Sources */,
 				F881E86F238E80380076376D /* PlayerGameAchievements.swift in Sources */,
 				F854F4A3238B236E00E757C9 /* Steam.Endpoint.swift in Sources */,
 				F854F4AF238B2AC700E757C9 /* GamesTableViewController.swift in Sources */,
 				F801AF0C238FD5FA00C391D8 /* GradientView.swift in Sources */,
 				F8664035239404FB0087D4BA /* TabbarConfigurator.swift in Sources */,
-				F803A5072391BD7B00784B88 /* DotaTeam.swift in Sources */,
+				F803A5072391BD7B00784B88 /* Dota2Team.swift in Sources */,
 				F8152AA0238AEC23009F937F /* Steam.swift in Sources */,
 				F854F5AF238C1E6400E757C9 /* ExpandableNavbar.swift in Sources */,
 				F8152AA7238AF518009F937F /* ProfileModuleBuilder.swift in Sources */,
 				F8152A99238AD8B1009F937F /* Array+Extensions.swift in Sources */,
 				F854F5B4238C274D00E757C9 /* ExpandableNavbarHeaderView.swift in Sources */,
 				F8152A9B238ADA6C009F937F /* SteamAuthModuleBuilder.swift in Sources */,
+				F866403823943D460087D4BA /* Dota2ViewController.swift in Sources */,
 				F8152AA3238AF1B2009F937F /* SteamUser.swift in Sources */,
+				F866403C23943D760087D4BA /* Dota2ModuleBuilder.swift in Sources */,
 				F86FB9D3238C5CE700A62E86 /* OwnedGameCell.swift in Sources */,
+				F85ED270239801D200FA6DFA /* Dota2MatchCell.swift in Sources */,
+				F8C23636239837CC00C48301 /* UIEdgeInsets+Initializers.swift in Sources */,
 				F88F7FEE2393F5B5000F3E20 /* UIViewController+Extensions.swift in Sources */,
 				F86FB9D9238C7F8400A62E86 /* Friend.swift in Sources */,
 				F835B085238C3C36002460C4 /* UIColor+Initializers.swift in Sources */,
 				F854F4B3238B308500E757C9 /* String+Extensions.swift in Sources */,
+				F85ED26E239801A000FA6DFA /* ImageWithSubtextView.swift in Sources */,
 				F8D17419238ED67800C47C87 /* ProfileDataLoader.swift in Sources */,
 				F801AF14238FDFF800C391D8 /* ThemeDependent.swift in Sources */,
-				F8650F752391B4D40033818A /* PlayerMatchesHistory.swift in Sources */,
+				F86641232397CDB20087D4BA /* RealmDota2Player.swift in Sources */,
+				F8650F752391B4D40033818A /* PlayerMatchHistory.swift in Sources */,
 				F801AEEF238FD0AB00C391D8 /* FriendsListViewController.swift in Sources */,
 				F831C212238EE818004A284D /* TabbarViewController.swift in Sources */,
 				F8152A62238AC15C009F937F /* AppDelegate.swift in Sources */,
+				F86640AC2395A38E0087D4BA /* Dota2HeroResourceManager.swift in Sources */,
+				F86641262397CDD10087D4BA /* RealmDota2MatchDetails.swift in Sources */,
 				F88F7FEA2393E8B4000F3E20 /* RecentActivityModuleBuilder.swift in Sources */,
 				F854F4A7238B23A400E757C9 /* Steam.SteamIDCaretaker.swift in Sources */,
 				F8650F72239071860033818A /* Log.swift in Sources */,
@@ -794,8 +986,11 @@
 				F831C214238EEB65004A284D /* UIScrollView+Extensions.swift in Sources */,
 				F801AF72239001CD00C391D8 /* FriendsModuleBuilder.swift in Sources */,
 				F8152A79238AD459009F937F /* SteamAuthPresenter.swift in Sources */,
+				F866412A2397CE380087D4BA /* Dota2UserMatches.swift in Sources */,
 				F835B081238C3B81002460C4 /* UIColor+Palette.swift in Sources */,
+				F8664044239441060087D4BA /* UIView+Initializers.swift in Sources */,
 				F8D1741B238EDA9B00C47C87 /* ProfileViewInterface.swift in Sources */,
+				F85ED2752398030700FA6DFA /* Dota2ViewInterface.swift in Sources */,
 				F835B0A3238C4185002460C4 /* UILabel+Initializers.swift in Sources */,
 				F801AF70238FFD2D00C391D8 /* FriendsPresenter.swift in Sources */,
 				F801AF16238FE1DD00C391D8 /* FeatureColor.swift in Sources */,
@@ -805,8 +1000,13 @@
 				F801AF18238FEEDA00C391D8 /* Shadow+Palette.swift in Sources */,
 				F854F5B2238C227B00E757C9 /* BlurView.swift in Sources */,
 				F835B0A9238C4434002460C4 /* ExpandableNavbar+HeaderContentViews.swift in Sources */,
+				F86640A923958D1C0087D4BA /* Dota2Hero.swift in Sources */,
+				F8664064239446B90087D4BA /* UnicodeStrings.swift in Sources */,
 				F854F5AB238C1DE900E757C9 /* CustomNavbarSnappingBehavior.swift in Sources */,
 				F854F5B8238C281200E757C9 /* UIApplication+Extensions.swift in Sources */,
+				F84EA7822397E58900ACEFDC /* Dota2MatchesPersistentStorage.swift in Sources */,
+				F86641202397CA5A0087D4BA /* Dota2MatchDetailsLoader.swift in Sources */,
+				F866404223943F150087D4BA /* Dota2ShortStatsViewController.swift in Sources */,
 				F8D1741D238EDE5E00C47C87 /* ThrobberViewController.swift in Sources */,
 				F801AF6E238FFA5600C391D8 /* FriendsViewController.swift in Sources */,
 				F88F7FE82393D07F000F3E20 /* RecentActivityViewInterface.swift in Sources */,
@@ -818,12 +1018,16 @@
 				F86FB9D5238C6D2700A62E86 /* UIImageView+Initializers.swift in Sources */,
 				F88F7FE52393CCE8000F3E20 /* RecentActivityPresenter.swift in Sources */,
 				F854F5B6238C27D700E757C9 /* ExpandableNavbar.ContentView.swift in Sources */,
-				F867B08C239286F100BA9235 /* Dota2Cell.swift in Sources */,
+				F867B08C239286F100BA9235 /* Dota2ProfileCell.swift in Sources */,
+				F86640AE2395B2CA0087D4BA /* Dota2MatchesRequestManager.swift in Sources */,
 				F88F7FEC2393EBCF000F3E20 /* RecentActivityGameCell.swift in Sources */,
 				F8152AA5238AF505009F937F /* ProfilePresenter.swift in Sources */,
 				F801AFAB23900BF700C391D8 /* FriendsViewInterface.swift in Sources */,
+				F8664046239445090087D4BA /* Dota2ShortStatView.swift in Sources */,
+				F86641282397CDE90087D4BA /* RealmDota2UserMatches.swift in Sources */,
 				F801AEEC238FC24700C391D8 /* UIView+Shadow.swift in Sources */,
 				F8152A97238AD790009F937F /* Monads.swift in Sources */,
+				F8C2363223981AEB00C48301 /* DebugConstants.swift in Sources */,
 				F86FB9D7238C740200A62E86 /* OwnedGamesHeaderCell.swift in Sources */,
 				F854F4AC238B273E00E757C9 /* Button.swift in Sources */,
 			);

@@ -67,8 +67,7 @@ final class OwnedGameCell: UITableViewCell {
         
         containerView.snp.makeConstraints {
             $0.top.equalToSuperview()
-            $0.left.equalToSuperview().offset(16.0)
-            $0.right.equalToSuperview().offset(-16.0)
+            $0.left.right.equalToSuperview().inset(16.0)
             $0.bottom.equalToSuperview().offset(-8.0)
         }
         
@@ -88,7 +87,7 @@ final class OwnedGameCell: UITableViewCell {
         
         playtimeLabel.snp.makeConstraints {
             $0.right.equalToSuperview().offset(-12.0)
-            $0.top.equalTo(titleLabel.snp.bottom).offset(4.0)
+            $0.top.greaterThanOrEqualTo(titleLabel.snp.bottom).offset(4.0)
             $0.bottom.equalToSuperview().offset(-6.0)
         }
     }

@@ -42,7 +42,7 @@ final class FriendsPresenter {
                 self.updateCell(at: i, with: cell)
             }.onFailure {
                 // TODO:
-                print($0)
+                log($0)
             }
         }
     }

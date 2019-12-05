@@ -10,8 +10,9 @@ import UIKit
 
 extension UIImageView {
     
-    convenience init(contentMode: UIView.ContentMode) {
+    convenience init(contentMode: UIView.ContentMode, clipsToBounds: Bool = false) {
         self.init(frame: .zero)
         self.contentMode = contentMode
+        self.clipsToBounds = clipsToBounds
     }
 }

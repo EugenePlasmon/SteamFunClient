@@ -20,6 +20,4 @@ extension UIViewController {
     var showNavbarBackButton: Bool {
         return self.navigationController >>- { $0.viewControllers.count > 1 } ?? false
     }
-    
-    
 }

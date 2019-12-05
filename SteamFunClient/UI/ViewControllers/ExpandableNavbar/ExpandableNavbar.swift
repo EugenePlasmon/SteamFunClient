@@ -65,6 +65,9 @@ public final class ExpandableNavbar: UIViewController, CustomNavbarSnappingBehav
     /// Констрейнт контент вью к верху навбара. Его меняем для эффекта схлопывания/разворачивания навбара.
     private var contentViewTopConstraint: NSLayoutConstraint?
     
+    /// Констрейнт для выставления высоты контейнера равной нулю, пока не добавлена контент-вью.
+    private var contentContainerHeightConstraint: NSLayoutConstraint?
+    
     /// Высота контент вью. Рассчитывается после того, как лэйаут польностью обновился, и используется в свойстве `maximumHeight`.
     private var contentHeight: CGFloat = 0.0
     
@@ -106,6 +109,7 @@ public final class ExpandableNavbar: UIViewController, CustomNavbarSnappingBehav
     // MARK: - Public
     
     public func addContentView(_ contentView: ContentView) {
+        contentContainerHeightConstraint?.isActive = false
         removeContentView()
         self.contentView = contentView
         contentView.onLayoutSubviews = { [weak self] in
@@ -214,6 +218,9 @@ public final class ExpandableNavbar: UIViewController, CustomNavbarSnappingBehav
                                                       constant: Constants.headerHeight)
         contentViewTopConstraint.isActive = true
         self.contentViewTopConstraint = contentViewTopConstraint
+        
+        contentContainerHeightConstraint = contentContainerView.heightAnchor.constraint(equalToConstant: 0)
+        contentContainerHeightConstraint?.isActive = true
         
         contentContainerView.snp.makeConstraints { $0.left.right.bottom.equalToSuperview() }
     }

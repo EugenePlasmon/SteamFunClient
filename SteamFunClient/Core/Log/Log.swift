@@ -27,5 +27,5 @@ func log(_ event: LogEvent, _ message: String) {
 }
 
 func log(_ error: Error) {
-    print(error)
+    print("[ERROR] \(error)")
 }

@@ -12,6 +12,14 @@ typealias SteamID = Int
 typealias SteamID32 = Int
 typealias GameID = Int
 
+extension SteamID {
+    
+    var to32: SteamID32 {
+        let baseSteamID64 = 76561197960265728
+        return self - baseSteamID64
+    }
+}
+
 struct Steam { }
 
 extension Steam {

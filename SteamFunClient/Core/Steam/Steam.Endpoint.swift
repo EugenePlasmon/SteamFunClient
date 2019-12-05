@@ -23,7 +23,9 @@ extension Steam {
         
         case recentlyPlayedGames(steamID: SteamID)
         
-        case dota2MatchesHistory(steamID: SteamID32, heroID: Int?, startAtMatchID: Int?, batchSize: Int?)
+        case dota2Heroes
+        
+        case dota2MatchHistory(steamID32: SteamID32, heroID: Int?, startAtMatchID: Int?, batchSize: Int?)
         
         case dota2MatchDetails(matchID: Int)
         
@@ -49,7 +51,10 @@ extension Steam {
                 return ("IPlayerService/GetRecentlyPlayedGames/v0001",
                         ["steamid": steamID])
                     >>> constructRequest
-            case .dota2MatchesHistory(let steamID, let heroID, let startAtMatchID, let batchSize):
+            case .dota2Heroes:
+                return ("IEconDOTA2_570/GetHeroes/v1", ["language": "english"])
+                    >>> constructRequest
+            case .dota2MatchHistory(let steamID, let heroID, let startAtMatchID, let batchSize):
                 var parameters: [String: Any] = ["account_id": steamID]
                 heroID >>- { parameters["hero_id"] = $0 }
                 startAtMatchID >>- { parameters["start_at_match_id"] = $0 }

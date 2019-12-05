@@ -12,23 +12,32 @@ struct MatchDetails {
     
     typealias Seconds = Int
     
-    let id: Int
-    let winner: DotaTeam
-    let players: [Player]
-    let duration: Seconds
-    let preGameDuration: Seconds
-    let start: Date
-    let firstBloodTime: Seconds
-    let humanPlayersCount: Int
-    let kills: [DotaTeam: Int]
-}
-
-extension MatchDetails {
-    
     struct Player {
         
+        enum Slot: Int {
+            case radiant1 = 0
+            case radiant2 = 1
+            case radiant3 = 2
+            case radiant4 = 3
+            case radiant5 = 4
+            case dire1 = 128
+            case dire2 = 129
+            case dire3 = 130
+            case dire4 = 131
+            case dire5 = 132
+            
+            var team: Dota2Team {
+                switch self {
+                case .radiant1, .radiant2, .radiant3, .radiant4, .radiant5:
+                    return .radiant
+                case .dire1, .dire2, .dire3, .dire4, .dire5:
+                    return .dire
+                }
+            }
+        }
+        
         let accountID: Int?
-        let slot: Int
+        let slot: Slot
         let heroID: Int
         let kills: Int
         let deaths: Int
@@ -41,8 +50,44 @@ extension MatchDetails {
         let level: Int
         let playerName: String?
     }
+    
+    let id: Int
+    let winner: Dota2Team
+    let players: [Player]
+    let duration: Seconds
+    let preGameDuration: Seconds
+    let start: Date
+    let firstBloodTime: Seconds
+    let humanPlayersCount: Int
+    let kills: [Dota2Team: Int]
 }
 
+extension MatchDetails {
+    
+    func teamOfUser(steamID: SteamID) -> Dota2Team? {
+        guard let player = players.first(where: { $0.accountID == steamID.to32 }) else {
+            return nil
+        }
+        return player.slot.team
+    }
+    
+    func heroIDOfUser(steamID: SteamID) -> Int? {
+        guard let player = players.first(where: { $0.accountID == steamID.to32 }) else {
+            return nil
+        }
+        return player.heroID
+    }
+    
+    func isUserWinner(steamID: SteamID) -> Bool? {
+        guard let player = players.first(where: { $0.accountID == steamID.to32 }) else {
+            return nil
+        }
+        return winner == player.slot.team
+    }
+}
+
+
+// MARK: - Decodable
 
 extension MatchDetails: Decodable {
     
@@ -116,7 +161,7 @@ extension MatchDetails.Player: Decodable {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.accountID = try? container.decode(Int.self, forKey: .accountID)
-        self.slot = try container.decode(Int.self, forKey: .slot)
+        self.slot = try container.decode(Slot.self, forKey: .slot)
         self.heroID = try container.decode(Int.self, forKey: .heroID)
         self.kills = try container.decode(Int.self, forKey: .kills)
         self.deaths = try container.decode(Int.self, forKey: .deaths)
@@ -130,3 +175,5 @@ extension MatchDetails.Player: Decodable {
         self.playerName = try? container.decode(String.self, forKey: .playerName)
     }
 }
+
+extension MatchDetails.Player.Slot: Decodable { }
