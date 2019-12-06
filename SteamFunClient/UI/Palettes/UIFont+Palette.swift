@@ -18,6 +18,8 @@ extension UIFont {
     
     static let dehaka = UIFont.Family<Helvetica>.font(.regular, size: 20.0)
     
+    static let ryloth = UIFont.Family<Helvetica>.font(.bold, size: 16.0)
+    
     static let naktul = UIFont.Family<Helvetica>.font(.medium, size: 16.0)
     
     static let abathur = UIFont.Family<Helvetica>.font(.regular, size: 16.0)
@@ -31,9 +33,6 @@ extension UIFont {
     static let zurvan = UIFont.Family<Helvetica>.font(.medium, size: 12.0)
     
     static let niadra = UIFont.Family<Helvetica>.font(.regular, size: 10.0)
-    
-    
-    //static let brakk
 }
 
 private extension UIFont {

@@ -75,7 +75,6 @@ final class Dota2ViewController: UIViewController {
         scrollView.addSubview(contentView)
         contentView.snp.makeConstraints {
             $0.top.bottom.left.right.width.equalToSuperview()
-            
         }
     }
     
@@ -97,6 +96,9 @@ final class Dota2ViewController: UIViewController {
     
     private func addShortStats(viewModel: Dota2ViewModel) {
         let shortStatsViewController = Dota2ShortStatsViewController(viewModel: viewModel.shortStats)
+        shortStatsViewController.onMoreTap = { [weak self] in
+            self?.output.viewDidTapMoreStats()
+        }
         self.shortStatsViewController = shortStatsViewController
         addChild(shortStatsViewController)
         contentView.addSubview(shortStatsViewController.view)

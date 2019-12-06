@@ -40,4 +40,6 @@ protocol Dota2ViewInput: class {
 protocol Dota2ViewOutput: class {
     
     func viewDidLoad()
+    
+    func viewDidTapMoreStats()
 }

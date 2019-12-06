@@ -28,9 +28,8 @@ final class TabbarConfigurator {
     
     private var profileViewController: UIViewController {
         return ProfileModuleBuilder.build(steamID: steamID)
-            >>> { UINavigationController(rootViewController: $0) }
+            >>> { InteractionDependableNavigationController(rootViewController: $0) }
             >>> {
-                $0.interactivePopGestureRecognizer?.delegate = nil
                 $0.tabBarItem = profileItem
                 return $0
         }
@@ -38,9 +37,8 @@ final class TabbarConfigurator {
     
     private var recentActivityViewController: UIViewController {
         return RecentActivityModuleBuilder.build(steamID: steamID)
-            >>> { UINavigationController(rootViewController: $0) }
+            >>> { InteractionDependableNavigationController(rootViewController: $0) }
             >>> {
-                $0.interactivePopGestureRecognizer?.delegate = nil
                 $0.tabBarItem = recentActivityItem
                 return $0
         }

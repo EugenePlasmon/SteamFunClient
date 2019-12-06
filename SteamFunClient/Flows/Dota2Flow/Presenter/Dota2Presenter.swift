@@ -117,4 +117,9 @@ extension Dota2Presenter: Dota2ViewOutput {
             self.viewInput?.showData(viewModel: self.createViewModel())
         }
     }
+    
+    func viewDidTapMoreStats() {
+        let viewController = Dota2StatsModuleBuilder.build(steamUser: steamUser, matches: matches)
+        viewInput?.navigationController?.pushViewController(viewController, animated: true)
+    }
 }

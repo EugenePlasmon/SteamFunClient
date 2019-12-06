@@ -73,6 +73,12 @@
 		F85ED26E239801A000FA6DFA /* ImageWithSubtextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85ED26D239801A000FA6DFA /* ImageWithSubtextView.swift */; };
 		F85ED270239801D200FA6DFA /* Dota2MatchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85ED26F239801D200FA6DFA /* Dota2MatchCell.swift */; };
 		F85ED2752398030700FA6DFA /* Dota2ViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85ED2742398030700FA6DFA /* Dota2ViewInterface.swift */; };
+		F85F9CF1239B12E6002E9902 /* InteractionDependableNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85F9CF0239B12E6002E9902 /* InteractionDependableNavigationController.swift */; };
+		F85F9CF4239B1CCC002E9902 /* RoundingFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85F9CF3239B1CCC002E9902 /* RoundingFunctions.swift */; };
+		F85F9CF6239BC740002E9902 /* CGPoint+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85F9CF5239BC740002E9902 /* CGPoint+Extensions.swift */; };
+		F85F9CF8239BD808002E9902 /* PlotValueAxisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85F9CF7239BD808002E9902 /* PlotValueAxisView.swift */; };
+		F85F9CFA239BDDD9002E9902 /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85F9CF9239BDDD9002E9902 /* RoundedView.swift */; };
+		F85F9CFC239BE81D002E9902 /* View.xib in Resources */ = {isa = PBXBuildFile; fileRef = F85F9CFB239BE81D002E9902 /* View.xib */; };
 		F860F1582390268A00E9430B /* ArrowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F860F1572390268A00E9430B /* ArrowView.swift */; };
 		F8650F72239071860033818A /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8650F71239071860033818A /* Log.swift */; };
 		F8650F752391B4D40033818A /* PlayerMatchHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8650F742391B4D40033818A /* PlayerMatchHistory.swift */; };
@@ -98,6 +104,17 @@
 		F867B08C239286F100BA9235 /* Dota2ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F867B08B239286F100BA9235 /* Dota2ProfileCell.swift */; };
 		F86CAE692399C52400B2710E /* GameAchievementsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86CAE682399C52400B2710E /* GameAchievementsHeaderView.swift */; };
 		F86CAE6B2399C78400B2710E /* GameAchievementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86CAE6A2399C78400B2710E /* GameAchievementCell.swift */; };
+		F86CAE6E239A4C0900B2710E /* ArrowedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86CAE6D239A4C0900B2710E /* ArrowedLabel.swift */; };
+		F86CAE71239A500A00B2710E /* Dota2StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86CAE70239A500A00B2710E /* Dota2StatsViewController.swift */; };
+		F86CAE73239A501300B2710E /* Dota2StatsViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86CAE72239A501300B2710E /* Dota2StatsViewInterface.swift */; };
+		F86CAE75239A501B00B2710E /* Dota2StatsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86CAE74239A501B00B2710E /* Dota2StatsPresenter.swift */; };
+		F86CAE77239A502500B2710E /* Dota2StatsModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86CAE76239A502500B2710E /* Dota2StatsModuleBuilder.swift */; };
+		F86CAE7D239A6A5500B2710E /* PlotCanvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86CAE7C239A6A5500B2710E /* PlotCanvas.swift */; };
+		F86CAE7F239A6CDB00B2710E /* PlotPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86CAE7E239A6CDB00B2710E /* PlotPoint.swift */; };
+		F86CAE81239A6CFA00B2710E /* PlotDataBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86CAE80239A6CFA00B2710E /* PlotDataBuilder.swift */; };
+		F86F1249239AD6AC00361553 /* Dota2StatsTopHeroesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86F1248239AD6AC00361553 /* Dota2StatsTopHeroesViewController.swift */; };
+		F86F1795239AF1FE00E9579D /* HistogramColumnCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86F1794239AF1FE00E9579D /* HistogramColumnCell.swift */; };
+		F86F1797239AF21B00E9579D /* Histogram.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86F1796239AF21B00E9579D /* Histogram.swift */; };
 		F86FB9D3238C5CE700A62E86 /* OwnedGameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86FB9D2238C5CE700A62E86 /* OwnedGameCell.swift */; };
 		F86FB9D5238C6D2700A62E86 /* UIImageView+Initializers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86FB9D4238C6D2700A62E86 /* UIImageView+Initializers.swift */; };
 		F86FB9D7238C740200A62E86 /* OwnedGamesHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86FB9D6238C740200A62E86 /* OwnedGamesHeaderCell.swift */; };
@@ -111,6 +128,8 @@
 		F88F7FEA2393E8B4000F3E20 /* RecentActivityModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88F7FE92393E8B4000F3E20 /* RecentActivityModuleBuilder.swift */; };
 		F88F7FEC2393EBCF000F3E20 /* RecentActivityGameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88F7FEB2393EBCF000F3E20 /* RecentActivityGameCell.swift */; };
 		F88F7FEE2393F5B5000F3E20 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88F7FED2393F5B5000F3E20 /* UIViewController+Extensions.swift */; };
+		F89C8DC0239AA5B000FC0DE9 /* Plot.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89C8DBF239AA5B000FC0DE9 /* Plot.swift */; };
+		F89C8DC2239AA5DE00FC0DE9 /* PlotTimestampAxisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89C8DC1239AA5DE00FC0DE9 /* PlotTimestampAxisView.swift */; };
 		F8C2363223981AEB00C48301 /* DebugConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C2363123981AEB00C48301 /* DebugConstants.swift */; };
 		F8C23634239832B500C48301 /* Dota2MatchHistoryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C23633239832B500C48301 /* Dota2MatchHistoryHeaderView.swift */; };
 		F8C23636239837CC00C48301 /* UIEdgeInsets+Initializers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C23635239837CC00C48301 /* UIEdgeInsets+Initializers.swift */; };
@@ -192,6 +211,12 @@
 		F85ED26D239801A000FA6DFA /* ImageWithSubtextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageWithSubtextView.swift; sourceTree = "<group>"; };
 		F85ED26F239801D200FA6DFA /* Dota2MatchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dota2MatchCell.swift; sourceTree = "<group>"; };
 		F85ED2742398030700FA6DFA /* Dota2ViewInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dota2ViewInterface.swift; sourceTree = "<group>"; };
+		F85F9CF0239B12E6002E9902 /* InteractionDependableNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractionDependableNavigationController.swift; sourceTree = "<group>"; };
+		F85F9CF3239B1CCC002E9902 /* RoundingFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundingFunctions.swift; sourceTree = "<group>"; };
+		F85F9CF5239BC740002E9902 /* CGPoint+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+Extensions.swift"; sourceTree = "<group>"; };
+		F85F9CF7239BD808002E9902 /* PlotValueAxisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlotValueAxisView.swift; sourceTree = "<group>"; };
+		F85F9CF9239BDDD9002E9902 /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
+		F85F9CFB239BE81D002E9902 /* View.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = View.xib; sourceTree = "<group>"; };
 		F860F1572390268A00E9430B /* ArrowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowView.swift; sourceTree = "<group>"; };
 		F8650F71239071860033818A /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		F8650F742391B4D40033818A /* PlayerMatchHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerMatchHistory.swift; sourceTree = "<group>"; };
@@ -217,6 +242,17 @@
 		F867B08B239286F100BA9235 /* Dota2ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dota2ProfileCell.swift; sourceTree = "<group>"; };
 		F86CAE682399C52400B2710E /* GameAchievementsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameAchievementsHeaderView.swift; sourceTree = "<group>"; };
 		F86CAE6A2399C78400B2710E /* GameAchievementCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameAchievementCell.swift; sourceTree = "<group>"; };
+		F86CAE6D239A4C0900B2710E /* ArrowedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowedLabel.swift; sourceTree = "<group>"; };
+		F86CAE70239A500A00B2710E /* Dota2StatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dota2StatsViewController.swift; sourceTree = "<group>"; };
+		F86CAE72239A501300B2710E /* Dota2StatsViewInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dota2StatsViewInterface.swift; sourceTree = "<group>"; };
+		F86CAE74239A501B00B2710E /* Dota2StatsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dota2StatsPresenter.swift; sourceTree = "<group>"; };
+		F86CAE76239A502500B2710E /* Dota2StatsModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dota2StatsModuleBuilder.swift; sourceTree = "<group>"; };
+		F86CAE7C239A6A5500B2710E /* PlotCanvas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlotCanvas.swift; sourceTree = "<group>"; };
+		F86CAE7E239A6CDB00B2710E /* PlotPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlotPoint.swift; sourceTree = "<group>"; };
+		F86CAE80239A6CFA00B2710E /* PlotDataBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlotDataBuilder.swift; sourceTree = "<group>"; };
+		F86F1248239AD6AC00361553 /* Dota2StatsTopHeroesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dota2StatsTopHeroesViewController.swift; sourceTree = "<group>"; };
+		F86F1794239AF1FE00E9579D /* HistogramColumnCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistogramColumnCell.swift; sourceTree = "<group>"; };
+		F86F1796239AF21B00E9579D /* Histogram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Histogram.swift; sourceTree = "<group>"; };
 		F86FB9D2238C5CE700A62E86 /* OwnedGameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnedGameCell.swift; sourceTree = "<group>"; };
 		F86FB9D4238C6D2700A62E86 /* UIImageView+Initializers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Initializers.swift"; sourceTree = "<group>"; };
 		F86FB9D6238C740200A62E86 /* OwnedGamesHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnedGamesHeaderCell.swift; sourceTree = "<group>"; };
@@ -230,6 +266,8 @@
 		F88F7FE92393E8B4000F3E20 /* RecentActivityModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentActivityModuleBuilder.swift; sourceTree = "<group>"; };
 		F88F7FEB2393EBCF000F3E20 /* RecentActivityGameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentActivityGameCell.swift; sourceTree = "<group>"; };
 		F88F7FED2393F5B5000F3E20 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		F89C8DBF239AA5B000FC0DE9 /* Plot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plot.swift; sourceTree = "<group>"; };
+		F89C8DC1239AA5DE00FC0DE9 /* PlotTimestampAxisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlotTimestampAxisView.swift; sourceTree = "<group>"; };
 		F8C2363123981AEB00C48301 /* DebugConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugConstants.swift; sourceTree = "<group>"; };
 		F8C23633239832B500C48301 /* Dota2MatchHistoryHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dota2MatchHistoryHeaderView.swift; sourceTree = "<group>"; };
 		F8C23635239837CC00C48301 /* UIEdgeInsets+Initializers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+Initializers.swift"; sourceTree = "<group>"; };
@@ -408,6 +446,7 @@
 				F854F4B2238B308500E757C9 /* String+Extensions.swift */,
 				F8492401238DCED900FCDE07 /* String+Plurals.swift */,
 				F86FB9DA238C858A00A62E86 /* OwnedGame.Minutes+Format.swift */,
+				F85F9CF3239B1CCC002E9902 /* RoundingFunctions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -434,14 +473,16 @@
 			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
-		F831C210238EE804004A284D /* ViewControllers */ = {
+		F831C210238EE804004A284D /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				F85F9CF2239B142D002E9902 /* NavigationController */,
+				F86F1793239AF1EC00E9579D /* Histogram */,
 				F854F5A8238C1D9200E757C9 /* ExpandableNavbar */,
 				F88F7FF02393F787000F3E20 /* Throbber */,
 				F88F7FF12393F78D000F3E20 /* Tabbar */,
 			);
-			path = ViewControllers;
+			path = Modules;
 			sourceTree = "<group>";
 		};
 		F835B082238C3B85002460C4 /* UI */ = {
@@ -450,7 +491,7 @@
 				F835B0A4238C41FB002460C4 /* Palettes */,
 				F801AF10238FDF9600C391D8 /* FeatureColors */,
 				F854F4AA238B273600E757C9 /* Views */,
-				F831C210238EE804004A284D /* ViewControllers */,
+				F831C210238EE804004A284D /* Modules */,
 				F801AEE8238FC14100C391D8 /* Entities */,
 				F8664062239446AE0087D4BA /* Constants */,
 				F835B083238C3B8B002460C4 /* Extensions */,
@@ -472,6 +513,7 @@
 				F801AEEB238FC24700C391D8 /* UIView+Shadow.swift */,
 				F88F7FED2393F5B5000F3E20 /* UIViewController+Extensions.swift */,
 				F8C23635239837CC00C48301 /* UIEdgeInsets+Initializers.swift */,
+				F85F9CF5239BC740002E9902 /* CGPoint+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -499,6 +541,7 @@
 			isa = PBXGroup;
 			children = (
 				F847226C238DDCF700ECA269 /* TouchThroughView.swift */,
+				F85F9CF9239BDDD9002E9902 /* RoundedView.swift */,
 			);
 			path = BaseViews;
 			sourceTree = "<group>";
@@ -535,10 +578,11 @@
 			isa = PBXGroup;
 			children = (
 				F847226B238DDCE700ECA269 /* BaseViews */,
+				F86CAE6D239A4C0900B2710E /* ArrowedLabel.swift */,
+				F860F1572390268A00E9430B /* ArrowView.swift */,
 				F854F5B1238C227B00E757C9 /* BlurView.swift */,
 				F854F4AB238B273E00E757C9 /* Button.swift */,
 				F801AF0B238FD5FA00C391D8 /* GradientView.swift */,
-				F860F1572390268A00E9430B /* ArrowView.swift */,
 				F85ED26D239801A000FA6DFA /* ImageWithSubtextView.swift */,
 			);
 			path = Views;
@@ -571,6 +615,7 @@
 				F801AEED238FD09C00C391D8 /* FriendsFlow */,
 				F88F7FE22393C09B000F3E20 /* RecentActivity */,
 				F866403623943D030087D4BA /* Dota2Flow */,
+				F86CAE6F239A4FF600B2710E /* Dota2StatsFlow */,
 				F8C2363923991D1600C48301 /* GameAchievementsFlow */,
 			);
 			path = Flows;
@@ -659,6 +704,14 @@
 			path = Builder;
 			sourceTree = "<group>";
 		};
+		F85F9CF2239B142D002E9902 /* NavigationController */ = {
+			isa = PBXGroup;
+			children = (
+				F85F9CF0239B12E6002E9902 /* InteractionDependableNavigationController.swift */,
+			);
+			path = NavigationController;
+			sourceTree = "<group>";
+		};
 		F8650F70239071790033818A /* Log */ = {
 			isa = PBXGroup;
 			children = (
@@ -709,8 +762,8 @@
 		F866403F23943EE40087D4BA /* Submodules */ = {
 			isa = PBXGroup;
 			children = (
-				F85ED26A2397F4C500FA6DFA /* MatchHistory */,
 				F866404023943EF40087D4BA /* ShortStats */,
+				F85ED26A2397F4C500FA6DFA /* MatchHistory */,
 			);
 			path = Submodules;
 			sourceTree = "<group>";
@@ -785,6 +838,82 @@
 				F86CAE6A2399C78400B2710E /* GameAchievementCell.swift */,
 			);
 			path = Subviews;
+			sourceTree = "<group>";
+		};
+		F86CAE6F239A4FF600B2710E /* Dota2StatsFlow */ = {
+			isa = PBXGroup;
+			children = (
+				F86F1246239AD67A00361553 /* Submodules */,
+				F86CAE78239A510A00B2710E /* View */,
+				F86CAE79239A510E00B2710E /* Presenter */,
+				F86CAE7A239A511300B2710E /* Builder */,
+			);
+			path = Dota2StatsFlow;
+			sourceTree = "<group>";
+		};
+		F86CAE78239A510A00B2710E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F86CAE72239A501300B2710E /* Dota2StatsViewInterface.swift */,
+				F86CAE70239A500A00B2710E /* Dota2StatsViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F86CAE79239A510E00B2710E /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				F86CAE74239A501B00B2710E /* Dota2StatsPresenter.swift */,
+				F86CAE80239A6CFA00B2710E /* PlotDataBuilder.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		F86CAE7A239A511300B2710E /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				F86CAE76239A502500B2710E /* Dota2StatsModuleBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		F86CAE7B239A6A4900B2710E /* Plot */ = {
+			isa = PBXGroup;
+			children = (
+				F89C8DBF239AA5B000FC0DE9 /* Plot.swift */,
+				F86CAE7C239A6A5500B2710E /* PlotCanvas.swift */,
+				F85F9CF7239BD808002E9902 /* PlotValueAxisView.swift */,
+				F85F9CFB239BE81D002E9902 /* View.xib */,
+				F89C8DC1239AA5DE00FC0DE9 /* PlotTimestampAxisView.swift */,
+				F86CAE7E239A6CDB00B2710E /* PlotPoint.swift */,
+			);
+			path = Plot;
+			sourceTree = "<group>";
+		};
+		F86F1246239AD67A00361553 /* Submodules */ = {
+			isa = PBXGroup;
+			children = (
+				F86F1247239AD68600361553 /* TopHeroes */,
+				F86CAE7B239A6A4900B2710E /* Plot */,
+			);
+			path = Submodules;
+			sourceTree = "<group>";
+		};
+		F86F1247239AD68600361553 /* TopHeroes */ = {
+			isa = PBXGroup;
+			children = (
+				F86F1248239AD6AC00361553 /* Dota2StatsTopHeroesViewController.swift */,
+			);
+			path = TopHeroes;
+			sourceTree = "<group>";
+		};
+		F86F1793239AF1EC00E9579D /* Histogram */ = {
+			isa = PBXGroup;
+			children = (
+				F86F1796239AF21B00E9579D /* Histogram.swift */,
+				F86F1794239AF1FE00E9579D /* HistogramColumnCell.swift */,
+			);
+			path = Histogram;
 			sourceTree = "<group>";
 		};
 		F88F7FE22393C09B000F3E20 /* RecentActivity */ = {
@@ -931,6 +1060,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8152A6E238AC15D009F937F /* LaunchScreen.storyboard in Resources */,
+				F85F9CFC239BE81D002E9902 /* View.xib in Resources */,
 				F8152A6B238AC15D009F937F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1003,6 +1133,7 @@
 				F8C23634239832B500C48301 /* Dota2MatchHistoryHeaderView.swift in Sources */,
 				F8664033239403540087D4BA /* ExpandableNavbar.Config.swift in Sources */,
 				F854F5BA238C29CA00E757C9 /* SnapKit+Extensions.swift in Sources */,
+				F86CAE71239A500A00B2710E /* Dota2StatsViewController.swift in Sources */,
 				F8492402238DCED900FCDE07 /* String+Plurals.swift in Sources */,
 				F86FB9DB238C858B00A62E86 /* OwnedGame.Minutes+Format.swift in Sources */,
 				F8C2363B2399273B00C48301 /* GameSchema.swift in Sources */,
@@ -1026,12 +1157,15 @@
 				F8152AA7238AF518009F937F /* ProfileModuleBuilder.swift in Sources */,
 				F8152A99238AD8B1009F937F /* Array+Extensions.swift in Sources */,
 				F854F5B4238C274D00E757C9 /* ExpandableNavbarHeaderView.swift in Sources */,
+				F86CAE77239A502500B2710E /* Dota2StatsModuleBuilder.swift in Sources */,
+				F86F1795239AF1FE00E9579D /* HistogramColumnCell.swift in Sources */,
 				F8152A9B238ADA6C009F937F /* SteamAuthModuleBuilder.swift in Sources */,
 				F866403823943D460087D4BA /* Dota2ViewController.swift in Sources */,
 				F86CAE692399C52400B2710E /* GameAchievementsHeaderView.swift in Sources */,
 				F8152AA3238AF1B2009F937F /* SteamUser.swift in Sources */,
 				F866403C23943D760087D4BA /* Dota2ModuleBuilder.swift in Sources */,
 				F86FB9D3238C5CE700A62E86 /* OwnedGameCell.swift in Sources */,
+				F86CAE75239A501B00B2710E /* Dota2StatsPresenter.swift in Sources */,
 				F85ED270239801D200FA6DFA /* Dota2MatchCell.swift in Sources */,
 				F8C23636239837CC00C48301 /* UIEdgeInsets+Initializers.swift in Sources */,
 				F88F7FEE2393F5B5000F3E20 /* UIViewController+Extensions.swift in Sources */,
@@ -1045,6 +1179,8 @@
 				F86641232397CDB20087D4BA /* RealmDota2Player.swift in Sources */,
 				F8650F752391B4D40033818A /* PlayerMatchHistory.swift in Sources */,
 				F801AEEF238FD0AB00C391D8 /* FriendsListViewController.swift in Sources */,
+				F89C8DC2239AA5DE00FC0DE9 /* PlotTimestampAxisView.swift in Sources */,
+				F86CAE7F239A6CDB00B2710E /* PlotPoint.swift in Sources */,
 				F831C212238EE818004A284D /* TabbarViewController.swift in Sources */,
 				F8152A62238AC15C009F937F /* AppDelegate.swift in Sources */,
 				F86640AC2395A38E0087D4BA /* Dota2HeroResourceManager.swift in Sources */,
@@ -1057,6 +1193,7 @@
 				F8152A9E238AE7EE009F937F /* ProfileViewController.swift in Sources */,
 				F85B24CD2399556A00B20D7B /* GameAchievement.swift in Sources */,
 				F8650F772391B94F0033818A /* MatchDetails.swift in Sources */,
+				F86F1797239AF21B00E9579D /* Histogram.swift in Sources */,
 				F831C214238EEB65004A284D /* UIScrollView+Extensions.swift in Sources */,
 				F801AF72239001CD00C391D8 /* FriendsModuleBuilder.swift in Sources */,
 				F8152A79238AD459009F937F /* SteamAuthPresenter.swift in Sources */,
@@ -1067,13 +1204,18 @@
 				F85ED2752398030700FA6DFA /* Dota2ViewInterface.swift in Sources */,
 				F835B0A3238C4185002460C4 /* UILabel+Initializers.swift in Sources */,
 				F801AF70238FFD2D00C391D8 /* FriendsPresenter.swift in Sources */,
+				F86F1249239AD6AC00361553 /* Dota2StatsTopHeroesViewController.swift in Sources */,
+				F85F9CF1239B12E6002E9902 /* InteractionDependableNavigationController.swift in Sources */,
 				F801AF16238FE1DD00C391D8 /* FeatureColor.swift in Sources */,
 				F854F4A5238B238F00E757C9 /* Steam+PublicMethods.swift in Sources */,
 				F835B0A6238C4209002460C4 /* UIFont+Palette.swift in Sources */,
 				F860F1582390268A00E9430B /* ArrowView.swift in Sources */,
 				F801AF18238FEEDA00C391D8 /* Shadow+Palette.swift in Sources */,
 				F854F5B2238C227B00E757C9 /* BlurView.swift in Sources */,
+				F86CAE73239A501300B2710E /* Dota2StatsViewInterface.swift in Sources */,
 				F835B0A9238C4434002460C4 /* ExpandableNavbar+HeaderContentViews.swift in Sources */,
+				F89C8DC0239AA5B000FC0DE9 /* Plot.swift in Sources */,
+				F86CAE6E239A4C0900B2710E /* ArrowedLabel.swift in Sources */,
 				F86640A923958D1C0087D4BA /* Dota2Hero.swift in Sources */,
 				F8664064239446B90087D4BA /* UnicodeStrings.swift in Sources */,
 				F854F5AB238C1DE900E757C9 /* CustomNavbarSnappingBehavior.swift in Sources */,
@@ -1085,14 +1227,18 @@
 				F801AF6E238FFA5600C391D8 /* FriendsViewController.swift in Sources */,
 				F88F7FE82393D07F000F3E20 /* RecentActivityViewInterface.swift in Sources */,
 				F84923FF238DC5C200FCDE07 /* ProfileActionButton.swift in Sources */,
+				F85F9CF4239B1CCC002E9902 /* RoundingFunctions.swift in Sources */,
 				F854F4B1238B2F3600E757C9 /* Game.swift in Sources */,
 				F8152AAB238B174B009F937F /* AppLauncher.swift in Sources */,
 				F85B24CF2399791400B20D7B /* GameAchievementsPresenter.swift in Sources */,
 				F88F7FE12393C098000F3E20 /* RecentActivityViewController.swift in Sources */,
 				F801AF0F238FD65300C391D8 /* Gradient.swift in Sources */,
+				F85F9CF6239BC740002E9902 /* CGPoint+Extensions.swift in Sources */,
 				F85B24D2239979F400B20D7B /* GameAchievementsViewInterface.swift in Sources */,
 				F86FB9D5238C6D2700A62E86 /* UIImageView+Initializers.swift in Sources */,
 				F88F7FE52393CCE8000F3E20 /* RecentActivityPresenter.swift in Sources */,
+				F85F9CFA239BDDD9002E9902 /* RoundedView.swift in Sources */,
+				F86CAE7D239A6A5500B2710E /* PlotCanvas.swift in Sources */,
 				F854F5B6238C27D700E757C9 /* ExpandableNavbar.ContentView.swift in Sources */,
 				F867B08C239286F100BA9235 /* Dota2ProfileCell.swift in Sources */,
 				F86640AE2395B2CA0087D4BA /* Dota2MatchesRequestManager.swift in Sources */,
@@ -1102,7 +1248,9 @@
 				F8664046239445090087D4BA /* Dota2ShortStatView.swift in Sources */,
 				F86641282397CDE90087D4BA /* RealmDota2UserMatches.swift in Sources */,
 				F801AEEC238FC24700C391D8 /* UIView+Shadow.swift in Sources */,
+				F85F9CF8239BD808002E9902 /* PlotValueAxisView.swift in Sources */,
 				F8152A97238AD790009F937F /* Monads.swift in Sources */,
+				F86CAE81239A6CFA00B2710E /* PlotDataBuilder.swift in Sources */,
 				F8C2363223981AEB00C48301 /* DebugConstants.swift in Sources */,
 				F86FB9D7238C740200A62E86 /* OwnedGamesHeaderCell.swift in Sources */,
 				F854F4AC238B273E00E757C9 /* Button.swift in Sources */,

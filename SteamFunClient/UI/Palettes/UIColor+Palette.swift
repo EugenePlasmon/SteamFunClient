@@ -40,6 +40,8 @@ public extension UIColor {
     
     static let zoraya = rgb(233, 234, 245)
     
+    static let nyon = rgb(235, 239, 255)
+    
     static let ulrezaj = rgb(205, 37, 37)
     
     static let dabiri = rgb(81, 213, 39)

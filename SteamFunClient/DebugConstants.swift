@@ -10,9 +10,10 @@ import Foundation
 
 // TODO: refactor debug mode
 
-let debugSteamID: SteamID? = plasmon321SteamID
+let debugSteamID: SteamID? = zyoriSteamID
 
 let baseSteamID64 = 76561197960265728
 let manyDotaMatchesSteamID = 109455705 + baseSteamID64
+let zyoriSteamID = 88990397 + baseSteamID64
 let plasmon321SteamID: SteamID = 76561198799966324
 let dropRealmDBOnStart = false

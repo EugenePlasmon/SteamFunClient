@@ -142,6 +142,40 @@ extension FeatureColor {
 
 extension FeatureColor {
     
+    struct Dota2Stats {
+        
+        static let background = themeDependent(dark: .vorazun, light: .artanis)
+        
+        static let blockTitle = themeDependent(dark: .artanis, light: .aldaris)
+        
+        static let blockBackground = themeDependent(dark: .raszagal, light: .zoraya)
+        
+        struct Plot {
+            
+            static let title = themeDependent(dark: .artanis, light: .aldaris)
+            
+            static let background = themeDependent(dark: .nyon, light: .zeratul)
+            
+            static let line = themeDependent(dark: .rohana, light: .nyon)
+            
+            static let value = themeDependent(dark: .artanis, light: .aldaris)
+            
+            static let day = themeDependent(dark: .artanis, light: .aldaris)
+        }
+        
+        struct TopHeroes {
+            
+            static let title = themeDependent(dark: .artanis, light: .aldaris)
+            
+            static let columnBackground = themeDependent(dark: .nyon, light: .zeratul)
+            
+            static let columnValue = themeDependent(dark: .artanis, light: .aldaris)
+        }
+    }
+}
+
+extension FeatureColor {
+    
     struct Achievements {
         
         static let gameName = themeDependent(dark: .artanis, light: .artanis)

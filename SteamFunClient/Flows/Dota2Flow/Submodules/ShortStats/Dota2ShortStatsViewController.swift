@@ -12,11 +12,21 @@ final class Dota2ShortStatsViewController: UIViewController {
     
     let viewModel: Dota2ViewModel.ShortStats
     
+    var onMoreTap: (() -> Void)? {
+        didSet {
+            moreLabel.onTap = onMoreTap
+        }
+    }
+    
+    // MARK: - Views
+    
     private let titleLabel = UILabel(text: "Статистика в Dota 2",
                                      color: FeatureColor.Dota2ShortStats.title,
                                      font: .kerrigan)
     
     private let backgroundView = UIView(color: FeatureColor.Dota2ShortStats.background)
+    
+    private let moreLabel = ArrowedLabel(text: "Подробнее", color: FeatureColor.Dota2ShortStats.moreButton)
     
     private let statsStackView: UIStackView = {
         let stackView = UIStackView()
@@ -54,6 +64,8 @@ final class Dota2ShortStatsViewController: UIViewController {
         static let favoriteHeroSubtitle = "любимый герой"
     }
     
+    // MARK: - Init
+    
     init(viewModel: Dota2ViewModel.ShortStats) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -64,11 +76,14 @@ final class Dota2ShortStatsViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - UI
+    
     private func configureUI() {
         view.backgroundColor = .clear
         view.addSubview(titleLabel)
         view.addSubview(backgroundView)
         backgroundView.addSubview(statsStackView)
+        backgroundView.addSubview(moreLabel)
         
         statsStackView.addArrangedSubview(favoriteHeroView)
         statsStackView.addArrangedSubview(favoriteTeamView)
@@ -88,6 +103,11 @@ final class Dota2ShortStatsViewController: UIViewController {
         statsStackView.snp.makeConstraints {
             $0.top.equalToSuperview().offset(12.0)
             $0.left.right.equalToSuperview()
+        }
+        
+        moreLabel.snp.makeConstraints {
+            $0.bottom.equalToSuperview().inset(12.0)
+            $0.right.equalToSuperview().inset(18.0)
         }
     }
 }
