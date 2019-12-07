@@ -17,6 +17,7 @@ final class ProfileNavbarContentView: ExpandableNavbar.ContentView {
     var onActionButtonTap: ProfileActionButton.OnTapClosure? {
         didSet {
             friendsActionButton.onTap = onActionButtonTap
+            logoutActionButton?.onTap = onActionButtonTap
         }
     }
     
@@ -48,8 +49,7 @@ final class ProfileNavbarContentView: ExpandableNavbar.ContentView {
             : .friends(count: viewModel.friendsCount)
         return ProfileActionButton(type: type)
     }()
-//    private let achievementsActionButton = ProfileActionButton(type: .achievements(count: 666))
-//    private let moreActionButton = ProfileActionButton(type: .more)
+    private var logoutActionButton: ProfileActionButton?
     
     // MARK: - Init
     
@@ -75,9 +75,13 @@ final class ProfileNavbarContentView: ExpandableNavbar.ContentView {
         
         actionButtonsStackView.axis = .horizontal
         actionButtonsStackView.distribution = .fillEqually
+        actionButtonsStackView.alignment = .trailing
         actionButtonsStackView.addArrangedSubview(friendsActionButton)
-//        actionButtonsStackView.addArrangedSubview(achievementsActionButton)
-//        actionButtonsStackView.addArrangedSubview(moreActionButton)
+        if viewModel.showLogoutButton {
+            logoutActionButton = ProfileActionButton(type: .logout)
+            logoutActionButton?.onTap = onActionButtonTap
+            logoutActionButton >>- actionButtonsStackView.addArrangedSubview
+        }
         
         avatar.snp.makeConstraints {
             $0.top.equalToSuperview()

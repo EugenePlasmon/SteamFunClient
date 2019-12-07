@@ -78,7 +78,7 @@
 		F85F9CF6239BC740002E9902 /* CGPoint+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85F9CF5239BC740002E9902 /* CGPoint+Extensions.swift */; };
 		F85F9CF8239BD808002E9902 /* PlotValueAxisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85F9CF7239BD808002E9902 /* PlotValueAxisView.swift */; };
 		F85F9CFA239BDDD9002E9902 /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85F9CF9239BDDD9002E9902 /* RoundedView.swift */; };
-		F85F9CFC239BE81D002E9902 /* View.xib in Resources */ = {isa = PBXBuildFile; fileRef = F85F9CFB239BE81D002E9902 /* View.xib */; };
+		F85F9CFE239C1A22002E9902 /* InitialCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85F9CFD239C1A22002E9902 /* InitialCoordinator.swift */; };
 		F860F1582390268A00E9430B /* ArrowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F860F1572390268A00E9430B /* ArrowView.swift */; };
 		F8650F72239071860033818A /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8650F71239071860033818A /* Log.swift */; };
 		F8650F752391B4D40033818A /* PlayerMatchHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8650F742391B4D40033818A /* PlayerMatchHistory.swift */; };
@@ -216,7 +216,7 @@
 		F85F9CF5239BC740002E9902 /* CGPoint+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+Extensions.swift"; sourceTree = "<group>"; };
 		F85F9CF7239BD808002E9902 /* PlotValueAxisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlotValueAxisView.swift; sourceTree = "<group>"; };
 		F85F9CF9239BDDD9002E9902 /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
-		F85F9CFB239BE81D002E9902 /* View.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = View.xib; sourceTree = "<group>"; };
+		F85F9CFD239C1A22002E9902 /* InitialCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialCoordinator.swift; sourceTree = "<group>"; };
 		F860F1572390268A00E9430B /* ArrowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowView.swift; sourceTree = "<group>"; };
 		F8650F71239071860033818A /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		F8650F742391B4D40033818A /* PlayerMatchHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerMatchHistory.swift; sourceTree = "<group>"; };
@@ -570,6 +570,7 @@
 			children = (
 				F8152A61238AC15C009F937F /* AppDelegate.swift */,
 				F8152AAA238B174B009F937F /* AppLauncher.swift */,
+				F85F9CFD239C1A22002E9902 /* InitialCoordinator.swift */,
 			);
 			path = ApplicationLaunch;
 			sourceTree = "<group>";
@@ -883,7 +884,6 @@
 				F89C8DBF239AA5B000FC0DE9 /* Plot.swift */,
 				F86CAE7C239A6A5500B2710E /* PlotCanvas.swift */,
 				F85F9CF7239BD808002E9902 /* PlotValueAxisView.swift */,
-				F85F9CFB239BE81D002E9902 /* View.xib */,
 				F89C8DC1239AA5DE00FC0DE9 /* PlotTimestampAxisView.swift */,
 				F86CAE7E239A6CDB00B2710E /* PlotPoint.swift */,
 			);
@@ -1060,7 +1060,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8152A6E238AC15D009F937F /* LaunchScreen.storyboard in Resources */,
-				F85F9CFC239BE81D002E9902 /* View.xib in Resources */,
 				F8152A6B238AC15D009F937F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1192,6 +1191,7 @@
 				F8152A77238AC197009F937F /* SteamAuthViewController.swift in Sources */,
 				F8152A9E238AE7EE009F937F /* ProfileViewController.swift in Sources */,
 				F85B24CD2399556A00B20D7B /* GameAchievement.swift in Sources */,
+				F85F9CFE239C1A22002E9902 /* InitialCoordinator.swift in Sources */,
 				F8650F772391B94F0033818A /* MatchDetails.swift in Sources */,
 				F86F1797239AF21B00E9579D /* Histogram.swift in Sources */,
 				F831C214238EEB65004A284D /* UIScrollView+Extensions.swift in Sources */,

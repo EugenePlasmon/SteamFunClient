@@ -87,8 +87,13 @@ final class ProfileViewController: UIViewController {
         let navbar = ExpandableNavbar(scrollView: ownedGamesViewController?.tableView, config: defaultNavbarConfig)
         let navbarContentView = ProfileNavbarContentView(viewModel: viewModel)
         navbarContentView.onActionButtonTap = { [weak self] type in
-            if case .friends = type {
+            switch type {
+            case .friends:
                 self?.output.viewDidTapFriends()
+            case .hiddenFriends:
+                return
+            case .logout:
+                self?.output.viewDidTapLogout()
             }
         }
         

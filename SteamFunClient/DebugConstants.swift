@@ -10,7 +10,7 @@ import Foundation
 
 // TODO: refactor debug mode
 
-let debugSteamID: SteamID? = zyoriSteamID
+let debugSteamID: SteamID? = nil//zyoriSteamID
 
 let baseSteamID64 = 76561197960265728
 let manyDotaMatchesSteamID = 109455705 + baseSteamID64

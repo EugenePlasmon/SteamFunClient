@@ -11,6 +11,7 @@ import Foundation
 struct ProfileViewModel {
     
     let isHiddenProfile: Bool
+    let showLogoutButton: Bool
     let name: String
     let realName: String?
     let avatarLink: String?

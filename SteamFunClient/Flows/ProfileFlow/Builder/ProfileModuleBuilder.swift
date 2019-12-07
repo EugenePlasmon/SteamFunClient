@@ -8,10 +8,15 @@
 
 import Foundation
 
+protocol ProfileModuleOutput: class {
+    
+    func profileDidLogout()
+}
+
 final class ProfileModuleBuilder {
     
-    static func build(steamID: SteamID) -> ProfileViewController {
-        let presenter = ProfilePresenter(steamID: steamID)
+    static func build(steamID: SteamID, output: ProfileModuleOutput?) -> ProfileViewController {
+        let presenter = ProfilePresenter(steamID: steamID, output: output)
         let viewController = ProfileViewController(output: presenter)
         presenter.viewInput = viewController
         

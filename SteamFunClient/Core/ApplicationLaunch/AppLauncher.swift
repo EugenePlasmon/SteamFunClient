@@ -13,6 +13,8 @@ final class AppLauncher {
     
     private let window: UIWindow?
     
+    private lazy var initialCoordinator = InitialCoordinator(window: window)
+    
     init(window: UIWindow?) {
         self.window = window
     }
@@ -27,7 +29,7 @@ final class AppLauncher {
         
         fetchSteamID()
         fetchDota2Heroes { [weak self] in
-            self?.startInitialFlow()
+            self?.initialCoordinator.startInitialFlow()
         }
     }
     
@@ -49,41 +51,5 @@ final class AppLauncher {
         } catch {
             // TODO:
         }
-    }
-    
-    // MARK: - Start flow
-    
-    private func startInitialFlow() {
-        // TODO: Debug
-        if let debugSteamID = debugSteamID {
-            self.startTabBarFlow(steamID: debugSteamID)
-            return
-        }
-        
-        if let steamID = Steam.SteamIDCaretaker.steamID {
-            self.startTabBarFlow(steamID: steamID)
-        } else {
-            self.startSteamAuthFlow()
-        }
-    }
-    
-    private func startSteamAuthFlow() {
-        let steamAuthViewController = SteamAuthModuleBuilder.build { result in
-            result.onSuccess { [weak self] steamID in
-                try? Steam.SteamIDCaretaker.store(steamID)
-                self?.startTabBarFlow(steamID: steamID)
-            }.onFailure {
-                // TODO:
-                log($0)
-            }
-        }
-        let navigationController = UINavigationController(rootViewController: steamAuthViewController)
-        self.window?.rootViewController = navigationController
-        self.window?.makeKeyAndVisible()
-    }
-    
-    private func startTabBarFlow(steamID: SteamID) {
-        self.window?.rootViewController = TabbarConfigurator(steamID: steamID).createTabbar()
-        self.window?.makeKeyAndVisible()
     }
 }

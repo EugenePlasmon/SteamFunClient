@@ -11,23 +11,25 @@ import UIKit
 final class TabbarConfigurator {
     
     let steamID: SteamID
+    private weak var profileOutput: ProfileModuleOutput?
     
-    init(steamID: SteamID) {
+    init(steamID: SteamID, profileOutput: ProfileModuleOutput?) {
         self.steamID = steamID
+        self.profileOutput = profileOutput
     }
     
     func createTabbar() -> UITabBarController {
         let tabBarController = TabbarViewController()
-        tabBarController.viewControllers = viewControllers
+        tabBarController.viewControllers = createModules()
         return tabBarController
     }
     
-    private var viewControllers: [UIViewController] {
-        [profileViewController, recentActivityViewController]
+    private func createModules() -> [UIViewController] {
+        return [createProfileModule(), createRecentActivityModule()]
     }
     
-    private var profileViewController: UIViewController {
-        return ProfileModuleBuilder.build(steamID: steamID)
+    private func createProfileModule() -> UIViewController {
+        return ProfileModuleBuilder.build(steamID: steamID, output: profileOutput)
             >>> { InteractionDependableNavigationController(rootViewController: $0) }
             >>> {
                 $0.tabBarItem = profileItem
@@ -35,7 +37,7 @@ final class TabbarConfigurator {
         }
     }
     
-    private var recentActivityViewController: UIViewController {
+    private func createRecentActivityModule() -> UIViewController {
         return RecentActivityModuleBuilder.build(steamID: steamID)
             >>> { InteractionDependableNavigationController(rootViewController: $0) }
             >>> {
