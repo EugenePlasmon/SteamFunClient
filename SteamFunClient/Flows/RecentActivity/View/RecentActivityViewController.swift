@@ -14,6 +14,7 @@ final class RecentActivityViewController: UIViewController {
     
     private var throbberViewController: ThrobberViewController?
     private var navbar: ExpandableNavbar?
+    private var infoLabel: UILabel?
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -50,6 +51,7 @@ final class RecentActivityViewController: UIViewController {
         automaticallyAdjustsScrollViewInsets = false
         view.backgroundColor = FeatureColor.RecentActivity.background
         navigationController?.isNavigationBarHidden = true
+        addNavbar()
     }
     
     private func addNavbar() {
@@ -70,6 +72,18 @@ final class RecentActivityViewController: UIViewController {
         tableView.snp.pinToAllSuperviewEdges()
     }
     
+    private func configureEmptyResultsLabel() {
+        guard games.isEmpty else {
+            return
+        }
+        infoLabel = UILabel(text: "Нет данных о недавней активности за последние 2\(nbsp)недели", color: FeatureColor.RecentActivity.infoText, font: .brakk, numberOfLines: 0, textAlignment: .center)
+        infoLabel >>- view.addSubview
+        infoLabel?.snp.makeConstraints {
+            $0.top.equalToSuperview().offset((navbar?.minimumHeight ?? 64.0) + 24.0)
+            $0.left.right.equalToSuperview().inset(16.0)
+        }
+    }
+    
     private func removeThrobberViewController() {
         throbberViewController?.removeFromParent()
         throbberViewController?.view.removeFromSuperview()
@@ -83,7 +97,11 @@ extension RecentActivityViewController: RecentActivityViewInput {
         let throbberViewController = ThrobberViewController()
         self.throbberViewController = throbberViewController
         addChild(throbberViewController)
-        view.addSubview(throbberViewController.view)
+        if let navbarView = navbar?.view, navbarView.superview != nil {
+            view.insertSubview(throbberViewController.view, belowSubview: navbarView)
+        } else {
+            view.addSubview(throbberViewController.view)
+        }
         throbberViewController.view.snp.pinToAllSuperviewEdges()
     }
     
@@ -91,7 +109,7 @@ extension RecentActivityViewController: RecentActivityViewInput {
         removeThrobberViewController()
         self.games = games
         addTableView()
-        addNavbar()
+        configureEmptyResultsLabel()
     }
 }
 

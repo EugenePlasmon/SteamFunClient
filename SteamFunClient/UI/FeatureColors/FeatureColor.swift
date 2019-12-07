@@ -93,6 +93,8 @@ extension FeatureColor {
         static let background = themeDependent(dark: .vorazun, light: .artanis)
         
         static let gameCell = themeDependent(dark: .raszagal, light: .zoraya)
+        
+        static let infoText = themeDependent(dark: .tassadar, light: .aldaris)
     }
 }
 
