@@ -10,16 +10,18 @@ import Foundation
 
 final class Dota2MatchesRequestManager {
     
-    // MARK: - Properties
+    // MARK: - Get Properties
     
     let steamID: SteamID
     
-    enum LoadProgress: Equatable {
+    typealias RequestResult = Result<Dota2UserMatches, Error>
+    
+    enum LoadProgress {
         case notStarted
         case fetchedFromDatabase
         case fullMatchHistoryObtained
         case matchDetailsRequesting(obtainedCount: Int, totalCount: Int)
-        case finished
+        case finished(result: RequestResult)
     }
     
     private(set) var loadProgress: LoadProgress = .notStarted {
@@ -29,7 +31,13 @@ final class Dota2MatchesRequestManager {
         }
     }
     
-    var onLoadProgressChange: ((LoadProgress) -> Void)?
+    // MARK: - Callbacks
+    
+    typealias Completion = (RequestResult) -> Void
+    typealias OnLoadProgressChangeClosure = (LoadProgress) -> Void
+    
+    var onLoadProgressChange: OnLoadProgressChangeClosure?
+    var completion: Completion?
     
     // MARK: - Private properties
     
@@ -43,7 +51,22 @@ final class Dota2MatchesRequestManager {
         self.steamID = steamID
     }
     
-    func getUserMatches(then completion: @escaping (Result<Dota2UserMatches, Error>) -> Void) {
+    // MARK: - Methods
+    
+    func getUserMatches(forceCompletionIfFinished: Bool = true) {
+        switch loadProgress {
+        case .notStarted:
+            getUserMatchesForced()
+        case .fetchedFromDatabase, .fullMatchHistoryObtained, .matchDetailsRequesting:
+            return
+        case .finished(let result):
+            if forceCompletionIfFinished {
+                completion?(result)
+            }
+        }
+    }
+    
+    func getUserMatchesForced() {
         let storedUserMatches = fetchMatchesFromDatabase()
         loadProgress = .fetchedFromDatabase
         
@@ -55,8 +78,9 @@ final class Dota2MatchesRequestManager {
             guard let self = self else { return }
             result.onSuccess { newMatchesShortInfo in
                 guard !newMatchesShortInfo.isEmpty else {
-                    self.loadProgress = .finished
-                    completion(.success(storedUserMatches))
+                    let result = RequestResult.success(storedUserMatches)
+                    self.loadProgress = .finished(result: result)
+                    self.completion?(result)
                     return
                 }
                 
@@ -74,14 +98,17 @@ final class Dota2MatchesRequestManager {
                     } catch {
                         log(error)
                     }
-                    self.loadProgress = .finished
-                    completion(.success(completedModel))
+                    
+                    let result = RequestResult.success(completedModel)
+                    self.loadProgress = .finished(result: result)
+                    self.completion?(result)
                     self.matchDetailsLoader = nil
                 }
                 self.matchDetailsLoader = matchDetailsLoader
             }.onFailure {
-                self.loadProgress = .finished
-                completion(.failure($0))
+                let result = RequestResult.failure($0)
+                self.loadProgress = .finished(result: result)
+                self.completion?(result)
             }
             self.matchHistoryLoader = nil
         }
@@ -101,5 +128,24 @@ final class Dota2MatchesRequestManager {
             storedUserMatches = Dota2UserMatches(steamID: steamID, matches: [])
         }
         return storedUserMatches
+    }
+}
+
+extension Dota2MatchesRequestManager.LoadProgress: Equatable {
+    
+    static func == (lhs: Dota2MatchesRequestManager.LoadProgress, rhs: Dota2MatchesRequestManager.LoadProgress) -> Bool {
+        switch (lhs, rhs) {
+        case (.notStarted, notStarted),
+             (.fetchedFromDatabase, .fetchedFromDatabase),
+             (.fullMatchHistoryObtained, .fullMatchHistoryObtained):
+            return true
+        case (.matchDetailsRequesting(let lhsObtainedCount, let lhsTotalCount),
+              .matchDetailsRequesting(let rhsObtainedCount, let rhsTotalCount)):
+            return lhsObtainedCount == rhsObtainedCount && lhsTotalCount == rhsTotalCount
+        case (.finished, .finished):
+            return true
+        default:
+            return false
+        }
     }
 }

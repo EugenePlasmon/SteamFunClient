@@ -14,18 +14,18 @@ final class Dota2Presenter {
     
     weak var viewInput: (UIViewController & Dota2ViewInput)?
     
-    
     // MARK: - Private properties
     
-    private lazy var matchesRequestManager = Dota2MatchesRequestManager(steamID: steamUser.id)
+    private let steamUser: SteamUser
+    private let matchesRequestManager: Dota2MatchesRequestManager
     
-    let steamUser: SteamUser
     private var matches: [MatchDetails] = []
     
     // MARK: - Init
     
-    init(steamUser: SteamUser) {
+    init(steamUser: SteamUser, matchesRequestManager: Dota2MatchesRequestManager) {
         self.steamUser = steamUser
+        self.matchesRequestManager = matchesRequestManager
     }
     
     // MARK: - Data obtaining
@@ -33,9 +33,10 @@ final class Dota2Presenter {
     private func loadData(success: @escaping () -> Void,
                           failure: @escaping (Error) -> Void,
                           onProgress: @escaping (Dota2MatchesRequestManager.LoadProgress) -> Void) {
+        onProgress(matchesRequestManager.loadProgress)
         
         matchesRequestManager.onLoadProgressChange = onProgress
-        matchesRequestManager.getUserMatches { [weak self] result in
+        matchesRequestManager.completion = { [weak self] result in
             guard let self = self else {
                 success()
                 return
@@ -48,6 +49,7 @@ final class Dota2Presenter {
                 failure($0)
             }
         }
+        matchesRequestManager.getUserMatches()
     }
     
     // MARK: - View model creation

@@ -17,12 +17,6 @@ final class InitialCoordinator {
     }
     
     func startInitialFlow() {
-        // TODO: Улучшить Debug mode
-        if let debugSteamID = debugSteamID {
-            self.startTabBarFlow(steamID: debugSteamID)
-            return
-        }
-        
         if let steamID = Steam.SteamIDCaretaker.steamID {
             self.startTabBarFlow(steamID: steamID)
         } else {
@@ -36,6 +30,7 @@ final class InitialCoordinator {
         let steamAuthViewController = SteamAuthModuleBuilder.build { result in
             result.onSuccess { [weak self] steamID in
                 try? Steam.SteamIDCaretaker.store(steamID)
+                ServiceLocator.shared.matchesRequestManager(for: steamID).getUserMatches()
                 self?.startTabBarFlow(steamID: steamID)
             }.onFailure {
                 // TODO: Показать экран "Что-то пошло не так" и предложить пользователю авторизоваться через веб-вью еще раз.
