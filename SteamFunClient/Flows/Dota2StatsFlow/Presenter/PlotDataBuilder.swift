@@ -33,10 +33,6 @@ final class PlotDataBuilder {
         let groups = calculateGroups()
         let points = calculateWinratePlotPoints(from: groups)
         
-        // TODO: delete debug
-        for point in points {
-            print("\(Date(timeIntervalSince1970: point.timestamp)) \(point.value) %")
-        }
         return PlotModel(points: points,
                         beginTimestamp: groups.first!.timestampStart,
                         endTimestamp: groups.last!.timestampEnd)
