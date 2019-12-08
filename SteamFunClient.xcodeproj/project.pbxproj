@@ -89,7 +89,7 @@
 		F866403823943D460087D4BA /* Dota2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F866403723943D460087D4BA /* Dota2ViewController.swift */; };
 		F866403A23943D6B0087D4BA /* Dota2Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F866403923943D6B0087D4BA /* Dota2Presenter.swift */; };
 		F866403C23943D760087D4BA /* Dota2ModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F866403B23943D760087D4BA /* Dota2ModuleBuilder.swift */; };
-		F866404223943F150087D4BA /* Dota2ShortStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F866404123943F150087D4BA /* Dota2ShortStatsViewController.swift */; };
+		F866404223943F150087D4BA /* Dota2ShortStatsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F866404123943F150087D4BA /* Dota2ShortStatsCell.swift */; };
 		F8664044239441060087D4BA /* UIView+Initializers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8664043239441060087D4BA /* UIView+Initializers.swift */; };
 		F8664046239445090087D4BA /* Dota2ShortStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8664045239445090087D4BA /* Dota2ShortStatView.swift */; };
 		F8664064239446B90087D4BA /* UnicodeStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8664063239446B90087D4BA /* UnicodeStrings.swift */; };
@@ -228,7 +228,7 @@
 		F866403723943D460087D4BA /* Dota2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dota2ViewController.swift; sourceTree = "<group>"; };
 		F866403923943D6B0087D4BA /* Dota2Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dota2Presenter.swift; sourceTree = "<group>"; };
 		F866403B23943D760087D4BA /* Dota2ModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dota2ModuleBuilder.swift; sourceTree = "<group>"; };
-		F866404123943F150087D4BA /* Dota2ShortStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dota2ShortStatsViewController.swift; sourceTree = "<group>"; };
+		F866404123943F150087D4BA /* Dota2ShortStatsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dota2ShortStatsCell.swift; sourceTree = "<group>"; };
 		F8664043239441060087D4BA /* UIView+Initializers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Initializers.swift"; sourceTree = "<group>"; };
 		F8664045239445090087D4BA /* Dota2ShortStatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dota2ShortStatView.swift; sourceTree = "<group>"; };
 		F8664063239446B90087D4BA /* UnicodeStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnicodeStrings.swift; sourceTree = "<group>"; };
@@ -783,7 +783,7 @@
 		F866404023943EF40087D4BA /* ShortStats */ = {
 			isa = PBXGroup;
 			children = (
-				F866404123943F150087D4BA /* Dota2ShortStatsViewController.swift */,
+				F866404123943F150087D4BA /* Dota2ShortStatsCell.swift */,
 				F8664045239445090087D4BA /* Dota2ShortStatView.swift */,
 			);
 			path = ShortStats;
@@ -1234,7 +1234,7 @@
 				F854F5B8238C281200E757C9 /* UIApplication+Extensions.swift in Sources */,
 				F84EA7822397E58900ACEFDC /* Dota2MatchesPersistentStorage.swift in Sources */,
 				F86641202397CA5A0087D4BA /* Dota2MatchDetailsLoader.swift in Sources */,
-				F866404223943F150087D4BA /* Dota2ShortStatsViewController.swift in Sources */,
+				F866404223943F150087D4BA /* Dota2ShortStatsCell.swift in Sources */,
 				F8D1741D238EDE5E00C47C87 /* ThrobberViewController.swift in Sources */,
 				F801AF6E238FFA5600C391D8 /* FriendsViewController.swift in Sources */,
 				F88F7FE82393D07F000F3E20 /* RecentActivityViewInterface.swift in Sources */,
