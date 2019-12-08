@@ -173,7 +173,7 @@ extension Dota2ViewController: Dota2ViewInput {
     }
     
     func updateLoadingProgress(value: Float) {
-        progressView.progress = value
+        progressView.setProgress(value, animated: true)
     }
     
     func showData(viewModel: Dota2ViewModel) {
