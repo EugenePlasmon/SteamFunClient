@@ -12,7 +12,7 @@ struct MatchDetails {
     
     typealias Seconds = Int
     
-    let id: Int
+    let id: MatchID
     let gameMode: GameMode
     let winner: Dota2Team
     let players: [Player]
@@ -50,7 +50,7 @@ extension MatchDetails {
             }
         }
         
-        let accountID: Int?
+        let accountID: Int64?
         let slot: Slot
         let heroID: Int
         let kills: Int
@@ -98,21 +98,21 @@ extension MatchDetails {
 extension MatchDetails {
     
     func teamOfUser(steamID: SteamID) -> Dota2Team? {
-        guard let player = players.first(where: { $0.accountID == steamID.to32 }) else {
+        guard let player = players.first(where: { $0.accountID == Int64(steamID.to32) }) else {
             return nil
         }
         return player.slot.team
     }
     
     func heroIDOfUser(steamID: SteamID) -> Int? {
-        guard let player = players.first(where: { $0.accountID == steamID.to32 }) else {
+        guard let player = players.first(where: { $0.accountID == Int64(steamID.to32) }) else {
             return nil
         }
         return player.heroID
     }
     
     func isUserWinner(steamID: SteamID) -> Bool? {
-        guard let player = players.first(where: { $0.accountID == steamID.to32 }) else {
+        guard let player = players.first(where: { $0.accountID == Int64(steamID.to32) }) else {
             return nil
         }
         return winner == player.slot.team
@@ -140,7 +140,7 @@ extension MatchDetails: Decodable {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         let radiantWin = try container.decode(Bool.self, forKey: .radiantWin)
-        self.id = try container.decode(Int.self, forKey: .id)
+        self.id = try container.decode(MatchID.self, forKey: .id)
         do {
             let gameMode = try container.decode(GameMode.self, forKey: .gameMode)
             self.gameMode = gameMode
@@ -181,7 +181,7 @@ extension MatchDetails.Player: Decodable {
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.accountID = try? container.decode(Int.self, forKey: .accountID)
+        self.accountID = try? container.decode(Int64.self, forKey: .accountID)
         self.slot = try container.decode(Slot.self, forKey: .slot)
         self.heroID = try container.decode(Int.self, forKey: .heroID)
         self.kills = try container.decode(Int.self, forKey: .kills)

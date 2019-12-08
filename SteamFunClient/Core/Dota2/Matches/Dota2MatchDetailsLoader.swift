@@ -14,7 +14,7 @@ final class Dota2MatchDetailsLoader {
     
     let matches: [PlayerMatchHistory.Match]
     
-    private var matchDetails: [Int: MatchDetails] = [:]
+    private var matchDetails: [MatchID: MatchDetails] = [:]
     
     init(matches: [PlayerMatchHistory.Match]) {
         self.matches = matches
@@ -44,7 +44,7 @@ final class Dota2MatchDetailsLoader {
         }
     }
     
-    private func loadDetails(for matchIDs: [Int], then completion: @escaping () -> Void) {
+    private func loadDetails(for matchIDs: [MatchID], then completion: @escaping () -> Void) {
         let dispatchGroup = DispatchGroup()
         
         for matchID in matchIDs {
@@ -57,7 +57,7 @@ final class Dota2MatchDetailsLoader {
         }
     }
     
-    private func loadDetails(for matchID: Int, then completion: @escaping () -> Void) {
+    private func loadDetails(for matchID: MatchID, then completion: @escaping () -> Void) {
         Steam.dota2MatchDetails(matchID: matchID) { [weak self] result in
             guard let self = self else {
                 completion()

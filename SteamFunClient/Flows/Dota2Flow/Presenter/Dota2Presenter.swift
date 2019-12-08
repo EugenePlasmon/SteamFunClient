@@ -96,7 +96,7 @@ final class Dota2Presenter {
     }
     
     private func viewModelMatch(from match: MatchDetails) -> Dota2ViewModel.Match? {
-        guard let currentPlayer = match.players.first(where: { $0.accountID == self.steamUser.id.to32 })
+        guard let currentPlayer = match.players.first(where: { $0.accountID == Int64(self.steamUser.id.to32) })
             , let hero = Dota2Hero(id: currentPlayer.heroID) else {
                 return nil
         }

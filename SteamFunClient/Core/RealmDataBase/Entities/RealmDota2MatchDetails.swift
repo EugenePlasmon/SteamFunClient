@@ -11,7 +11,7 @@ import RealmSwift
 
 final class RealmDota2MatchDetails: Object {
     
-    @objc dynamic var id: Int = 0
+    @objc dynamic var id: MatchID = 0
     @objc dynamic var gameMode: Int = 0
     @objc dynamic var radiantWin: Bool = false
     let players = List<RealmDota2Player>()

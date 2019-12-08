@@ -11,6 +11,7 @@ import Foundation
 typealias SteamID = Int64
 typealias SteamID32 = Int
 typealias GameID = Int
+typealias MatchID = Int64
 
 extension SteamID {
     

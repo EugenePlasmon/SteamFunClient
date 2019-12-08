@@ -11,7 +11,7 @@ import RealmSwift
 
 final class RealmDota2Player: Object {
     
-    let accountID = RealmOptional<Int>()
+    let accountID = RealmOptional<Int64>()
     @objc dynamic var slot: Int = 0
     @objc dynamic var heroID: Int = 0
     @objc dynamic var kills: Int = 0

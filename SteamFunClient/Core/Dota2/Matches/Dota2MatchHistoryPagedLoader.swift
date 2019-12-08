@@ -14,12 +14,12 @@ final class Dota2MatchHistoryPagedLoader {
     typealias Completion = (Result<[PlayerMatchHistory.Match], Error>) -> Void
     
     let steamID32: SteamID32
-    let untilMatchID: Int?
+    let untilMatchID: MatchID?
     
     private var completion: Completion?
     private var matches: [PlayerMatchHistory.Match] = []
     
-    init(steamID32: SteamID32, untilMatchID: Int? = nil) {
+    init(steamID32: SteamID32, untilMatchID: MatchID? = nil) {
         self.steamID32 = steamID32
         self.untilMatchID = untilMatchID
     }
@@ -29,7 +29,7 @@ final class Dota2MatchHistoryPagedLoader {
         load(startingAt: nil)
     }
     
-    private func load(startingAt startMatchID: Int?) {
+    private func load(startingAt startMatchID: MatchID?) {
         Steam.dota2MatchHistory(steamID32: steamID32, startAtMatchID: startMatchID) { [weak self] result in
             guard let self = self else { return }
             result.onSuccess {

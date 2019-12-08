@@ -113,7 +113,7 @@ extension Steam {
     
     static func dota2MatchHistory(steamID32: SteamID32,
                                   heroID: Int? = nil,
-                                  startAtMatchID: Int? = nil,
+                                  startAtMatchID: MatchID? = nil,
                                   batchSize: Int? = nil,
                                   then completion: @escaping (Result<PlayerMatchHistory, Swift.Error>) -> Void) {
         
@@ -141,7 +141,7 @@ extension Steam {
         }
     }
     
-    static func dota2MatchDetails(matchID: Int,
+    static func dota2MatchDetails(matchID: MatchID,
                                   then completion: @escaping (Result<MatchDetails, AFError>) -> Void) {
         
         Steam.Endpoint.dota2MatchDetails(matchID: matchID).request
