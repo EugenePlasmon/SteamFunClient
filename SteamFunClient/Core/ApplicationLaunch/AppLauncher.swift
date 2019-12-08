@@ -39,7 +39,7 @@ final class AppLauncher {
         guard let steamID = Steam.SteamIDCaretaker.steamID else {
             return
         }
-        ServiceLocator.shared.matchesRequestManager(for: steamID).getUserMatches()
+        Dota2ServicesLocator.shared.matchesRequestManager(for: steamID).getUserMatches()
     }
     
     private func fetchDota2Heroes(then completion: @escaping () -> Void) {
