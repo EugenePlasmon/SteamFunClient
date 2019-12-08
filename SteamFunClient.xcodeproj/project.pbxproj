@@ -44,6 +44,8 @@
 		F835B0A3238C4185002460C4 /* UILabel+Initializers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F835B0A2238C4185002460C4 /* UILabel+Initializers.swift */; };
 		F835B0A6238C4209002460C4 /* UIFont+Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = F835B0A5238C4209002460C4 /* UIFont+Palette.swift */; };
 		F835B0A9238C4434002460C4 /* ExpandableNavbar+HeaderContentViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = F835B0A8238C4434002460C4 /* ExpandableNavbar+HeaderContentViews.swift */; };
+		F8436D1D239D690B007D75CD /* SteamFunClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8436D1C239D690B007D75CD /* SteamFunClientTests.swift */; };
+		F8436D26239D69D5007D75CD /* matchDetailsTestResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = F8436D25239D69D5007D75CD /* matchDetailsTestResponse.json */; };
 		F847226D238DDCF700ECA269 /* TouchThroughView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F847226C238DDCF700ECA269 /* TouchThroughView.swift */; };
 		F84923FF238DC5C200FCDE07 /* ProfileActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84923FE238DC5C200FCDE07 /* ProfileActionButton.swift */; };
 		F8492402238DCED900FCDE07 /* String+Plurals.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8492401238DCED900FCDE07 /* String+Plurals.swift */; };
@@ -112,7 +114,7 @@
 		F86CAE77239A502500B2710E /* Dota2StatsModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86CAE76239A502500B2710E /* Dota2StatsModuleBuilder.swift */; };
 		F86CAE7D239A6A5500B2710E /* PlotCanvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86CAE7C239A6A5500B2710E /* PlotCanvas.swift */; };
 		F86CAE7F239A6CDB00B2710E /* PlotPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86CAE7E239A6CDB00B2710E /* PlotPoint.swift */; };
-		F86CAE81239A6CFA00B2710E /* PlotDataBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86CAE80239A6CFA00B2710E /* PlotDataBuilder.swift */; };
+		F86CAE81239A6CFA00B2710E /* MatchesPlotDataBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86CAE80239A6CFA00B2710E /* MatchesPlotDataBuilder.swift */; };
 		F86F1249239AD6AC00361553 /* Dota2StatsTopHeroesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86F1248239AD6AC00361553 /* Dota2StatsTopHeroesViewController.swift */; };
 		F86F1795239AF1FE00E9579D /* HistogramColumnCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86F1794239AF1FE00E9579D /* HistogramColumnCell.swift */; };
 		F86F1797239AF21B00E9579D /* Histogram.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86F1796239AF21B00E9579D /* Histogram.swift */; };
@@ -140,6 +142,16 @@
 		F8D1741B238EDA9B00C47C87 /* ProfileViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D1741A238EDA9B00C47C87 /* ProfileViewInterface.swift */; };
 		F8D1741D238EDE5E00C47C87 /* ThrobberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D1741C238EDE5E00C47C87 /* ThrobberViewController.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F8436D1F239D690B007D75CD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F8152A56238AC15C009F937F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F8152A5D238AC15C009F937F;
+			remoteInfo = SteamFunClient;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		134D99C8AADD702C65F91FC3 /* Pods_SteamFunClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SteamFunClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -183,6 +195,10 @@
 		F835B0A2238C4185002460C4 /* UILabel+Initializers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Initializers.swift"; sourceTree = "<group>"; };
 		F835B0A5238C4209002460C4 /* UIFont+Palette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Palette.swift"; sourceTree = "<group>"; };
 		F835B0A8238C4434002460C4 /* ExpandableNavbar+HeaderContentViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExpandableNavbar+HeaderContentViews.swift"; sourceTree = "<group>"; };
+		F8436D1A239D690B007D75CD /* SteamFunClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SteamFunClientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8436D1C239D690B007D75CD /* SteamFunClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SteamFunClientTests.swift; sourceTree = "<group>"; };
+		F8436D1E239D690B007D75CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F8436D25239D69D5007D75CD /* matchDetailsTestResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = matchDetailsTestResponse.json; sourceTree = "<group>"; };
 		F847226C238DDCF700ECA269 /* TouchThroughView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchThroughView.swift; sourceTree = "<group>"; };
 		F84923FE238DC5C200FCDE07 /* ProfileActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileActionButton.swift; sourceTree = "<group>"; };
 		F8492401238DCED900FCDE07 /* String+Plurals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Plurals.swift"; sourceTree = "<group>"; };
@@ -251,7 +267,7 @@
 		F86CAE76239A502500B2710E /* Dota2StatsModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dota2StatsModuleBuilder.swift; sourceTree = "<group>"; };
 		F86CAE7C239A6A5500B2710E /* PlotCanvas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlotCanvas.swift; sourceTree = "<group>"; };
 		F86CAE7E239A6CDB00B2710E /* PlotPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlotPoint.swift; sourceTree = "<group>"; };
-		F86CAE80239A6CFA00B2710E /* PlotDataBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlotDataBuilder.swift; sourceTree = "<group>"; };
+		F86CAE80239A6CFA00B2710E /* MatchesPlotDataBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchesPlotDataBuilder.swift; sourceTree = "<group>"; };
 		F86F1248239AD6AC00361553 /* Dota2StatsTopHeroesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dota2StatsTopHeroesViewController.swift; sourceTree = "<group>"; };
 		F86F1794239AF1FE00E9579D /* HistogramColumnCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistogramColumnCell.swift; sourceTree = "<group>"; };
 		F86F1796239AF21B00E9579D /* Histogram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Histogram.swift; sourceTree = "<group>"; };
@@ -286,6 +302,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7446239EE8F72D4184F87E3 /* Pods_SteamFunClient.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F8436D17239D690B007D75CD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,6 +399,7 @@
 			isa = PBXGroup;
 			children = (
 				F8152A60238AC15C009F937F /* SteamFunClient */,
+				F8436D1B239D690B007D75CD /* SteamFunClientTests */,
 				F8152A5F238AC15C009F937F /* Products */,
 				BEBA561E3AB2ABDB3388B75A /* Pods */,
 				2AA2B8A3F4A70F130AD0C24A /* Frameworks */,
@@ -386,6 +410,7 @@
 			isa = PBXGroup;
 			children = (
 				F8152A5E238AC15C009F937F /* SteamFunClient.app */,
+				F8436D1A239D690B007D75CD /* SteamFunClientTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -538,6 +563,24 @@
 				F84923FE238DC5C200FCDE07 /* ProfileActionButton.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		F8436D1B239D690B007D75CD /* SteamFunClientTests */ = {
+			isa = PBXGroup;
+			children = (
+				F8436D24239D698D007D75CD /* TestResourses */,
+				F8436D1C239D690B007D75CD /* SteamFunClientTests.swift */,
+				F8436D1E239D690B007D75CD /* Info.plist */,
+			);
+			path = SteamFunClientTests;
+			sourceTree = "<group>";
+		};
+		F8436D24239D698D007D75CD /* TestResourses */ = {
+			isa = PBXGroup;
+			children = (
+				F8436D25239D69D5007D75CD /* matchDetailsTestResponse.json */,
+			);
+			path = TestResourses;
 			sourceTree = "<group>";
 		};
 		F847226B238DDCE700ECA269 /* BaseViews */ = {
@@ -876,7 +919,7 @@
 			isa = PBXGroup;
 			children = (
 				F86CAE74239A501B00B2710E /* Dota2StatsPresenter.swift */,
-				F86CAE80239A6CFA00B2710E /* PlotDataBuilder.swift */,
+				F86CAE80239A6CFA00B2710E /* MatchesPlotDataBuilder.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -1032,6 +1075,24 @@
 			productReference = F8152A5E238AC15C009F937F /* SteamFunClient.app */;
 			productType = "com.apple.product-type.application";
 		};
+		F8436D19239D690B007D75CD /* SteamFunClientTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F8436D23239D690B007D75CD /* Build configuration list for PBXNativeTarget "SteamFunClientTests" */;
+			buildPhases = (
+				F8436D16239D690B007D75CD /* Sources */,
+				F8436D17239D690B007D75CD /* Frameworks */,
+				F8436D18239D690B007D75CD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F8436D20239D690B007D75CD /* PBXTargetDependency */,
+			);
+			name = SteamFunClientTests;
+			productName = SteamFunClientTests;
+			productReference = F8436D1A239D690B007D75CD /* SteamFunClientTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -1044,6 +1105,10 @@
 				TargetAttributes = {
 					F8152A5D238AC15C009F937F = {
 						CreatedOnToolsVersion = 11.2.1;
+					};
+					F8436D19239D690B007D75CD = {
+						CreatedOnToolsVersion = 11.2.1;
+						TestTargetID = F8152A5D238AC15C009F937F;
 					};
 				};
 			};
@@ -1061,6 +1126,7 @@
 			projectRoot = "";
 			targets = (
 				F8152A5D238AC15C009F937F /* SteamFunClient */,
+				F8436D19239D690B007D75CD /* SteamFunClientTests */,
 			);
 		};
 /* End PBXProject section */
@@ -1072,6 +1138,14 @@
 			files = (
 				F8152A6E238AC15D009F937F /* LaunchScreen.storyboard in Resources */,
 				F8152A6B238AC15D009F937F /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F8436D18239D690B007D75CD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8436D26239D69D5007D75CD /* matchDetailsTestResponse.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1262,14 +1336,30 @@
 				F801AEEC238FC24700C391D8 /* UIView+Shadow.swift in Sources */,
 				F85F9CF8239BD808002E9902 /* PlotValueAxisView.swift in Sources */,
 				F8152A97238AD790009F937F /* Monads.swift in Sources */,
-				F86CAE81239A6CFA00B2710E /* PlotDataBuilder.swift in Sources */,
+				F86CAE81239A6CFA00B2710E /* MatchesPlotDataBuilder.swift in Sources */,
 				F8C2363223981AEB00C48301 /* DebugConstants.swift in Sources */,
 				F86FB9D7238C740200A62E86 /* OwnedGamesHeaderCell.swift in Sources */,
 				F854F4AC238B273E00E757C9 /* Button.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F8436D16239D690B007D75CD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8436D1D239D690B007D75CD /* SteamFunClientTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F8436D20239D690B007D75CD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F8152A5D238AC15C009F937F /* SteamFunClient */;
+			targetProxy = F8436D1F239D690B007D75CD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		F8152A6C238AC15D009F937F /* LaunchScreen.storyboard */ = {
@@ -1435,6 +1525,48 @@
 			};
 			name = Release;
 		};
+		F8436D21239D690B007D75CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6G4AKDTMLW;
+				INFOPLIST_FILE = SteamFunClientTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = plasmon.SteamFunClientTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SteamFunClient.app/SteamFunClient";
+			};
+			name = Debug;
+		};
+		F8436D22239D690B007D75CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6G4AKDTMLW;
+				INFOPLIST_FILE = SteamFunClientTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = plasmon.SteamFunClientTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SteamFunClient.app/SteamFunClient";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1452,6 +1584,15 @@
 			buildConfigurations = (
 				F8152A73238AC15E009F937F /* Debug */,
 				F8152A74238AC15E009F937F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F8436D23239D690B007D75CD /* Build configuration list for PBXNativeTarget "SteamFunClientTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F8436D21239D690B007D75CD /* Debug */,
+				F8436D22239D690B007D75CD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

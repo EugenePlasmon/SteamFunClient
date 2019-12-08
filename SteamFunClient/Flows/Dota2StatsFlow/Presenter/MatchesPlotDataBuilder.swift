@@ -1,5 +1,5 @@
 //
-//  PlotDataBuilder.swift
+//  MatchesPlotDataBuilder.swift
 //  SteamFunClient
 //
 //  Created by Evgeny Kireev on 06.12.2019.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class PlotDataBuilder {
+final class MatchesPlotDataBuilder {
     
     final class GroupedMatches {
         let timestampStart: TimeInterval
@@ -34,8 +34,8 @@ final class PlotDataBuilder {
         let points = calculateWinratePlotPoints(from: groups)
         
         return PlotModel(points: points,
-                        beginTimestamp: groups.first!.timestampStart,
-                        endTimestamp: groups.last!.timestampEnd)
+                         beginTimestamp: groups.first!.timestampStart,
+                         endTimestamp: groups.last!.timestampEnd)
     }
     
     private func calculateGroups() -> [GroupedMatches] {

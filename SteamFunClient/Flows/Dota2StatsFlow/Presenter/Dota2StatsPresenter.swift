@@ -29,7 +29,7 @@ extension Dota2StatsPresenter: Dota2StatsViewOutput {
         viewInput?.addNavbar(imageUrl: steamUser.avatarLinks.full, title: steamUser.personName)
         
         // 2 plot
-        let plotDataBuilder = PlotDataBuilder(steamUser: steamUser, matches: matches)
+        let plotDataBuilder = MatchesPlotDataBuilder(steamUser: steamUser, matches: matches)
         let calculatedPlotModel = plotDataBuilder.calculate()
         let plot = Plot(model: calculatedPlotModel)
         viewInput?.addPlot(plot)
