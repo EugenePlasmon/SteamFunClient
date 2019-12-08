@@ -1,5 +1,5 @@
 //
-//  ServiceLocator.swift
+//  Dota2ServicesLocator.swift
 //  SteamFunClient
 //
 //  Created by Evgeny Kireev on 08.12.2019.
@@ -8,9 +8,9 @@
 
 import Foundation
 
-final class ServiceLocator {
+final class Dota2ServicesLocator {
     
-    static let shared = ServiceLocator()
+    static let shared = Dota2ServicesLocator()
     
     private var matchesRequestManagers: [SteamID: Dota2MatchesRequestManager] = [:]
     

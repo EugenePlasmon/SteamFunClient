@@ -30,7 +30,7 @@ final class InitialCoordinator {
         let steamAuthViewController = SteamAuthModuleBuilder.build { result in
             result.onSuccess { [weak self] steamID in
                 try? Steam.SteamIDCaretaker.store(steamID)
-                ServiceLocator.shared.matchesRequestManager(for: steamID).getUserMatches()
+                Dota2ServicesLocator.shared.matchesRequestManager(for: steamID).getUserMatches()
                 self?.startTabBarFlow(steamID: steamID)
             }.onFailure {
                 // TODO: Показать экран "Что-то пошло не так" и предложить пользователю авторизоваться через веб-вью еще раз.

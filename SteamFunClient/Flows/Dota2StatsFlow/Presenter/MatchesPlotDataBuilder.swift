@@ -72,17 +72,6 @@ final class MatchesPlotDataBuilder {
             }
         }
         
-        // TODO: unit-test
-        for group in groups {
-            group.matches.forEach {
-                let matchTimestamp = $0.start.timeIntervalSince1970
-                let ok = (matchTimestamp >= group.timestampStart) && (matchTimestamp < group.timestampEnd)
-                if !ok {
-                    print("!!!! ALARM")
-                }
-            }
-        }
-        
         return groups
     }
     

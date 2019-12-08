@@ -46,7 +46,8 @@
 		F835B0A9238C4434002460C4 /* ExpandableNavbar+HeaderContentViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = F835B0A8238C4434002460C4 /* ExpandableNavbar+HeaderContentViews.swift */; };
 		F8436D1D239D690B007D75CD /* SteamFunClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8436D1C239D690B007D75CD /* SteamFunClientTests.swift */; };
 		F8436D26239D69D5007D75CD /* matchDetailsTestResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = F8436D25239D69D5007D75CD /* matchDetailsTestResponse.json */; };
-		F8436D28239D6FDE007D75CD /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8436D27239D6FDE007D75CD /* ServiceLocator.swift */; };
+		F8436D28239D6FDE007D75CD /* Dota2ServicesLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8436D27239D6FDE007D75CD /* Dota2ServicesLocator.swift */; };
+		F8436D45239D7AF6007D75CD /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F8436D44239D7AF6007D75CD /* README.md */; };
 		F847226D238DDCF700ECA269 /* TouchThroughView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F847226C238DDCF700ECA269 /* TouchThroughView.swift */; };
 		F84923FF238DC5C200FCDE07 /* ProfileActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84923FE238DC5C200FCDE07 /* ProfileActionButton.swift */; };
 		F8492402238DCED900FCDE07 /* String+Plurals.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8492401238DCED900FCDE07 /* String+Plurals.swift */; };
@@ -199,7 +200,8 @@
 		F8436D1C239D690B007D75CD /* SteamFunClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SteamFunClientTests.swift; sourceTree = "<group>"; };
 		F8436D1E239D690B007D75CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F8436D25239D69D5007D75CD /* matchDetailsTestResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = matchDetailsTestResponse.json; sourceTree = "<group>"; };
-		F8436D27239D6FDE007D75CD /* ServiceLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocator.swift; sourceTree = "<group>"; };
+		F8436D27239D6FDE007D75CD /* Dota2ServicesLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dota2ServicesLocator.swift; sourceTree = "<group>"; };
+		F8436D44239D7AF6007D75CD /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		F847226C238DDCF700ECA269 /* TouchThroughView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchThroughView.swift; sourceTree = "<group>"; };
 		F84923FE238DC5C200FCDE07 /* ProfileActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileActionButton.swift; sourceTree = "<group>"; };
 		F8492401238DCED900FCDE07 /* String+Plurals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Plurals.swift"; sourceTree = "<group>"; };
@@ -398,6 +400,7 @@
 		F8152A55238AC15C009F937F = {
 			isa = PBXGroup;
 			children = (
+				F8436D44239D7AF6007D75CD /* README.md */,
 				F8152A60238AC15C009F937F /* SteamFunClient */,
 				F8436D1B239D690B007D75CD /* SteamFunClientTests */,
 				F8152A5F238AC15C009F937F /* Products */,
@@ -488,7 +491,6 @@
 				F85F9CFF239C6D92002E9902 /* Wrappers */,
 				F854F4E9238BE5AD00E757C9 /* Operators */,
 				F8152AAC238B1B5D009F937F /* Extensions */,
-				F8436D27239D6FDE007D75CD /* ServiceLocator.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -581,6 +583,14 @@
 				F8436D25239D69D5007D75CD /* matchDetailsTestResponse.json */,
 			);
 			path = TestResourses;
+			sourceTree = "<group>";
+		};
+		F8436D46239D7F7C007D75CD /* ServiceLocator */ = {
+			isa = PBXGroup;
+			children = (
+				F8436D27239D6FDE007D75CD /* Dota2ServicesLocator.swift */,
+			);
+			path = ServiceLocator;
 			sourceTree = "<group>";
 		};
 		F847226B238DDCE700ECA269 /* BaseViews */ = {
@@ -843,6 +853,7 @@
 		F86640AA2395A3630087D4BA /* Dota2 */ = {
 			isa = PBXGroup;
 			children = (
+				F8436D46239D7F7C007D75CD /* ServiceLocator */,
 				F866411C2397C9EB0087D4BA /* Heroes */,
 				F866411B2397C9E50087D4BA /* Matches */,
 			);
@@ -1136,6 +1147,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8436D45239D7AF6007D75CD /* README.md in Resources */,
 				F8152A6E238AC15D009F937F /* LaunchScreen.storyboard in Resources */,
 				F8152A6B238AC15D009F937F /* Assets.xcassets in Resources */,
 			);
@@ -1267,7 +1279,7 @@
 				F86CAE7F239A6CDB00B2710E /* PlotPoint.swift in Sources */,
 				F831C212238EE818004A284D /* TabbarViewController.swift in Sources */,
 				F8152A62238AC15C009F937F /* AppDelegate.swift in Sources */,
-				F8436D28239D6FDE007D75CD /* ServiceLocator.swift in Sources */,
+				F8436D28239D6FDE007D75CD /* Dota2ServicesLocator.swift in Sources */,
 				F86640AC2395A38E0087D4BA /* Dota2HeroResourceManager.swift in Sources */,
 				F86641262397CDD10087D4BA /* RealmDota2MatchDetails.swift in Sources */,
 				F88F7FEA2393E8B4000F3E20 /* RecentActivityModuleBuilder.swift in Sources */,

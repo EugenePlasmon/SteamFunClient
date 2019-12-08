@@ -11,7 +11,7 @@ import UIKit
 final class Dota2ModuleBuilder {
     
     static func build(steamUser: SteamUser) -> Dota2ViewController {
-        let matchesRequestManager = ServiceLocator.shared.matchesRequestManager(for: steamUser.id)
+        let matchesRequestManager = Dota2ServicesLocator.shared.matchesRequestManager(for: steamUser.id)
         
         let presenter = Dota2Presenter(steamUser: steamUser, matchesRequestManager: matchesRequestManager)
         let viewController = Dota2ViewController(output: presenter)
