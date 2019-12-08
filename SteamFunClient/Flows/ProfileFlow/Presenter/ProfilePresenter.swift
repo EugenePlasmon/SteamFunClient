@@ -11,20 +11,25 @@ import UIKit
 final class ProfilePresenter {
     
     weak var viewInput: (UIViewController & ProfileViewInput)?
+    weak var output: ProfileModuleOutput?
     
     private let steamID: SteamID
     private lazy var dataLoader = ProfileDataLoader(steamID: steamID)
     
     private typealias LoadedData = (user: SteamUser, friends: [Friend], ownedGames: [Game])
     private var loadedData: LoadedData?
+    private var isCurrentProfile: Bool = false
     
-    init(steamID: SteamID) {
+    init(steamID: SteamID, output: ProfileModuleOutput?) {
         self.steamID = steamID
+        self.output = output
     }
     
     private func viewModel(from data: LoadedData) -> ProfileViewModel {
+        
         let (steamUser, friends, ownedGames) = data
         return ProfileViewModel(isHiddenProfile: steamUser.visibility != .public,
+                                showLogoutButton: isCurrentProfile,
                                 name: steamUser.personName,
                                 realName: steamUser.realName,
                                 avatarLink: steamUser.avatarLinks.full,
@@ -38,6 +43,8 @@ extension ProfilePresenter: ProfileViewOutput {
     func viewDidLoad() {
         log(.openFlow, "Profile, steamID = \(steamID)")
         self.viewInput?.showLoader()
+        
+        self.isCurrentProfile = Steam.SteamIDCaretaker.steamID == steamID
         
         self.dataLoader.load { [weak self] result in
             guard let self = self else { return }
@@ -59,9 +66,7 @@ extension ProfilePresenter: ProfileViewOutput {
     }
     
     func viewDidTapLogout() {
-        try? Steam.SteamIDCaretaker.clear()
-        // TODO:
-        (UIApplication.shared.delegate as! AppDelegate).appLauncher.start()
+        self.output?.profileDidLogout()
     }
     
     func viewDidTapDota() {

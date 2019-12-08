@@ -8,15 +8,16 @@
 
 import Foundation
 
-typealias SteamID = Int
+typealias SteamID = Int64
 typealias SteamID32 = Int
 typealias GameID = Int
+typealias MatchID = Int64
 
 extension SteamID {
     
     var to32: SteamID32 {
-        let baseSteamID64 = 76561197960265728
-        return self - baseSteamID64
+        let baseSteamID64: SteamID = 76561197960265728
+        return SteamID32(self - baseSteamID64)
     }
 }
 
@@ -28,6 +29,14 @@ extension Steam {
     static var profileLinkPrefix: String { "https://steamcommunity.com/profiles" }
 }
 
-enum SteamError: Error {
-    case parsingError
+extension Steam {
+    
+    enum Error: Swift.Error {
+        case dataCorrupted
+        case parsingError
+        case userHasntAllowed
+        case noGameStats
+        case unknownGameMode
+    }
 }
+

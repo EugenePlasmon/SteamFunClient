@@ -14,12 +14,12 @@ struct PlayerMatchHistory {
         
         struct Player {
             
-            let accountID: Int?
+            let accountID: Int64?
             let playerSlot: Int
             let heroID: Int
         }
         
-        let id: Int
+        let id: MatchID
         let start: Date?
         let players: [Player]
     }
@@ -41,7 +41,7 @@ extension PlayerMatchHistory.Match: Codable {
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.id = try container.decode(Int.self, forKey: .id)
+        self.id = try container.decode(MatchID.self, forKey: .id)
         self.start = (try? container.decode(Int.self, forKey: .start))
             >>- { Date(timeIntervalSince1970: Double($0)) }
         self.players = try container.decode([Player].self, forKey: .players)

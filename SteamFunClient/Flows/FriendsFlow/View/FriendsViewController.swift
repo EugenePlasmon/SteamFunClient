@@ -55,11 +55,7 @@ final class FriendsViewController: UIViewController {
         view.addSubview(friendsListViewController.view)
         friendsListViewController.view.snp.makeConstraints {
             $0.top.left.right.equalToSuperview()
-            if #available(iOS 11.0, *) {
-                $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
-            } else {
-                $0.bottom.equalToSuperview()
-            }
+            $0.toSuperviewBottomSafeArea(from: self)
         }
     }
     

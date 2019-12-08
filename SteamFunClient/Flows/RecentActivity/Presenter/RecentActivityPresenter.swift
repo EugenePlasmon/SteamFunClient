@@ -21,7 +21,7 @@ final class RecentActivityPresenter {
 
 extension RecentActivityPresenter: RecentActivityViewOutput {
     
-    func viewDidLoad() {
+    func viewWillAppear() {
         self.viewInput?.showLoader()
         Steam.getRecentlyPlayedGames(steamID: steamID) { [weak self] result in
             result.onSuccess {

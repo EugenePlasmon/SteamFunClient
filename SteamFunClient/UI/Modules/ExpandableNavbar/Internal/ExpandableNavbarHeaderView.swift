@@ -145,11 +145,10 @@ internal final class ExpandableNavbarHeaderView: UIView {
         containerCenterYConstraint.isActive = true
         self.contentContainerCenterYConstraint = containerCenterYConstraint
         
-        let offsetX = Constants.contentContainerOffsetX
         contentContainerView.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.left.greaterThanOrEqualToSuperview()//.offset(offsetX)
-            $0.right.lessThanOrEqualToSuperview()//.offset(-offsetX)
+            $0.left.greaterThanOrEqualToSuperview()
+            $0.right.lessThanOrEqualToSuperview()
             $0.width.height.greaterThanOrEqualTo(0)
         }
     }

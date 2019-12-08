@@ -29,9 +29,9 @@ extension Steam {
         
         case dota2Heroes
         
-        case dota2MatchHistory(steamID32: SteamID32, heroID: Int?, startAtMatchID: Int?, batchSize: Int?)
+        case dota2MatchHistory(steamID32: SteamID32, heroID: Int?, startAtMatchID: MatchID?, batchSize: Int?)
         
-        case dota2MatchDetails(matchID: Int)
+        case dota2MatchDetails(matchID: MatchID)
         
         var request: DataRequest {
             switch self {

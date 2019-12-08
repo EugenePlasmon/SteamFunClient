@@ -17,5 +17,5 @@ protocol RecentActivityViewInput: class {
 
 protocol RecentActivityViewOutput: class {
     
-    func viewDidLoad()
+    func viewWillAppear()
 }

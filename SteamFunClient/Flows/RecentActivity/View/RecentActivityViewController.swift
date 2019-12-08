@@ -14,6 +14,7 @@ final class RecentActivityViewController: UIViewController {
     
     private var throbberViewController: ThrobberViewController?
     private var navbar: ExpandableNavbar?
+    private var infoLabel: UILabel?
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -31,6 +32,8 @@ final class RecentActivityViewController: UIViewController {
     
     private var games: [Game] = []
     
+    // MARK: - Init
+    
     init(output: RecentActivityViewOutput) {
         self.output = output
         super.init(nibName: nil, bundle: nil)
@@ -40,16 +43,25 @@ final class RecentActivityViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-        output.viewDidLoad()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        output.viewWillAppear()
+    }
+    
+    // MARK: - UI
     
     private func configureUI() {
         automaticallyAdjustsScrollViewInsets = false
         view.backgroundColor = FeatureColor.RecentActivity.background
         navigationController?.isNavigationBarHidden = true
+        addNavbar()
     }
     
     private func addNavbar() {
@@ -66,8 +78,24 @@ final class RecentActivityViewController: UIViewController {
     }
     
     private func addTableView() {
-        view.addSubview(tableView)
+        if let navbarView = self.navbar?.view {
+            view.insertSubview(tableView, belowSubview: navbarView)
+        } else {
+            view.addSubview(tableView)
+        }
         tableView.snp.pinToAllSuperviewEdges()
+    }
+    
+    private func configureEmptyResultsLabel() {
+        guard games.isEmpty else {
+            return
+        }
+        infoLabel = UILabel(text: "Нет данных о недавней активности за последние 2\(nbsp)недели", color: FeatureColor.RecentActivity.infoText, font: .brakk, numberOfLines: 0, textAlignment: .center)
+        infoLabel >>- view.addSubview
+        infoLabel?.snp.makeConstraints {
+            $0.top.equalToSuperview().offset((navbar?.minimumHeight ?? 64.0) + 24.0)
+            $0.left.right.equalToSuperview().inset(16.0)
+        }
     }
     
     private func removeThrobberViewController() {
@@ -80,10 +108,18 @@ final class RecentActivityViewController: UIViewController {
 extension RecentActivityViewController: RecentActivityViewInput {
     
     func showLoader() {
+        tableView.removeFromSuperview()
+        infoLabel?.removeFromSuperview()
+        infoLabel = nil
+        
         let throbberViewController = ThrobberViewController()
         self.throbberViewController = throbberViewController
         addChild(throbberViewController)
-        view.addSubview(throbberViewController.view)
+        if let navbarView = navbar?.view, navbarView.superview != nil {
+            view.insertSubview(throbberViewController.view, belowSubview: navbarView)
+        } else {
+            view.addSubview(throbberViewController.view)
+        }
         throbberViewController.view.snp.pinToAllSuperviewEdges()
     }
     
@@ -91,7 +127,7 @@ extension RecentActivityViewController: RecentActivityViewInput {
         removeThrobberViewController()
         self.games = games
         addTableView()
-        addNavbar()
+        configureEmptyResultsLabel()
     }
 }
 

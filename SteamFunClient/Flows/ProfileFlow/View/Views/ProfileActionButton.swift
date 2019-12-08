@@ -13,7 +13,7 @@ final class ProfileActionButton: UIControl {
     enum `Type` {
         case friends(count: Int)
         case hiddenFriends
-        case more
+        case logout
     }
     
     let type: Type
@@ -21,10 +21,9 @@ final class ProfileActionButton: UIControl {
     typealias OnTapClosure = (Type) -> Void
     var onTap: OnTapClosure?
     
-    private lazy var numberLabel = UILabel(font: Constants.numberFont, textAlignment: .center, contentHuggingPriorityY: .required)
-    private lazy var textLabel = UILabel(font: Constants.textFont, textAlignment: .center, contentHuggingPriorityY: .required)
-    private lazy var moreContainer = TouchThroughView()
-    private lazy var more = UIView.More()
+    private lazy var numberLabel = UILabel(font: Constants.numberFont, textAlignment: .center, compressionResistancePriorityY: .required, contentHuggingPriorityY: .required)
+    private lazy var textLabel = UILabel(font: Constants.textFont, textAlignment: .center, compressionResistancePriorityY: .required, contentHuggingPriorityY: .required)
+    private lazy var logoutIconView = UIImageView(contentMode: .scaleAspectFit)
     
     private struct Constants {
         static let defaultColor: UIColor = FeatureColor.Profile.actionButtonDefault
@@ -62,9 +61,10 @@ final class ProfileActionButton: UIControl {
             isUserInteractionEnabled = false
             configureAsHiddenFriends()
             textLabel.text = "Друзья\nскрыты"
-        case .more:
-            addMoreAndTextLabel()
-            textLabel.text = "подробнее"
+        case .logout:
+            addLogoutIconAndTextLabel()
+            logoutIconView.image = UIImage(named: "logout_icon")
+            textLabel.text = "Выйти"
         }
         updateColors()
     }
@@ -91,24 +91,20 @@ final class ProfileActionButton: UIControl {
         textLabel.numberOfLines = 0
     }
     
-    private func addMoreAndTextLabel() {
-        addSubview(moreContainer)
-        moreContainer.addSubview(more)
+    private func addLogoutIconAndTextLabel() {
+        addSubview(logoutIconView)
         addSubview(textLabel)
         
-        moreContainer.snp.makeConstraints {
-            $0.top.left.right.equalToSuperview()
+        logoutIconView.snp.makeConstraints {
+            $0.centerX.equalToSuperview().offset(-2.0)
+            $0.top.equalToSuperview()
+            $0.width.equalTo(22.0)
+            $0.height.equalTo(20.0)
         }
         
-        more.snp.makeConstraints {
-            $0.centerX.equalToSuperview()
-            $0.bottom.equalToSuperview().offset(-10.0)
-            $0.width.equalTo(36.0)
-            $0.height.equalTo(8.0)
-        }
         textLabel.snp.makeConstraints {
             $0.left.bottom.right.equalToSuperview()
-            $0.top.equalTo(moreContainer.snp.bottom)
+            $0.top.equalTo(logoutIconView.snp.bottom).offset(4.0)
         }
     }
     
@@ -121,10 +117,10 @@ final class ProfileActionButton: UIControl {
             textLabel.textColor = color
         case .hiddenFriends:
             textLabel.textColor = Constants.defaultColor.withAlphaComponent(0.5)
-        case .more:
+        case .logout:
             let color = isHighlighted ? Constants.pressedColor : Constants.defaultColor
-            more.color = color
             textLabel.textColor = color
+            logoutIconView.alpha = isHighlighted ? 0.8 : 1.0
         }
     }
     

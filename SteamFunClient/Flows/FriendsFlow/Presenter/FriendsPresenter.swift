@@ -62,7 +62,7 @@ extension FriendsPresenter: FriendsViewOutput {
     }
     
     func viewDidSelectFriend(with id: SteamID) {
-        let profileViewController = ProfileModuleBuilder.build(steamID: id)
+        let profileViewController = ProfileModuleBuilder.build(steamID: id, output: nil)
         self.viewInput?.navigationController?.pushViewController(profileViewController, animated: true)
     }
 }

@@ -102,16 +102,8 @@ final class Plot: UIView {
     
     // MARK: - Touches
     
-    private var relativeMinX = 0.0 {
-        didSet {
-            print("[\(relativeMinX), \(relativeMaxX)]")
-        }
-    }
-    private var relativeMaxX = 1.0 {
-        didSet {
-            print("[\(relativeMinX), \(relativeMaxX)]")
-        }
-    }
+    private var relativeMinX = 0.0
+    private var relativeMaxX = 1.0
     
     private var pinchActive = false
     private var previousPotentialDiff: Double?
@@ -120,9 +112,7 @@ final class Plot: UIView {
         guard touches.count < 3 else { return }
         onStartTouches?()
         switch touches.count {
-        case 1:
-            pinchActive = false
-            print(touches.first!.location(in: self))
+        case 1: pinchActive = false
         case 2: pinchActive = true
         default: break
         }
@@ -136,7 +126,8 @@ final class Plot: UIView {
             let previousLocation = touch.previousLocation(in: self)
             let shiftX = location.x - previousLocation.x
             
-            let coef = -0.002
+            let coef = -(1 / Double(canvas.bounds.width)) * (relativeMaxX - relativeMinX)
+            
             var potentialDiff = coef * Double(shiftX)
             if self.previousPotentialDiff == 0 {
                 potentialDiff = potentialDiff / exp(100 * abs(potentialDiff))
