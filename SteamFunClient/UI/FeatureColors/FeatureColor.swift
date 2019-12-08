@@ -195,5 +195,7 @@ extension FeatureColor {
         static let achievementPercentage = themeDependent(dark: .selendis, light: .serdath)
         
         static let achievementDescription = themeDependent(dark: .selendis, light: .serdath)
+        
+        static let errorText = themeDependent(dark: .tassadar, light: .aldaris)
     }
 }

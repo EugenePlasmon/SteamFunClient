@@ -38,6 +38,8 @@ protocol GameAchievementsViewInput: class {
     func showLoader()
     
     func showData(viewModel: GameAchievementsViewModel)
+    
+    func showError(message: String)
 }
 
 protocol GameAchievementsViewOutput: class {

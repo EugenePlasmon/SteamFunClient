@@ -31,8 +31,10 @@ extension Steam {
 extension Steam {
     
     enum Error: Swift.Error {
+        case dataCorrupted
         case parsingError
         case userHasntAllowed
+        case noGameStats
     }
 }
 

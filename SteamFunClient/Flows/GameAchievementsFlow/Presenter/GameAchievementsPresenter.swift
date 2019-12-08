@@ -22,6 +22,7 @@ final class GameAchievementsPresenter {
     private var gameSchema: GameSchema?
     private var playerAchievements: PlayerGameAchievements?
     private var globalPercentages: GlobalAchievementPercentages?
+    private var errors: [Error] = []
     
     // MARK: - Init
     
@@ -32,7 +33,7 @@ final class GameAchievementsPresenter {
     
     // MARK: - Data loading
     
-    private func loadData(then completion: @escaping (Result<GameAchievementsViewModel, Error>) -> Void) {
+    private func loadData(then completion: @escaping (Result<GameAchievementsViewModel, Steam.Error>) -> Void) {
         let dispatchGroup = DispatchGroup()
         
         dispatchGroup.enter()
@@ -45,17 +46,7 @@ final class GameAchievementsPresenter {
         loadGlobalAchievementPercentages { dispatchGroup.leave() }
         
         dispatchGroup.notify(queue: .main) { [weak self] in
-            guard let self = self
-                , let gameSchema = self.gameSchema
-                , let playerAchievements = self.playerAchievements
-                , let globalPercentages = self.globalPercentages else {
-                    // TODO: completion(.failure(error))
-                    return
-            }
-            let viewModel = self.createViewModel(gameSchema: gameSchema,
-                                                 playerAchievements: playerAchievements,
-                                                 globalPercentages: globalPercentages)
-            completion(.success(viewModel))
+            self?.handleDataLoaded(then: completion)
         }
     }
     
@@ -68,8 +59,7 @@ final class GameAchievementsPresenter {
             result.onSuccess {
                 self.gameSchema = $0
             }.onFailure {
-                // TODO:
-                log($0)
+                self.errors.append($0)
             }
             completion()
         }
@@ -84,8 +74,7 @@ final class GameAchievementsPresenter {
             result.onSuccess {
                 self.playerAchievements = $0
             }.onFailure {
-                // TODO:
-                log($0)
+                self.errors.append($0)
             }
             completion()
         }
@@ -100,11 +89,36 @@ final class GameAchievementsPresenter {
             result.onSuccess {
                 self.globalPercentages = $0
             }.onFailure {
-                // TODO:
-                log($0)
+                self.errors.append($0)
             }
             completion()
         }
+    }
+    
+    private func handleDataLoaded(then completion: @escaping (Result<GameAchievementsViewModel, Steam.Error>) -> Void) {
+        guard self.errors.isEmpty else {
+            for error in self.errors {
+                switch error {
+                case Steam.Error.noGameStats:
+                    completion(.failure(.noGameStats))
+                    return
+                default: break
+                }
+            }
+            completion(.failure(.dataCorrupted))
+            return
+        }
+        
+        guard let gameSchema = self.gameSchema
+            , let playerAchievements = self.playerAchievements
+            , let globalPercentages = self.globalPercentages else {
+                completion(.failure(.dataCorrupted))
+                return
+        }
+        let viewModel = self.createViewModel(gameSchema: gameSchema,
+                                             playerAchievements: playerAchievements,
+                                             globalPercentages: globalPercentages)
+        completion(.success(viewModel))
     }
     
     // MARK: - View model
@@ -162,11 +176,19 @@ extension GameAchievementsPresenter: GameAchievementsViewOutput {
     func viewDidLoad() {
         viewInput?.showLoader()
         loadData { [weak self] result in
+            guard let self = self else { return }
             result.onSuccess {
-                self?.viewInput?.showData(viewModel: $0)
+                self.viewInput?.showData(viewModel: $0)
             }.onFailure {
-                // TODO: error screen
                 log($0)
+                let errorMessage: String
+                switch $0 {
+                case .noGameStats:
+                    errorMessage = "Для данной игры отсутствует игровая статистика и достижения"
+                default:
+                    errorMessage = "Произошла ошибка получения данных. Попробуйте позже"
+                }
+                self.viewInput?.showError(message: errorMessage)
             }
         }
     }

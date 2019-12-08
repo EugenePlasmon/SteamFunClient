@@ -93,6 +93,25 @@ final class GameAchievementsViewController: UIViewController {
         throbberViewController?.view.removeFromSuperview()
         throbberViewController = nil
     }
+    
+    private func addEmptyNavbar() {
+        let navbar = ExpandableNavbar(scrollView: tableView, config: defaultNavbarConfig)
+        self.navbar = navbar
+        addChild(navbar)
+        view.addSubview(navbar.view)
+        navbar.view.snp.makeConstraints { $0.top.left.right.equalToSuperview() }
+    }
+    
+    private var errorLabel: UILabel?
+    
+    private func addErrorLabel(message: String) {
+        errorLabel = UILabel(text: message, color: FeatureColor.Achievements.errorText, font: .brakk, numberOfLines: 0, textAlignment: .center)
+        errorLabel >>- view.addSubview
+        errorLabel?.snp.makeConstraints {
+            $0.top.equalToSuperview().offset((navbar?.minimumHeight ?? 64.0) + 24.0)
+            $0.left.right.equalToSuperview().inset(16.0)
+        }
+    }
 }
 
 // MARK: - GameAchievementsViewInput
@@ -112,6 +131,12 @@ extension GameAchievementsViewController: GameAchievementsViewInput {
         removeThrobberViewController()
         addTableView()
         addNavbar(viewModel: viewModel)
+    }
+    
+    func showError(message: String) {
+        removeThrobberViewController()
+        addEmptyNavbar()
+        addErrorLabel(message: message)
     }
 }
 

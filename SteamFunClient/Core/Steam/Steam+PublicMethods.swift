@@ -46,13 +46,25 @@ extension Steam {
     
     static func getPlayerGameAchievements(steamID: SteamID,
                                           gameID: GameID,
-                                          then completion: @escaping (Result<PlayerGameAchievements, AFError>) -> Void) {
+                                          then completion: @escaping (Result<PlayerGameAchievements, Swift.Error>) -> Void) {
         
         Steam.Endpoint.playerGameAchievements(steamID: steamID, gameID: gameID).request
-            .responseDecodable(of: Response<PlayerGameAchievements>.self, decoder: decoder(keyPath: "playerstats")) { dataResponse in
-                dataResponse.result
-                    .map { $0.result }
-                    >>> completion
+            .responseDecodable(of: Response<Either<PlayerGameAchievements, ResponseError>>.self, decoder: decoder(keyPath: "playerstats")) { dataResponse in
+                dataResponse.result.onSuccess { response in
+                    let either = response.result
+                    switch either {
+                    case .firstType(let model):
+                        completion(.success(model))
+                    case .secondType(let error):
+                        if !error.success {
+                            completion(.failure(Steam.Error.noGameStats))
+                        } else {
+                            completion(.failure(Steam.Error.parsingError))
+                        }
+                    }
+                }.onFailure {
+                    completion(.failure($0))
+                }
         }
     }
     
@@ -109,7 +121,7 @@ extension Steam {
                                          heroID: heroID,
                                          startAtMatchID: startAtMatchID,
                                          batchSize: batchSize)
-            .request.responseDecodable(of: Response<Either<PlayerMatchHistory, MatchHistoryError>>.self, decoder: decoder(keyPath: "result")) { dataResponse in
+            .request.responseDecodable(of: Response<Either<PlayerMatchHistory, ResponseErrorWithStatus>>.self, decoder: decoder(keyPath: "result")) { dataResponse in
                 
                 dataResponse.result.onSuccess { response in
                     let either = response.result
@@ -208,7 +220,12 @@ private struct Heroes: Decodable {
     let heroes: [Dota2Hero]
 }
 
-private struct MatchHistoryError: Decodable {
+private struct ResponseError: Decodable {
+    let error: String
+    let success: Bool
+}
+
+private struct ResponseErrorWithStatus: Decodable {
     let status: Int
     let statusDetail: String
 }
