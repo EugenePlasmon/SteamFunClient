@@ -134,7 +134,6 @@
 		F88F7FEE2393F5B5000F3E20 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88F7FED2393F5B5000F3E20 /* UIViewController+Extensions.swift */; };
 		F89C8DC0239AA5B000FC0DE9 /* Plot.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89C8DBF239AA5B000FC0DE9 /* Plot.swift */; };
 		F89C8DC2239AA5DE00FC0DE9 /* PlotTimestampAxisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89C8DC1239AA5DE00FC0DE9 /* PlotTimestampAxisView.swift */; };
-		F8C2363223981AEB00C48301 /* DebugConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C2363123981AEB00C48301 /* DebugConstants.swift */; };
 		F8C23634239832B500C48301 /* Dota2MatchHistoryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C23633239832B500C48301 /* Dota2MatchHistoryHeaderView.swift */; };
 		F8C23636239837CC00C48301 /* UIEdgeInsets+Initializers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C23635239837CC00C48301 /* UIEdgeInsets+Initializers.swift */; };
 		F8C23638239859E800C48301 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C23637239859E800C48301 /* UIColor+Extensions.swift */; };
@@ -288,7 +287,6 @@
 		F88F7FED2393F5B5000F3E20 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		F89C8DBF239AA5B000FC0DE9 /* Plot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plot.swift; sourceTree = "<group>"; };
 		F89C8DC1239AA5DE00FC0DE9 /* PlotTimestampAxisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlotTimestampAxisView.swift; sourceTree = "<group>"; };
-		F8C2363123981AEB00C48301 /* DebugConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugConstants.swift; sourceTree = "<group>"; };
 		F8C23633239832B500C48301 /* Dota2MatchHistoryHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dota2MatchHistoryHeaderView.swift; sourceTree = "<group>"; };
 		F8C23635239837CC00C48301 /* UIEdgeInsets+Initializers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+Initializers.swift"; sourceTree = "<group>"; };
 		F8C23637239859E800C48301 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
@@ -427,7 +425,6 @@
 				F8152AAE238B1B9C009F937F /* SupportingFiles */,
 				F8152A6A238AC15D009F937F /* Assets.xcassets */,
 				F8152A6F238AC15D009F937F /* Info.plist */,
-				F8C2363123981AEB00C48301 /* DebugConstants.swift */,
 			);
 			path = SteamFunClient;
 			sourceTree = "<group>";
@@ -1341,7 +1338,6 @@
 				F85F9CF8239BD808002E9902 /* PlotValueAxisView.swift in Sources */,
 				F8152A97238AD790009F937F /* Monads.swift in Sources */,
 				F86CAE81239A6CFA00B2710E /* MatchesPlotDataBuilder.swift in Sources */,
-				F8C2363223981AEB00C48301 /* DebugConstants.swift in Sources */,
 				F86FB9D7238C740200A62E86 /* OwnedGamesHeaderCell.swift in Sources */,
 				F854F4AC238B273E00E757C9 /* Button.swift in Sources */,
 			);

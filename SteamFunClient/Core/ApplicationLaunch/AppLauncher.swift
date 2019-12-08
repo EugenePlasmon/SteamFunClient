@@ -20,17 +20,6 @@ final class AppLauncher {
     }
     
     func start() {
-        if dropRealmDBOnStart {
-            let realm = try! Realm()
-            try! realm.write {
-                realm.deleteAll()
-            }
-        }
-        if let debugSteamID = debugSteamID {
-            try! Steam.SteamIDCaretaker.store(debugSteamID)
-        }
-        
-        
         fetchAuthorizedSteamID()
         startFetchMatchDetailsIfNeeded()
         fetchDota2Heroes { [weak self] in
