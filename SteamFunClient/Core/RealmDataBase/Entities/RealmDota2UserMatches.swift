@@ -11,7 +11,7 @@ import RealmSwift
 
 final class RealmDota2UserMatches: Object {
     
-    @objc dynamic var steamID: Int = 0
+    @objc dynamic var steamID: Int64 = 0
     let matches = List<RealmDota2MatchDetails>()
     
     override class func primaryKey() -> String? {

@@ -58,11 +58,7 @@ final class Dota2StatsViewController: UIViewController {
         view.addSubview(scrollView)
         scrollView.snp.makeConstraints {
             $0.left.right.top.equalToSuperview()
-            if #available(iOS 11.0, *) {
-                $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
-            } else {
-                $0.bottom.equalToSuperview()
-            }
+            $0.toSuperviewBottomSafeArea(from: self)
         }
         
         scrollView.addSubview(contentView)

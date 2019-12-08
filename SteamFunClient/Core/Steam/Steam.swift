@@ -8,15 +8,15 @@
 
 import Foundation
 
-typealias SteamID = Int
+typealias SteamID = Int64
 typealias SteamID32 = Int
 typealias GameID = Int
 
 extension SteamID {
     
     var to32: SteamID32 {
-        let baseSteamID64 = 76561197960265728
-        return self - baseSteamID64
+        let baseSteamID64: SteamID = 76561197960265728
+        return SteamID32(self - baseSteamID64)
     }
 }
 

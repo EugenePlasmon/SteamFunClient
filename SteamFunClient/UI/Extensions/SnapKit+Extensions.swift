@@ -18,3 +18,14 @@ extension ConstraintViewDSL {
         self.makeConstraints { $0.center.equalToSuperview() }
     }
 }
+
+extension ConstraintMaker {
+    
+    func toSuperviewBottomSafeArea(from viewController: UIViewController) {
+        if #available(iOS 11.0, *) {
+            self.bottom.equalTo(viewController.view.safeAreaLayoutGuide.snp.bottom)
+        } else {
+            self.bottom.equalToSuperview().inset(viewController.tabBarController?.tabBar.frame.height ?? 0.0)
+        }
+    }
+}

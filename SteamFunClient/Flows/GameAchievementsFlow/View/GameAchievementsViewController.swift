@@ -55,11 +55,7 @@ final class GameAchievementsViewController: UIViewController {
         view.addSubview(tableView)
         tableView.snp.makeConstraints {
             $0.left.right.top.equalToSuperview()
-            if #available(iOS 11.0, *) {
-                $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
-            } else {
-                $0.bottom.equalToSuperview()
-            }
+            $0.toSuperviewBottomSafeArea(from: self)
         }
         
         tableView.backgroundColor = .clear
