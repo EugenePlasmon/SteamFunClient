@@ -32,6 +32,8 @@ final class RecentActivityViewController: UIViewController {
     
     private var games: [Game] = []
     
+    // MARK: - Init
+    
     init(output: RecentActivityViewOutput) {
         self.output = output
         super.init(nibName: nil, bundle: nil)
@@ -41,11 +43,19 @@ final class RecentActivityViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-        output.viewDidLoad()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        output.viewWillAppear()
+    }
+    
+    // MARK: - UI
     
     private func configureUI() {
         automaticallyAdjustsScrollViewInsets = false
@@ -98,6 +108,10 @@ final class RecentActivityViewController: UIViewController {
 extension RecentActivityViewController: RecentActivityViewInput {
     
     func showLoader() {
+        tableView.removeFromSuperview()
+        infoLabel?.removeFromSuperview()
+        infoLabel = nil
+        
         let throbberViewController = ThrobberViewController()
         self.throbberViewController = throbberViewController
         addChild(throbberViewController)
