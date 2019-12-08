@@ -58,8 +58,6 @@ final class Dota2MatchesRequestManager {
                 }
                 self.matchDetailsLoader = matchDetailsLoader
             }.onFailure {
-                // TODO:
-                log($0)
                 completion(.failure($0))
             }
             self.matchHistoryLoader = nil

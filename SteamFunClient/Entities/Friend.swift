@@ -24,7 +24,7 @@ struct Friend: Codable {
         if let id = SteamID(idString) {
             self.id = id
         } else {
-            throw SteamError.parsingError
+            throw Steam.Error.parsingError
         }
         let friendSinceTimestamp = try container.decode(Double.self, forKey: .friendSince)
         self.friendSince = Date(timeIntervalSince1970: friendSinceTimestamp)

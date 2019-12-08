@@ -46,7 +46,7 @@ final class PlotDataBuilder {
         var groups: [GroupedMatches] = []
         
         let matches = self.matches.sorted { $0.start < $1.start }
-        let timestampStep = TimeInterval(30 * 24 * 3600)
+        let timestampStep = TimeInterval(7 * 24 * 3600)
         var currentTimestampStartInterval = matches.first!.start.timeIntervalSince1970
         var currentTimestampEndInterval = currentTimestampStartInterval + timestampStep
         var groupCreated = false

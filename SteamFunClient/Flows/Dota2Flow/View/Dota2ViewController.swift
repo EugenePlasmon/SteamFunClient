@@ -78,13 +78,13 @@ final class Dota2ViewController: UIViewController {
         }
     }
     
-    private func addNavbar(viewModel: Dota2ViewModel) {
+    private func addNavbar(viewModel: Dota2ViewModel.Navbar) {
         let navbar = ExpandableNavbar(scrollView: scrollView, config: navbarConfig)
         self.navbar = navbar
         
         let navbarHeaderContentView = ExpandableNavbar.HeaderContentView.ImageAndText()
-        navbarHeaderContentView.imageUrl = viewModel.navbarIconUrl
-        navbarHeaderContentView.title = viewModel.navbarTitle
+        navbarHeaderContentView.imageUrl = viewModel.iconUrl
+        navbarHeaderContentView.title = viewModel.title
         
         addChild(navbar)
         view.addSubview(navbar.view)
@@ -142,6 +142,17 @@ final class Dota2ViewController: UIViewController {
             $0.height.equalTo(CGFloat(viewModel.matches.count) * Constants.matchCellHeight)
         }
     }
+    
+    private var errorLabel: UILabel?
+    
+    private func addErrorLabel(message: String) {
+        errorLabel = UILabel(text: message, color: FeatureColor.Dota2.errorText, font: .brakk, numberOfLines: 0, textAlignment: .center)
+        errorLabel >>- view.addSubview
+        errorLabel?.snp.makeConstraints {
+            $0.top.equalToSuperview().offset((navbar?.minimumHeight ?? 64.0) + 24.0)
+            $0.left.right.equalToSuperview().inset(16.0)
+        }
+    }
 }
 
 extension Dota2ViewController: Dota2ViewInput {
@@ -162,10 +173,16 @@ extension Dota2ViewController: Dota2ViewInput {
     
     func showData(viewModel: Dota2ViewModel) {
         removeThrobberViewController()
-        addNavbar(viewModel: viewModel)
+        addNavbar(viewModel: viewModel.navbar)
         addShortStats(viewModel: viewModel)
         addMatchHistoryHeader()
         addMatchHistoryViewController(viewModel: viewModel)
+    }
+    
+    func showError(message: String, navbarModel: Dota2ViewModel.Navbar) {
+        removeThrobberViewController()
+        addNavbar(viewModel: navbarModel)
+        addErrorLabel(message: message)
     }
 }
 

@@ -103,6 +103,8 @@ extension FeatureColor {
     struct Dota2 {
         
         static let background = themeDependent(dark: .vorazun, light: .artanis)
+        
+        static let errorText = themeDependent(dark: .tassadar, light: .aldaris)
     }
     
     struct Dota2ShortStats {

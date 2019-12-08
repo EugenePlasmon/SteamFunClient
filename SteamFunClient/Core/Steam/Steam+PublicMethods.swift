@@ -103,16 +103,29 @@ extension Steam {
                                   heroID: Int? = nil,
                                   startAtMatchID: Int? = nil,
                                   batchSize: Int? = nil,
-                                  then completion: @escaping (Result<PlayerMatchHistory, AFError>) -> Void) {
+                                  then completion: @escaping (Result<PlayerMatchHistory, Swift.Error>) -> Void) {
         
         Steam.Endpoint.dota2MatchHistory(steamID32: steamID32,
                                          heroID: heroID,
                                          startAtMatchID: startAtMatchID,
                                          batchSize: batchSize)
-            .request.responseDecodable(of: Response<PlayerMatchHistory>.self, decoder: decoder(keyPath: "result")) { dataResponse in
-                dataResponse.result
-                    .map { $0.result }
-                    >>> completion
+            .request.responseDecodable(of: Response<Either<PlayerMatchHistory, MatchHistoryError>>.self, decoder: decoder(keyPath: "result")) { dataResponse in
+                
+                dataResponse.result.onSuccess { response in
+                    let either = response.result
+                    switch either {
+                    case .firstType(let matchHistory):
+                        completion(.success(matchHistory))
+                    case .secondType(let matchHistoryError):
+                        if matchHistoryError.status == 15 {
+                            completion(.failure(Steam.Error.userHasntAllowed))
+                        } else {
+                            completion(.failure(Steam.Error.parsingError))
+                        }
+                    }
+                }.onFailure {
+                    completion(.failure($0))
+                }
         }
     }
     
@@ -127,6 +140,8 @@ extension Steam {
         }
     }
 }
+
+// MARK: - Private
 
 private let decodingContext = CodingUserInfoKey(rawValue: "keyPath")!
 
@@ -191,4 +206,9 @@ private struct FriendsList: Codable {
 
 private struct Heroes: Decodable {
     let heroes: [Dota2Hero]
+}
+
+private struct MatchHistoryError: Decodable {
+    let status: Int
+    let statusDetail: String
 }

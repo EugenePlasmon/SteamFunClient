@@ -11,7 +11,7 @@ import Alamofire
 
 final class Dota2MatchHistoryPagedLoader {
     
-    typealias Completion = (Result<[PlayerMatchHistory.Match], AFError>) -> Void
+    typealias Completion = (Result<[PlayerMatchHistory.Match], Error>) -> Void
     
     let steamID32: SteamID32
     let untilMatchID: Int?
@@ -43,7 +43,6 @@ final class Dota2MatchHistoryPagedLoader {
                     self.load(startingAt: lastMatchID)
                 }
             }.onFailure {
-                log($0)
                 self.completion?(.failure($0))
             }
         }

@@ -30,18 +30,18 @@ final class Dota2Presenter {
     
     // MARK: - Data obtaining
     
-    private func loadData(then completion: @escaping () -> Void) {
+    private func loadData(success: @escaping () -> Void, failure: @escaping (Error) -> Void) {
         matchesRequestManager.getUserMatches { [weak self] result in
             guard let self = self else {
-                completion()
+                success()
                 return
             }
             result.onSuccess { userMatches in
                 self.matches = userMatches.matches
-                completion()
+                success()
             }.onFailure {
-                // TODO:
                 log($0)
+                failure($0)
             }
         }
     }
@@ -49,9 +49,8 @@ final class Dota2Presenter {
     // MARK: - View model
     
     private func createViewModel() -> Dota2ViewModel {
-        return Dota2ViewModel(navbarTitle: steamUser.personName,
-                              navbarIconUrl: steamUser.avatarLinks.full,
-                              shortStats: calculateShortStats(),
+        return Dota2ViewModel(shortStats: calculateShortStats(),
+                              navbar: navbarViewModel(),
                               matches: matches.compactMap(viewModelMatch))
     }
     
@@ -99,11 +98,15 @@ final class Dota2Presenter {
     private func viewModelMatch(from match: MatchDetails) -> Dota2ViewModel.Match? {
         guard let currentPlayer = match.players.first(where: { $0.accountID == self.steamUser.id.to32 })
             , let hero = Dota2Hero(id: currentPlayer.heroID) else {
-            return nil
+                return nil
         }
         let team = currentPlayer.slot.team
         let isWin = match.winner == team
         return Dota2ViewModel.Match(hero: hero, team: team, isWin: isWin, date: match.start)
+    }
+    
+    private func navbarViewModel() -> Dota2ViewModel.Navbar {
+        return .init(title: steamUser.personName, iconUrl: steamUser.avatarLinks.full)
     }
 }
 
@@ -112,10 +115,21 @@ extension Dota2Presenter: Dota2ViewOutput {
     func viewDidLoad() {
         log(.openFlow, "Dota 2")
         viewInput?.showLoader()
-        loadData { [weak self] in
-            guard let self = self else { return }
-            self.viewInput?.showData(viewModel: self.createViewModel())
-        }
+        loadData(
+            success: { [weak self] in
+                guard let self = self else { return }
+                self.viewInput?.showData(viewModel: self.createViewModel())
+            }, failure: { [weak self] error in
+                guard let self = self else { return }
+                let errorMessage: String
+                switch error {
+                case Steam.Error.userHasntAllowed:
+                    errorMessage = "История матчей скрыта настройками приватности"
+                default:
+                    errorMessage = "Произошла ошибка получения данных. Попробуйте позже"
+                }
+                self.viewInput?.showError(message: errorMessage, navbarModel: self.navbarViewModel())
+        })
     }
     
     func viewDidTapMoreStats() {

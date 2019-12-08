@@ -24,9 +24,13 @@ struct Dota2ViewModel {
         let date: Date
     }
     
-    let navbarTitle: String
-    let navbarIconUrl: String?
+    struct Navbar {
+        let title: String
+        let iconUrl: String?
+    }
+    
     let shortStats: ShortStats
+    let navbar: Navbar
     let matches: [Match]
 }
 
@@ -35,6 +39,8 @@ protocol Dota2ViewInput: class {
     func showLoader()
     
     func showData(viewModel: Dota2ViewModel)
+    
+    func showError(message: String, navbarModel: Dota2ViewModel.Navbar)
 }
 
 protocol Dota2ViewOutput: class {

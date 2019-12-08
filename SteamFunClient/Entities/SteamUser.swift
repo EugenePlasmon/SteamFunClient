@@ -55,7 +55,7 @@ struct SteamUser: Codable {
         if let id = SteamID(idString) {
             self.id = id
         } else {
-            throw SteamError.parsingError
+            throw Steam.Error.parsingError
         }
         self.personName = try container.decode(String.self, forKey: .personName)
         self.realName = try? container.decode(String.self, forKey: .realName)

@@ -79,6 +79,7 @@
 		F85F9CF8239BD808002E9902 /* PlotValueAxisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85F9CF7239BD808002E9902 /* PlotValueAxisView.swift */; };
 		F85F9CFA239BDDD9002E9902 /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85F9CF9239BDDD9002E9902 /* RoundedView.swift */; };
 		F85F9CFE239C1A22002E9902 /* InitialCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85F9CFD239C1A22002E9902 /* InitialCoordinator.swift */; };
+		F85F9D01239C6DA4002E9902 /* Either.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85F9D00239C6DA4002E9902 /* Either.swift */; };
 		F860F1582390268A00E9430B /* ArrowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F860F1572390268A00E9430B /* ArrowView.swift */; };
 		F8650F72239071860033818A /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8650F71239071860033818A /* Log.swift */; };
 		F8650F752391B4D40033818A /* PlayerMatchHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8650F742391B4D40033818A /* PlayerMatchHistory.swift */; };
@@ -217,6 +218,7 @@
 		F85F9CF7239BD808002E9902 /* PlotValueAxisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlotValueAxisView.swift; sourceTree = "<group>"; };
 		F85F9CF9239BDDD9002E9902 /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
 		F85F9CFD239C1A22002E9902 /* InitialCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialCoordinator.swift; sourceTree = "<group>"; };
+		F85F9D00239C6DA4002E9902 /* Either.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Either.swift; sourceTree = "<group>"; };
 		F860F1572390268A00E9430B /* ArrowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowView.swift; sourceTree = "<group>"; };
 		F8650F71239071860033818A /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		F8650F742391B4D40033818A /* PlayerMatchHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerMatchHistory.swift; sourceTree = "<group>"; };
@@ -459,6 +461,7 @@
 				F854F4A9238B271C00E757C9 /* ApplicationLaunch */,
 				F86641212397CD870087D4BA /* RealmDataBase */,
 				F8650F70239071790033818A /* Log */,
+				F85F9CFF239C6D92002E9902 /* Wrappers */,
 				F854F4E9238BE5AD00E757C9 /* Operators */,
 				F8152AAC238B1B5D009F937F /* Extensions */,
 			);
@@ -711,6 +714,14 @@
 				F85F9CF0239B12E6002E9902 /* InteractionDependableNavigationController.swift */,
 			);
 			path = NavigationController;
+			sourceTree = "<group>";
+		};
+		F85F9CFF239C6D92002E9902 /* Wrappers */ = {
+			isa = PBXGroup;
+			children = (
+				F85F9D00239C6DA4002E9902 /* Either.swift */,
+			);
+			path = Wrappers;
 			sourceTree = "<group>";
 		};
 		F8650F70239071790033818A /* Log */ = {
@@ -1193,6 +1204,7 @@
 				F85B24CD2399556A00B20D7B /* GameAchievement.swift in Sources */,
 				F85F9CFE239C1A22002E9902 /* InitialCoordinator.swift in Sources */,
 				F8650F772391B94F0033818A /* MatchDetails.swift in Sources */,
+				F85F9D01239C6DA4002E9902 /* Either.swift in Sources */,
 				F86F1797239AF21B00E9579D /* Histogram.swift in Sources */,
 				F831C214238EEB65004A284D /* UIScrollView+Extensions.swift in Sources */,
 				F801AF72239001CD00C391D8 /* FriendsModuleBuilder.swift in Sources */,

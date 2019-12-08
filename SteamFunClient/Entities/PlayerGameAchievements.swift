@@ -38,7 +38,7 @@ extension PlayerGameAchievements: Codable {
         if let steamID = SteamID(idString) {
             self.steamID = steamID
         } else {
-            throw SteamError.parsingError
+            throw Steam.Error.parsingError
         }
         self.gameName = try container.decode(String.self, forKey: .gameName)
         self.achievements = try container.decode([Achievement].self, forKey: .achievements)

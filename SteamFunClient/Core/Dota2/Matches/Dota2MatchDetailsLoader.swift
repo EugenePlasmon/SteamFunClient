@@ -14,7 +14,6 @@ final class Dota2MatchDetailsLoader {
     
     let matches: [PlayerMatchHistory.Match]
     
-    private var completion: Completion?
     private var matchDetails: [Int: MatchDetails] = [:]
     
     init(matches: [PlayerMatchHistory.Match]) {
@@ -22,18 +21,39 @@ final class Dota2MatchDetailsLoader {
     }
     
     func load(completion: @escaping Completion) {
-        self.completion = completion
-        
-        let dispatchGroup = DispatchGroup()
-        for match in matches {
-            dispatchGroup.enter()
-            loadDetails(for: match.id) { dispatchGroup.leave() }
-        }
-        
-        dispatchGroup.notify(queue: .main) { [weak self] in
+        let chunks = self.matches.chunked(into: 50)
+        recursivelyLoadChunkedMatches(chunks: chunks) { [weak self] in
             guard let self = self else { return }
             let sortedMatchDetails = self.matches.compactMap { self.matchDetails[$0.id] }
-            self.completion?(sortedMatchDetails)
+            completion(sortedMatchDetails)
+        }
+    }
+    
+    private func recursivelyLoadChunkedMatches(chunks: [[PlayerMatchHistory.Match]], then completion: @escaping () -> Void) {
+        if let chunk = chunks.first {
+            loadDetails(for: chunk.map { $0.id }) { [weak self] in
+                guard let self = self else {
+                    completion()
+                    return
+                }
+                let remainingChunks = Array(chunks.dropFirst())
+                self.recursivelyLoadChunkedMatches(chunks: remainingChunks, then: completion)
+            }
+        } else {
+            completion()
+        }
+    }
+    
+    private func loadDetails(for matchIDs: [Int], then completion: @escaping () -> Void) {
+        let dispatchGroup = DispatchGroup()
+        
+        for matchID in matchIDs {
+            dispatchGroup.enter()
+            loadDetails(for: matchID) { dispatchGroup.leave() }
+        }
+        
+        dispatchGroup.notify(queue: .main) {
+            completion()
         }
     }
     
@@ -48,6 +68,7 @@ final class Dota2MatchDetailsLoader {
             }.onFailure {
                 // TODO:
                 log($0)
+                print("Error for matchID=\(matchID)")
             }
             completion()
         }

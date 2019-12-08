@@ -28,6 +28,11 @@ extension Steam {
     static var profileLinkPrefix: String { "https://steamcommunity.com/profiles" }
 }
 
-enum SteamError: Error {
-    case parsingError
+extension Steam {
+    
+    enum Error: Swift.Error {
+        case parsingError
+        case userHasntAllowed
+    }
 }
+
