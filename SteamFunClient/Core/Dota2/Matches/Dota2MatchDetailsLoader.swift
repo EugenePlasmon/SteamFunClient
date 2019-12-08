@@ -10,24 +10,37 @@ import Foundation
 
 final class Dota2MatchDetailsLoader {
     
+    // MARK: - Properties
+    
     typealias Completion = ([MatchDetails]) -> Void
+    typealias OnLoadingProgressClosure = (_ obtainedCount: Int, _ totalCount: Int) -> Void
     
     let matches: [PlayerMatchHistory.Match]
     
-    private var matchDetails: [MatchID: MatchDetails] = [:]
+    var onLoadingProgress: OnLoadingProgressClosure?
+    
+    // MARK: - Private properties
+    
+    private var matchDetails: [MatchID: Either<MatchDetails, Error>] = [:]
+    
+    // MARK: - Init
     
     init(matches: [PlayerMatchHistory.Match]) {
         self.matches = matches
     }
     
+    // MARK: - Methods
+    
     func load(completion: @escaping Completion) {
         let chunks = self.matches.chunked(into: 50)
         recursivelyLoadChunkedMatches(chunks: chunks) { [weak self] in
             guard let self = self else { return }
-            let sortedMatchDetails = self.matches.compactMap { self.matchDetails[$0.id] }
+            let sortedMatchDetails = self.matches.compactMap { self.matchDetails[$0.id]?.unwrap() as? MatchDetails }
             completion(sortedMatchDetails)
         }
     }
+    
+    // MARK: - Private
     
     private func recursivelyLoadChunkedMatches(chunks: [[PlayerMatchHistory.Match]], then completion: @escaping () -> Void) {
         if let chunk = chunks.first {
@@ -64,12 +77,16 @@ final class Dota2MatchDetailsLoader {
                 return
             }
             result.onSuccess {
-                self.matchDetails[matchID] = $0
+                self.matchDetails[matchID] = .firstType($0)
             }.onFailure {
                 // TODO:
-                log($0)
+                self.matchDetails[matchID] = .secondType($0)
                 print("Error for matchID=\(matchID)")
+                log($0)
             }
+            let matchesTotalCount = self.matches.count
+            let obtainedMatchesCount = self.matchDetails.keys.count
+            self.onLoadingProgress?(obtainedMatchesCount, matchesTotalCount)
             completion()
         }
     }

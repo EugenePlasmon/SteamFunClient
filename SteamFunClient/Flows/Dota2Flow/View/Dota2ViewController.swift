@@ -21,6 +21,9 @@ final class Dota2ViewController: UIViewController {
     private lazy var navbarConfig = self.defaultNavbarConfig
     private var navbar: ExpandableNavbar?
     
+    private let progressLabel = UILabel(text: "Загружаем историю матчей...", color: FeatureColor.Dota2.loadingInfoText, font: .brakk, numberOfLines: 0, textAlignment: .center)
+    private let progressView = UIProgressView()
+    
     private struct Constants {
         static let matchCellHeight: CGFloat = 82.0
     }
@@ -50,6 +53,22 @@ final class Dota2ViewController: UIViewController {
         automaticallyAdjustsScrollViewInsets = false
         view.backgroundColor = FeatureColor.Dota2.background
         navigationController?.isNavigationBarHidden = true
+    }
+    
+    private func addProgressViewWithLabel() {
+        view.addSubview(progressLabel)
+        view.addSubview(progressView)
+        
+        progressLabel.snp.makeConstraints {
+            $0.centerY.equalToSuperview().offset(36.0)
+            $0.left.right.equalToSuperview().inset(36.0)
+        }
+        
+        progressView.snp.makeConstraints {
+            $0.top.equalTo(progressLabel.snp.bottom).offset(4.0)
+            $0.centerX.equalToSuperview()
+            $0.width.equalTo(160.0)
+        }
     }
     
     private func addNavbar(viewModel: Dota2ViewModel.Navbar) {
@@ -118,6 +137,15 @@ final class Dota2ViewController: UIViewController {
         matchHistoryHeaderTopConstraint?.constant = diff > 0 ? diff : 0.0
     }
     
+    private func removeThrobberViewController() {
+        throbberViewController?.removeFromParent()
+        throbberViewController?.view.removeFromSuperview()
+        throbberViewController = nil
+        
+        progressView.removeFromSuperview()
+        progressLabel.removeFromSuperview()
+    }
+    
     // MARK: - Error
     
     private var errorLabel: UILabel?
@@ -140,12 +168,12 @@ extension Dota2ViewController: Dota2ViewInput {
         addChild(throbberViewController)
         view.addSubview(throbberViewController.view)
         throbberViewController.view.snp.pinToAllSuperviewEdges()
+        
+        addProgressViewWithLabel()
     }
     
-    private func removeThrobberViewController() {
-        throbberViewController?.removeFromParent()
-        throbberViewController?.view.removeFromSuperview()
-        throbberViewController = nil
+    func updateLoadingProgress(value: Float) {
+        progressView.progress = value
     }
     
     func showData(viewModel: Dota2ViewModel) {

@@ -30,7 +30,11 @@ final class Dota2Presenter {
     
     // MARK: - Data obtaining
     
-    private func loadData(success: @escaping () -> Void, failure: @escaping (Error) -> Void) {
+    private func loadData(success: @escaping () -> Void,
+                          failure: @escaping (Error) -> Void,
+                          onProgress: @escaping (Dota2MatchesRequestManager.LoadProgress) -> Void) {
+        
+        matchesRequestManager.onLoadProgressChange = onProgress
         matchesRequestManager.getUserMatches { [weak self] result in
             guard let self = self else {
                 success()
@@ -46,7 +50,7 @@ final class Dota2Presenter {
         }
     }
     
-    // MARK: - View model
+    // MARK: - View model creation
     
     private func createViewModel() -> Dota2ViewModel {
         return Dota2ViewModel(shortStats: calculateShortStats(),
@@ -108,7 +112,22 @@ final class Dota2Presenter {
     private func navbarViewModel() -> Dota2ViewModel.Navbar {
         return .init(title: steamUser.personName, iconUrl: steamUser.avatarLinks.full)
     }
+    
+    // MARK: - UI Presenting
+    
+    private func presentError(_ error: Error) {
+        let errorMessage: String
+        switch error {
+        case Steam.Error.userHasntAllowed:
+            errorMessage = "История матчей скрыта настройками приватности"
+        default:
+            errorMessage = "Произошла ошибка получения данных. Попробуйте позже"
+        }
+        self.viewInput?.showError(message: errorMessage, navbarModel: self.navbarViewModel())
+    }
 }
+
+// MARK: - Dota2ViewOutput
 
 extension Dota2Presenter: Dota2ViewOutput {
     
@@ -120,20 +139,36 @@ extension Dota2Presenter: Dota2ViewOutput {
                 guard let self = self else { return }
                 self.viewInput?.showData(viewModel: self.createViewModel())
             }, failure: { [weak self] error in
-                guard let self = self else { return }
-                let errorMessage: String
-                switch error {
-                case Steam.Error.userHasntAllowed:
-                    errorMessage = "История матчей скрыта настройками приватности"
-                default:
-                    errorMessage = "Произошла ошибка получения данных. Попробуйте позже"
-                }
-                self.viewInput?.showError(message: errorMessage, navbarModel: self.navbarViewModel())
+                self?.presentError(error)
+            }, onProgress: { [weak self] progress in
+                self?.viewInput?.updateLoadingProgress(value: progress.progressValue)
         })
     }
     
     func viewDidTapMoreStats() {
         let viewController = Dota2StatsModuleBuilder.build(steamUser: steamUser, matches: matches)
         viewInput?.navigationController?.pushViewController(viewController, animated: true)
+    }
+}
+
+// MARK: - LoadProgress + ProgressValue
+
+private extension Dota2MatchesRequestManager.LoadProgress {
+    
+    var progressValue: Float {
+        let fullMatchHistoryObtainedValue: Float = 0.2
+        switch self {
+        case .notStarted:
+            return 0
+        case .fetchedFromDatabase:
+            return 0.1
+        case .fullMatchHistoryObtained:
+            return fullMatchHistoryObtainedValue
+        case .matchDetailsRequesting(let obtainedCount, let totalCount):
+            let requestingProgress = Float(obtainedCount) / Float(totalCount)
+            return fullMatchHistoryObtainedValue + (1 - fullMatchHistoryObtainedValue) * requestingProgress
+        case .finished:
+            return 1
+        }
     }
 }

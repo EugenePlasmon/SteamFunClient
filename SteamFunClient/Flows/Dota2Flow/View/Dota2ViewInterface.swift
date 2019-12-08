@@ -38,6 +38,8 @@ protocol Dota2ViewInput: class {
     
     func showLoader()
     
+    func updateLoadingProgress(value: Float)
+    
     func showData(viewModel: Dota2ViewModel)
     
     func showError(message: String, navbarModel: Dota2ViewModel.Navbar)

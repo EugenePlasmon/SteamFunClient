@@ -104,6 +104,8 @@ extension FeatureColor {
         
         static let background = themeDependent(dark: .vorazun, light: .artanis)
         
+        static let loadingInfoText = themeDependent(dark: .tassadar, light: .aldaris)
+        
         static let errorText = themeDependent(dark: .tassadar, light: .aldaris)
     }
     
