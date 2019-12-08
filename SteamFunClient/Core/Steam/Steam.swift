@@ -35,6 +35,7 @@ extension Steam {
         case parsingError
         case userHasntAllowed
         case noGameStats
+        case unknownGameMode
     }
 }
 

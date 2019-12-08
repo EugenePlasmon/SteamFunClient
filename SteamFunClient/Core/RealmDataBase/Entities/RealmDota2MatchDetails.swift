@@ -12,6 +12,7 @@ import RealmSwift
 final class RealmDota2MatchDetails: Object {
     
     @objc dynamic var id: Int = 0
+    @objc dynamic var gameMode: Int = 0
     @objc dynamic var radiantWin: Bool = false
     let players = List<RealmDota2Player>()
     @objc dynamic var duration: Int = 0
@@ -31,6 +32,7 @@ extension RealmDota2MatchDetails {
     
     func toModel() -> MatchDetails {
         return MatchDetails(id: id,
+                            gameMode: MatchDetails.GameMode(rawValue: gameMode)!,
                             winner: radiantWin ? .radiant : .dire,
                             players: players.map { $0.toModel() },
                             duration: duration,
@@ -48,6 +50,7 @@ extension MatchDetails {
     func toRealmModel() throws -> RealmDota2MatchDetails {
         let model = RealmDota2MatchDetails()
         model.id = id
+        model.gameMode = gameMode.rawValue
         model.radiantWin = winner == .radiant
         model.players.append(objectsIn: players.map { $0.toRealmModel() })
         model.duration = duration
