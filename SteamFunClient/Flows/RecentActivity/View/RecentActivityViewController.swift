@@ -68,7 +68,11 @@ final class RecentActivityViewController: UIViewController {
     }
     
     private func addTableView() {
-        view.addSubview(tableView)
+        if let navbarView = self.navbar?.view {
+            view.insertSubview(tableView, belowSubview: navbarView)
+        } else {
+            view.addSubview(tableView)
+        }
         tableView.snp.pinToAllSuperviewEdges()
     }
     
