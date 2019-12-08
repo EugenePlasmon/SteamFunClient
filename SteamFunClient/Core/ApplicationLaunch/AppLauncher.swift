@@ -26,11 +26,31 @@ final class AppLauncher {
                 realm.deleteAll()
             }
         }
+        if let debugSteamID = debugSteamID {
+            try! Steam.SteamIDCaretaker.store(debugSteamID)
+        }
         
-        fetchSteamID()
+        
+        fetchAuthorizedSteamID()
+        startFetchMatchDetailsIfNeeded()
         fetchDota2Heroes { [weak self] in
             self?.initialCoordinator.startInitialFlow()
         }
+    }
+    
+    private func fetchAuthorizedSteamID() {
+        do {
+            try Steam.SteamIDCaretaker.fetch()
+        } catch {
+            log(error)
+        }
+    }
+    
+    private func startFetchMatchDetailsIfNeeded() {
+        guard let steamID = Steam.SteamIDCaretaker.steamID else {
+            return
+        }
+        ServiceLocator.shared.matchesRequestManager(for: steamID).getUserMatches()
     }
     
     private func fetchDota2Heroes(then completion: @escaping () -> Void) {
@@ -42,14 +62,6 @@ final class AppLauncher {
             Dota2HeroResourceManager.shared.onLoad = { _ in
                 completion()
             }
-        }
-    }
-    
-    private func fetchSteamID() {
-        do {
-            try Steam.SteamIDCaretaker.fetch()
-        } catch {
-            log(error)
         }
     }
 }
