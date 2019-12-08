@@ -20,13 +20,16 @@ final class ProfilePresenter {
     private var loadedData: LoadedData?
     private var isCurrentProfile: Bool = false
     
+    // MARK: - Init
+    
     init(steamID: SteamID, output: ProfileModuleOutput?) {
         self.steamID = steamID
         self.output = output
     }
     
+    // MARK: - ViewModel
+    
     private func viewModel(from data: LoadedData) -> ProfileViewModel {
-        
         let (steamUser, friends, ownedGames) = data
         return ProfileViewModel(isHiddenProfile: steamUser.visibility != .public,
                                 showLogoutButton: isCurrentProfile,
@@ -35,6 +38,16 @@ final class ProfilePresenter {
                                 avatarLink: steamUser.avatarLinks.full,
                                 friendsCount: friends.count,
                                 ownedGames: ownedGames)
+    }
+    
+    private func errorViewModel(error: Error) -> ProfileViewModel {
+        return ProfileViewModel(isHiddenProfile: false,
+                                showLogoutButton: false,
+                                name: "Ошибка",
+                                realName: error.localizedDescription,
+                                avatarLink: nil,
+                                friendsCount: 0,
+                                ownedGames: [])
     }
 }
 
@@ -52,14 +65,12 @@ extension ProfilePresenter: ProfileViewOutput {
                 self.loadedData = loadedData
                 self.viewInput?.showData(viewModel: loadedData >>> self.viewModel)
             }.onFailure {
-                // TODO:
-                log($0)
+                self.viewInput?.showData(viewModel: $0 >>> self.errorViewModel)
             }
         }
     }
     
     func viewDidTapFriends() {
-        // TODO: routing
         guard let loadedData = self.loadedData else { return }
         let friendsViewController = FriendsModuleBuilder.build(friends: loadedData.friends, ofUser: loadedData.user)
         self.viewInput?.navigationController?.pushViewController(friendsViewController, animated: true)

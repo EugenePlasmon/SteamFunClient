@@ -79,10 +79,8 @@ final class Dota2MatchDetailsLoader {
             result.onSuccess {
                 self.matchDetails[matchID] = .firstType($0)
             }.onFailure {
-                // TODO:
                 self.matchDetails[matchID] = .secondType($0)
-                print("Error for matchID=\(matchID)")
-                log($0)
+                log($0, prefixMessage: "Error for matchID=\(matchID)")
             }
             let matchesTotalCount = self.matches.count
             let obtainedMatchesCount = self.matchDetails.keys.count

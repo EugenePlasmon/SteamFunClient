@@ -26,6 +26,8 @@ func log(_ event: LogEvent, _ message: String) {
     print(event.messagePrefix + " " + message)
 }
 
-func log(_ error: Error) {
-    print("[ERROR] \(error)")
+func log(_ error: Error, prefixMessage: String = "") {
+    print("[ERROR] "
+        + (!prefixMessage.isEmpty ? "\(prefixMessage) " : "")
+        + "\(error)")
 }

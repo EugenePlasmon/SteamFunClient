@@ -17,6 +17,7 @@ struct FriendsViewModel {
         enum State {
             case loading
             case data(name: String, realName: String?, avatarLink: String?)
+            case error
         }
     }
     

@@ -78,6 +78,9 @@ final class FriendsListViewController: UIViewController {
             cell.avatarUrl = avatarLink
             cell.name = name
             cell.realName = realName
+        case .error:
+            cell.isLoading = false
+            cell.name = "Произошла ошибка"
         }
         cell.selectionStyle = .none
     }

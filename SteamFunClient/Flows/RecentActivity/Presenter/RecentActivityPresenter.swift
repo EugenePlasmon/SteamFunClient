@@ -27,8 +27,8 @@ extension RecentActivityPresenter: RecentActivityViewOutput {
             result.onSuccess {
                 self?.viewInput?.showData($0)
             }.onFailure {
-                // TODO:
                 log($0)
+                self?.viewInput?.showData([])
             }
         }
     }

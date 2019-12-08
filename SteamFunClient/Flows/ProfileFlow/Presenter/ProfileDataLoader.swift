@@ -36,15 +36,16 @@ final class ProfileDataLoader {
         dispatchGroup.enter()
         getOwnedGames { dispatchGroup.leave() }
         
-        dispatchGroup.notify(queue: .main) {
+        dispatchGroup.notify(queue: .main) { [weak self] in
+            guard let self = self else { return }
             guard self.loadedData.errors.isEmpty else {
-                // TODO:
+                completion(.failure(self.loadedData.errors.first!))
                 return
             }
             guard let steamUser = self.loadedData.steamUser
                 , let friends = self.loadedData.friends
                 , let ownedGames = self.loadedData.ownedGames else {
-                    // TODO:
+                    completion(.failure(Steam.Error.dataCorrupted))
                     return
             }
             let data = (steamUser, friends, ownedGames)

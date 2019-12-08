@@ -17,7 +17,7 @@ final class InitialCoordinator {
     }
     
     func startInitialFlow() {
-        // TODO: Debug
+        // TODO: Улучшить Debug mode
         if let debugSteamID = debugSteamID {
             self.startTabBarFlow(steamID: debugSteamID)
             return
@@ -38,7 +38,7 @@ final class InitialCoordinator {
                 try? Steam.SteamIDCaretaker.store(steamID)
                 self?.startTabBarFlow(steamID: steamID)
             }.onFailure {
-                // TODO:
+                // TODO: Показать экран "Что-то пошло не так" и предложить пользователю авторизоваться через веб-вью еще раз.
                 log($0)
             }
         }

@@ -49,7 +49,7 @@ final class AppLauncher {
         do {
             try Steam.SteamIDCaretaker.fetch()
         } catch {
-            // TODO:
+            log(error)
         }
     }
 }

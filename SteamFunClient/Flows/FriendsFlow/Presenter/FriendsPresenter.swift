@@ -34,21 +34,21 @@ final class FriendsPresenter {
         guard case .loading = cell.state else { return }
         Steam.getProfileInfo(for: cell.steamID) { [weak self] result in
             guard let self = self else { return }
-            result.onSuccess {
-                guard case (let i, var cell)? = self.viewModel.cells.enumerated().first(where: { $1.steamID == cell.steamID }) else {
-                    return
-                }
-                cell.state = .data(name: $0.personName, realName: $0.realName, avatarLink: $0.avatarLinks.full)
-                self.updateCell(at: i, with: cell)
-            }.onFailure {
-                // TODO:
-                log($0)
+            guard case (let i, var cellModel)? = self.viewModel.cells.enumerated().first(where: { $1.steamID == cell.steamID }) else {
+                return
             }
+            result.onSuccess {
+                cellModel.state = .data(name: $0.personName, realName: $0.realName, avatarLink: $0.avatarLinks.full)
+            }.onFailure {
+                log($0)
+                cellModel.state = .error
+            }
+            self.updateCell(at: i, with: cellModel)
         }
     }
     
-    private func updateCell(at index: Int, with cell: FriendsViewModel.Cell) {
-        viewModel.cells[index] = cell
+    private func updateCell(at index: Int, with cellModel: FriendsViewModel.Cell) {
+        viewModel.cells[index] = cellModel
         viewInput?.updateCellsData(cells: viewModel.cells, updatedAt: index)
         
     }
