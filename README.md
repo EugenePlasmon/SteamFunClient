@@ -10,15 +10,15 @@
 С профиля можно перейти на :
 * список друзей пользователя, из которого тапом по ячейке друга можно открыть профиль друга с аналогичным функционалом:
 
-![Friends](https://1.downloader.disk.yandex.ru/preview/e8e10808f116ff01a24227fbd6a0fceab6cd154fbc5f8abbeb18da7db86a5332/inf/GGWvaCccxV8Rqebak_OCkbJEGUdnPZCEQusOQOyqxEz8YQrOQ8W7NC2luc4_-5OXi4SbtEu2ybPzIxAbLFCdLA%3D%3D?uid=222889820&filename=IMG_3959.PNG&disposition=inline&hash=&limit=0&content_type=image%2Fpng&owner_uid=222889820&tknv=v2&size=3814x1989)
+![Friends](https://vk.com/doc324878581_560943265?hash=16204c756ecd4ee7ce&dl=d105b7d7e7b79f89e0&wnd=1)
 
 * экран игровой статистики в Dota 2:
 
-![Dota2Stats](https://3.downloader.disk.yandex.ru/preview/daf1d1f35dfba3d61fa35da1da32c6e3b89bde5cd85216f92e4a615f03dc4116/inf/MhWDL3A7REq7j4XMarhQERyCQuKfYD-a3sK6GPXT7VxudAJpvjatN0E1BKTPYqNc0H27B7RjSqYQDs5N15FWew%3D%3D?uid=222889820&filename=IMG_3961.PNG&disposition=inline&hash=&limit=0&content_type=image%2Fpng&owner_uid=222889820&tknv=v2&size=3814x1989)
+![Dota2Stats](https://vk.com/doc324878581_560943260?hash=e57250a0f60a514aba&dl=3a83955156e2ebe4fc)
 
 * список достижений в выбранной купленной игре:
 
-![Achievements](https://4.downloader.disk.yandex.ru/preview/33cb5625c74d9384b05c6d8df41d39888c0f3fb42e04578342b800b86db37cba/inf/1Q1Yfsfw2RapQ9CqLji8ghyCQuKfYD-a3sK6GPXT7VwuY_0NQ15bbCkSe3j2-0mIThhJp_Qbi6OsXdRiWEnm-Q%3D%3D?uid=222889820&filename=IMG_3960.PNG&disposition=inline&hash=&limit=0&content_type=image%2Fpng&owner_uid=222889820&tknv=v2&size=3814x1989)
+![Achievements](https://vk.com/doc324878581_560943263?hash=a72aa5254bcab1ae4c&dl=9327860d61d1acab38&wnd=1)
 
 Экран игровой статистики в Dota 2 содержит:
 * краткую сводку игровой активности пользователя (процент побед, наиболее часто выбираемую сторону и героя, среднюю длительность матча);
