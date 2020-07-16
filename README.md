@@ -2,7 +2,7 @@
 
 ## Описание и функционал приложения
 
-![Profile](https://s139sas.storage.yandex.net/rdisk/79a7fd6c5d4088e28a54ce6df8914dc732a3acf92ae04d1f1f91f2bc3702326d/5ded8e5c/HHUG9ervwW7QUMLk9FbJG1mawQHatO6zTCAByuXbPje-7sXwLZZXMgqiyOsBxKaSFEAfxnsovtykT3sEmyIjQQ==?uid=222889820&filename=IMG_3958.PNG&disposition=inline&hash=&limit=0&content_type=image%2Fpng&owner_uid=222889820&fsize=339164&hid=5f1cce673b69d320168718f5419a388b&media_type=image&tknv=v2&etag=fb96533649d788f4185453780047aadc&rtoken=g2nr7OTsTmja&force_default=yes&ycrid=na-cbc5998b3704a4bbd854015a52477e38-downloader20e&ts=5993a117b4f00&s=93acdc6fcbbd9f75265ec10d4e04c10c59f386de5e74cc4b5f59b96614023894&pb=U2FsdGVkX188d3M7hEBJw9m8WwttISS86RpXTAhGj2utBDctu69nv4Y5rg9K84iOXDGD40XSsdRWPe7xAxujcAECqBES4AUgeEREccSc9S8)
+![Profile](https://downloader.disk.yandex.ru/preview/9a6e79b3e05fdf55d1f7a2e653f95e516624b72b10a829a9d8ec2beffe298676/5f10a286/96F_QxVmGM8G02B4EopaUJF4TjDAH0paEKePZ9tEtlvDp1Hu_i0cYnPIHV4Md0aCLG7cGOUfEfImNreJJs9RTA==?uid=0&filename=IMG_3958.PNG&disposition=inline&hash=&limit=0&content_type=image%2Fpng&tknv=v2&owner_uid=222889820&size=3840x1989)
 
 Приложение представляет собой клиент популярного игрового сервиса Steam.
 При запуске пользователю предлагается авторизоваться в Steam под своим профилем, после чего авторизованный пользователь попадает на экран своего профиля, на котором отображается имя и аватарка пользователя из Steam и список его купленных игр. 
@@ -10,15 +10,15 @@
 С профиля можно перейти на :
 * список друзей пользователя, из которого тапом по ячейке друга можно открыть профиль друга с аналогичным функционалом:
 
-![Friends](https://s16vla.storage.yandex.net/rdisk/1bad9b94340f9e5100c579367a835691e48ae213dcb07ecfb288691dbb7d9d30/5ded8ec3/HHUG9ervwW7QUMLk9FbJG3XNTmKz2RUlNpTRyWCjlrvUp8yuuEJvUJpoL80V34MCOh1oTbv4NOhBhUACZ5H_Cw==?uid=222889820&filename=IMG_3959.PNG&disposition=inline&hash=&limit=0&content_type=image%2Fpng&owner_uid=222889820&fsize=349300&hid=430fde07b5ecd1c3493b946bd3d77d1a&media_type=image&tknv=v2&etag=860a790f1e37fd7ecd6eabf24e4c2692&rtoken=l7n0DWxku3qv&force_default=yes&ycrid=na-d3834ff045f30e9efd1ecac511f1b9ab-downloader4e&ts=5993a179ef6c0&s=59ad0ea26a0e5fd26d513274f09d1e252723b78058aa75c1b31034d3f9cbb6d3&pb=U2FsdGVkX1-sDRCdCuSScfACR09tplws0JWzrk8om_ecb-RHNnOYVM9zf8svhA8sVlNu3nWly13RPl_k-P5fgR-WtcCvo7J9AMXghxkWrOE)
+![Friends](https://1.downloader.disk.yandex.ru/preview/e8e10808f116ff01a24227fbd6a0fceab6cd154fbc5f8abbeb18da7db86a5332/inf/GGWvaCccxV8Rqebak_OCkbJEGUdnPZCEQusOQOyqxEz8YQrOQ8W7NC2luc4_-5OXi4SbtEu2ybPzIxAbLFCdLA%3D%3D?uid=222889820&filename=IMG_3959.PNG&disposition=inline&hash=&limit=0&content_type=image%2Fpng&owner_uid=222889820&tknv=v2&size=3814x1989)
 
 * экран игровой статистики в Dota 2:
 
-![Dota2Stats](https://s277sas.storage.yandex.net/rdisk/7026783c817be12c73958f12a53be8d1c68d16b61b220a901c1d6b46f9ba9a9c/5ded8f2c/HHUG9ervwW7QUMLk9FbJG5X3R04WhobBdM6-jfFfIXt8SVxwAAI8nzARSwACQl4Dzq2iGpbB0q3QxfWWeOR3SQ==?uid=222889820&filename=IMG_3961.PNG&disposition=inline&hash=&limit=0&content_type=image%2Fpng&owner_uid=222889820&fsize=260748&hid=e28335763d42b374ceb19cd4f7e165f5&media_type=image&tknv=v2&etag=db3da929bdd4d0996c0980ccf3020de6&rtoken=H3lPklHsZ8tP&force_default=yes&ycrid=na-05fd4940cb1dd061b314e5abd91db0bb-downloader3f&ts=5993a1de12300&s=e2f00701a28b838f110445156fee845de81b7fb5feffdbb95818d88b92fb1771&pb=U2FsdGVkX188aMg2nECiTroq2ny9Zx-9c5_gwa5JVWMwFZ3k7xl0NLJ_46cbLovYYpm3S3HcWg0lMUX-Q23cfUz6EdD5qgF3B9xIPHrU7S4)
+![Dota2Stats](https://3.downloader.disk.yandex.ru/preview/daf1d1f35dfba3d61fa35da1da32c6e3b89bde5cd85216f92e4a615f03dc4116/inf/MhWDL3A7REq7j4XMarhQERyCQuKfYD-a3sK6GPXT7VxudAJpvjatN0E1BKTPYqNc0H27B7RjSqYQDs5N15FWew%3D%3D?uid=222889820&filename=IMG_3961.PNG&disposition=inline&hash=&limit=0&content_type=image%2Fpng&owner_uid=222889820&tknv=v2&size=3814x1989)
 
 * список достижений в выбранной купленной игре:
 
-![Achievements](https://s296sas.storage.yandex.net/rdisk/1d4d1fa15ee11eda12390704af980df3e7c39a31351b1709c17406b4da9337e3/5ded8f16/HHUG9ervwW7QUMLk9FbJGyRztcb9D_8TXy3EQhI3KlwuCBhQxtddne0JFq-FwXRufZTBVBQC1ybOy1cIlQBqog==?uid=222889820&filename=IMG_3960.PNG&disposition=inline&hash=&limit=0&content_type=image%2Fpng&owner_uid=222889820&fsize=366438&hid=00318a0e8694149449af36663c7a93f9&media_type=image&tknv=v2&etag=6e8971608f9258ba0c77705cd0f489b3&rtoken=ApYbCdjqDpkM&force_default=yes&ycrid=na-7a7f33f1a3518a0f6b9074fe1f6d5138-downloader9f&ts=5993a1c917180&s=da957dfdb78b68bd2f78c059dee330a9df5cb29b765d3bd1a41a10cb9a64e39e&pb=U2FsdGVkX19qMAwmBxgdVu_OYK1bi1I6bnJ6W0KCiOJWp-MUup2Fj5hbSbhxvBrKWULcsaeeX3S7CiGbudQIk1kXlw1K8FuQ01jNioW1nDk)
+![Achievements](https://4.downloader.disk.yandex.ru/preview/33cb5625c74d9384b05c6d8df41d39888c0f3fb42e04578342b800b86db37cba/inf/1Q1Yfsfw2RapQ9CqLji8ghyCQuKfYD-a3sK6GPXT7VwuY_0NQ15bbCkSe3j2-0mIThhJp_Qbi6OsXdRiWEnm-Q%3D%3D?uid=222889820&filename=IMG_3960.PNG&disposition=inline&hash=&limit=0&content_type=image%2Fpng&owner_uid=222889820&tknv=v2&size=3814x1989)
 
 Экран игровой статистики в Dota 2 содержит:
 * краткую сводку игровой активности пользователя (процент побед, наиболее часто выбираемую сторону и героя, среднюю длительность матча);
